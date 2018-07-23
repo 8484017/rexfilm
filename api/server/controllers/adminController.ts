@@ -25,7 +25,7 @@ router.get("/api/isAdmin", isAdminFilter, async (r, s) => {
 
 router.post('/api/login', (req, res) => {
     let data = req.body
-    if (data.name === "miningo", data.pass === "123") {
+    if (data.name === "miningo", data.pass === "apnpPp10051985") {
         req.session.admin = { ip: req.connection.remoteAddress }
         return res.sendStatus(200)
     }
