@@ -17,7 +17,7 @@ export class FilmUtil {
     private static ValidateFilm(film: Film) {
         if (!film.name) return false;
         if (!film.description) return false;
-        if (!film.poster) return false;
+        //  if (!film.poster) return false;
         if (!film.year) return false;
         if (film.counrty.length === 0) return false;
         if (film.actors.length === 0) return false;
