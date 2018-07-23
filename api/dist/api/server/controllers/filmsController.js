@@ -79,10 +79,12 @@ router.post("/api/films", function (r, s) { return __awaiter(_this, void 0, void
     });
 }); });
 router.get("/api/film/:id", function (r, s) { return __awaiter(_this, void 0, void 0, function () {
-    var result, actors, compositors, hudognik, montag, operators, produsers, regisers, scenarists;
+    var id, result, actors, compositors, hudognik, montag, operators, produsers, regisers, scenarists;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).findOne({ _id: r.params.id })];
+            case 0:
+                id = parseInt(r.params.id);
+                return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).findOne({ _id: id })];
             case 1:
                 result = _a.sent();
                 actors = Db_1.db.getCollection(name_model_1.Name).find({ _id: { $in: result.actors } }).toArray();
