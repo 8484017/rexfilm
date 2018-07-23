@@ -4,7 +4,7 @@
 
 /tmp
 /out-tsc
-
+/public/static/data
 # dependencies
 /node_modules
 
