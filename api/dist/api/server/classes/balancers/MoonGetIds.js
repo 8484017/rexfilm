@@ -88,7 +88,7 @@ var MoonGetIds = /** @class */ (function () {
                         s7 = JSON.parse(anime_films);
                         all = s1.report.movies.concat(s2.report.movies, s3.report.movies, s4.report.serials, s5.report.serials, s6.report.serials, s7.report.movies);
                         allIdsD = all.map(function (element) {
-                            return element.kinopoisk_id;
+                            return parseInt(element.kinopoisk_id);
                         });
                         ids = Array.from(new Set(allIdsD));
                         return [2 /*return*/, ids];
