@@ -51,6 +51,7 @@ router.post("/api/films", function (r, s) { return __awaiter(_this, void 0, void
                 filter = r.body;
                 cond = {
                     type: filter.type,
+                    isPublic: true
                 };
                 if (filter.genre.length > 0) {
                     cond.genre = { $all: filter.genre };
@@ -122,27 +123,27 @@ router.get("/api/films/index", function (r, s) { return __awaiter(_this, void 0,
             case 0:
                 indexFilms = new films_model_1.IndexFilms();
                 newFilms = Db_1.db.getCollection(film_model_1.Film)
-                    .find({ type: film_model_1.FilmType.film })
+                    .find({ type: film_model_1.FilmType.film, isPublic: true })
                     .sort({ timespan: -1 })
                     .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
                     .limit(12).toArray();
                 newSerials = Db_1.db.getCollection(film_model_1.Film)
-                    .find({ type: film_model_1.FilmType.serial })
+                    .find({ type: film_model_1.FilmType.serial, isPublic: true })
                     .sort({ timespan: -1 })
                     .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
                     .limit(12).toArray();
                 popularFilms = Db_1.db.getCollection(film_model_1.Film)
-                    .find({ type: film_model_1.FilmType.film })
+                    .find({ type: film_model_1.FilmType.film, isPublic: true })
                     .sort({ count: -1 })
                     .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
                     .limit(12).toArray();
                 popularSerials = Db_1.db.getCollection(film_model_1.Film)
-                    .find({ type: film_model_1.FilmType.serial })
+                    .find({ type: film_model_1.FilmType.serial, isPublic: true })
                     .sort({ count: -1 })
                     .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
                     .limit(12).toArray();
                 rand = Db_1.db.getCollection(film_model_1.Film)
-                    .aggregate([{ $sample: { size: 12 } }])
+                    .aggregate([{ $match: { isPublic: true } }, { $sample: { size: 12 } }])
                     .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
                     .limit(12).toArray();
                 return [4 /*yield*/, Promise.all([newFilms, newSerials, popularFilms, popularSerials, rand]).then(function (_a) {
@@ -164,7 +165,7 @@ router.get("/api/films/rand", function (r, s) { return __awaiter(_this, void 0, 
     var rand;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).aggregate([{ $sample: { size: 12 } }])
+            case 0: return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).aggregate([{ $match: { isPublic: true } }, { $sample: { size: 12 } }])
                     .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
                     .toArray()];
             case 1:
@@ -190,7 +191,7 @@ router.get("/api/films/byname/:id", function (r, s) { return __awaiter(_this, vo
                 compositors = { $in: [id] };
                 hudognik = { $in: [id] };
                 montag = { $in: [id] };
-                cond = { $or: [{ actors: actors }, { regisers: regisers }, { scenarists: scenarists }, { produsers: produsers }, { operators: operators }, { compositors: compositors }, { hudognik: hudognik }, { montag: montag }] };
+                cond = { isPublic: true, $or: [{ actors: actors }, { regisers: regisers }, { scenarists: scenarists }, { produsers: produsers }, { operators: operators }, { compositors: compositors }, { hudognik: hudognik }, { montag: montag }] };
                 name = Db_1.db.getCollection(name_model_1.Name).findOne({ _id: id });
                 films = Db_1.db.getCollection(film_model_1.Film).find(cond).sort({ year: -1 })
                     .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 }).toArray();

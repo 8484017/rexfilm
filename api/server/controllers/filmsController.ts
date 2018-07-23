@@ -17,6 +17,7 @@ router.post("/api/films", async (r, s) => {
 
     let cond: any = {
         type: filter.type,
+        isPublic: true
     }
 
     if (filter.genre.length > 0) {
@@ -79,27 +80,27 @@ router.get("/api/films/index", async (r, s) => {
     let indexFilms = new IndexFilms()
 
     let newFilms = db.getCollection(Film)
-        .find({ type: FilmType.film })
+        .find({ type: FilmType.film, isPublic: true })
         .sort({ timespan: -1 })
         .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
         .limit(12).toArray()
     let newSerials = db.getCollection(Film)
-        .find({ type: FilmType.serial })
+        .find({ type: FilmType.serial, isPublic: true })
         .sort({ timespan: -1 })
         .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
         .limit(12).toArray()
     let popularFilms = db.getCollection(Film)
-        .find({ type: FilmType.film })
+        .find({ type: FilmType.film, isPublic: true })
         .sort({ count: -1 })
         .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
         .limit(12).toArray()
     let popularSerials = db.getCollection(Film)
-        .find({ type: FilmType.serial })
+        .find({ type: FilmType.serial, isPublic: true })
         .sort({ count: -1 })
         .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
         .limit(12).toArray()
     let rand = db.getCollection(Film)
-        .aggregate([{ $sample: { size: 12 } }])
+        .aggregate([{ $match: { isPublic: true } }, { $sample: { size: 12 } }])
         .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
         .limit(12).toArray()
 
@@ -115,7 +116,7 @@ router.get("/api/films/index", async (r, s) => {
 })
 
 router.get("/api/films/rand", async (r, s) => {
-    let rand = await db.getCollection(Film).aggregate([{ $sample: { size: 12 } }])
+    let rand = await db.getCollection(Film).aggregate([{ $match: { isPublic: true } }, { $sample: { size: 12 } }])
         .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
         .toArray()
     s.json(rand)
@@ -134,7 +135,7 @@ router.get("/api/films/byname/:id", async (r, s) => {
     let compositors = { $in: [id] };
     let hudognik = { $in: [id] };
     let montag = { $in: [id] };
-    cond = { $or: [{ actors }, { regisers }, { scenarists }, { produsers }, { operators }, { compositors }, { hudognik }, { montag }] }
+    cond = { isPublic: true, $or: [{ actors }, { regisers }, { scenarists }, { produsers }, { operators }, { compositors }, { hudognik }, { montag }] }
 
 
     let name = db.getCollection(Name).findOne({ _id: id });
