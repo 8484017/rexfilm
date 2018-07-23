@@ -2741,8 +2741,6 @@ var HttpInterCeptor = /** @class */ (function () {
         if (common_1.isPlatformServer(this.platformId)) {
             var exreq = this.injector.get('REQUEST');
             var newreq = req.clone({ url: 'http://127.0.0.1:3000' + req.url, setHeaders: exreq.headers.cookie ? { "Cookie": exreq.headers.cookie } : {} });
-            console.log(newreq.headers);
-            console.log(newreq);
             return next.handle(newreq);
         }
         return next.handle(req);
@@ -2750,16 +2748,6 @@ var HttpInterCeptor = /** @class */ (function () {
     return HttpInterCeptor;
 }());
 exports.HttpInterCeptor = HttpInterCeptor;
-// var headers = req.headers
-// let newreq = req.clone({ url: 'http://127.0.0.1' + req.url, headers: headers })
-// headers.keys().forEach(s => {
-//     console.log(s);
-// })
-// console.log('-------------------------------------');
-// serreq.forEach(s => {
-//     console.log(s);
-// })
-// return next.handle(newreq);
 
 
 /***/ }),
@@ -2807,7 +2795,7 @@ function View_LoginPageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0
     } if (("ngModelChange" === en)) {
         var pd_5 = ((_co.name = $event) !== false);
         ad = (pd_5 && ad);
-    } return ad; }, null, null)), i1.ɵdid(3, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.DefaultValueAccessor]), i1.ɵdid(5, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(7, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵeld(8, 0, null, null, 7, "label", [["for", ""]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Pass "])), (_l()(), i1.ɵeld(10, 0, null, null, 5, "input", [["type", "text"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "keydown"], [null, "ngModelChange"], [null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("input" === en)) {
+    } return ad; }, null, null)), i1.ɵdid(3, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.DefaultValueAccessor]), i1.ɵdid(5, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(7, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵeld(8, 0, null, null, 7, "label", [["for", ""]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Pass "])), (_l()(), i1.ɵeld(10, 0, null, null, 5, "input", [["type", "password"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "keydown"], [null, "ngModelChange"], [null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("input" === en)) {
         var pd_0 = (i1.ɵnov(_v, 11)._handleInput($event.target.value) !== false);
         ad = (pd_0 && ad);
     } if (("blur" === en)) {
