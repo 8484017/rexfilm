@@ -61,4 +61,3 @@ router.get("/api/parser/cancel", adminController_1.IsAdminFilter, function (r, s
     });
 }); });
 exports.ParserRouter = router;
-//# sourceMappingURL=parserController.js.map

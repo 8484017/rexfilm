@@ -74,4 +74,3 @@ var ImageWorker = /** @class */ (function () {
     return ImageWorker;
 }());
 exports.ImageWorker = ImageWorker;
-//# sourceMappingURL=ImageWorker.js.map

@@ -7,4 +7,3 @@ var Log = /** @class */ (function () {
     return Log;
 }());
 exports.Log = Log;
-//# sourceMappingURL=log.model.js.map

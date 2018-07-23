@@ -63,4 +63,3 @@ exports.Genres = [
     'фантастика',
     'фэнтези'
 ];
-//# sourceMappingURL=film.model.js.map

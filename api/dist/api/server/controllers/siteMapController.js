@@ -80,4 +80,3 @@ router.get("/api/:num.xml", function (r, s) { return __awaiter(_this, void 0, vo
     });
 }); });
 exports.SiteMapRouter = router;
-//# sourceMappingURL=siteMapController.js.map

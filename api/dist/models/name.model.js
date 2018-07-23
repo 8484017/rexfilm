@@ -17,4 +17,3 @@ var NameFilms = /** @class */ (function () {
     return NameFilms;
 }());
 exports.NameFilms = NameFilms;
-//# sourceMappingURL=name.model.js.map

@@ -186,4 +186,3 @@ var Worker = /** @class */ (function () {
     return Worker;
 }());
 exports.Worker = Worker;
-//# sourceMappingURL=Worker.js.map

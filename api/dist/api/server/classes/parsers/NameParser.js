@@ -41,4 +41,3 @@ var NameParser = /** @class */ (function () {
     return NameParser;
 }());
 exports.NameParser = NameParser;
-//# sourceMappingURL=NameParser.js.map

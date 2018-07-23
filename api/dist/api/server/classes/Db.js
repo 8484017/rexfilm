@@ -60,4 +60,3 @@ var db = /** @class */ (function () {
     return db;
 }());
 exports.db = db;
-//# sourceMappingURL=Db.js.map

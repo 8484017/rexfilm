@@ -72,4 +72,3 @@ var BSreamGetIds = /** @class */ (function () {
     return BSreamGetIds;
 }());
 exports.BSreamGetIds = BSreamGetIds;
-//# sourceMappingURL=BStreamGetIds.js.map

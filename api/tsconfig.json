@@ -2,7 +2,7 @@
     "compileOnSave": false,
     "compilerOptions": {
         "baseUrl": "./",
-        "sourceMap": true,
+        "sourceMap": false,
         "declaration": false,
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
@@ -18,6 +18,9 @@
         ],
     },
     "exclude": [
-        "client",
+        "typings/browser.d.ts",
+        "typings/browser",
+        "node_modules",
+        "client"
     ]
 }

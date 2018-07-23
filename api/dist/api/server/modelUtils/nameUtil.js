@@ -79,4 +79,3 @@ var NameUtil = /** @class */ (function () {
     return NameUtil;
 }());
 exports.NameUtil = NameUtil;
-//# sourceMappingURL=nameUtil.js.map

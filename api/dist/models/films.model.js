@@ -37,4 +37,3 @@ var FilmFilter = /** @class */ (function () {
     return FilmFilter;
 }());
 exports.FilmFilter = FilmFilter;
-//# sourceMappingURL=films.model.js.map

@@ -65,4 +65,3 @@ var HtmlLoader = /** @class */ (function () {
     return HtmlLoader;
 }());
 exports.HtmlLoader = HtmlLoader;
-//# sourceMappingURL=HtmlLoader.js.map

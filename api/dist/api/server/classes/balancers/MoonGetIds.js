@@ -99,4 +99,3 @@ var MoonGetIds = /** @class */ (function () {
     return MoonGetIds;
 }());
 exports.MoonGetIds = MoonGetIds;
-//# sourceMappingURL=MoonGetIds.js.map

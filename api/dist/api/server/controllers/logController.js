@@ -69,4 +69,3 @@ router.delete("/api/log", adminController_1.IsAdminFilter, function (r, s) { ret
     });
 }); });
 exports.LogRouter = router;
-//# sourceMappingURL=logController.js.map

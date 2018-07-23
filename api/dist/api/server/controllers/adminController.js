@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var isAdminFilter = function (req, res, next) {
     var admin = req.session.admin;
+    console.log(req);
     if (admin && admin.ip === req.connection.remoteAddress) {
         return next();
     }
@@ -53,7 +54,7 @@ router.get("/api/isAdmin", isAdminFilter, function (r, s) { return __awaiter(_th
 }); });
 router.post('/api/login', function (req, res) {
     var data = req.body;
-    if (data.name === "miningo", data.pass === "123") {
+    if (data.name === "miningo", data.pass === "apnpPp10051985") {
         req.session.admin = { ip: req.connection.remoteAddress };
         return res.sendStatus(200);
     }
@@ -61,4 +62,3 @@ router.post('/api/login', function (req, res) {
 });
 exports.AdminRouter = router;
 exports.IsAdminFilter = isAdminFilter;
-//# sourceMappingURL=adminController.js.map
