@@ -7,8 +7,6 @@ import { Body } from 'node-fetch';
 
 const isAdminFilter = (req: express.Request, res: express.Response, next: express.NextFunction) => {
 
-    console.log("isAdmin");
-
     let admin = req.session.admin
 
 

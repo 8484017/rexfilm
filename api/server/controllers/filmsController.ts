@@ -77,7 +77,6 @@ router.get("/api/film/:id", async (r, s) => {
 })
 
 router.get("/api/films/index", async (r, s) => {
-    console.log("index")
     let indexFilms = new IndexFilms()
 
     let newFilms = db.getCollection(Film)
