@@ -84,82 +84,117 @@ var Worker = /** @class */ (function () {
                         _b.sent();
                         this.isWork = true;
                         this.req = req;
-                        return [4 /*yield*/, this.getIdsAsync()];
+                        return [4 /*yield*/, logger_1.Logger.Log("Грузим ids файлы")];
                     case 2:
-                        ids = _b.sent();
-                        _i = 0, ids_1 = ids;
-                        _b.label = 3;
+                        _b.sent();
+                        return [4 /*yield*/, this.getIdsAsync()];
                     case 3:
-                        if (!(_i < ids_1.length)) return [3 /*break*/, 21];
-                        id = ids_1[_i];
-                        if (!this.isCancel) return [3 /*break*/, 5];
-                        return [4 /*yield*/, logger_1.Logger.Log("Парсер остановлен")];
+                        ids = _b.sent();
+                        return [4 /*yield*/, logger_1.Logger.Log("ids файлы загружены")];
                     case 4:
+                        _b.sent();
+                        _i = 0, ids_1 = ids;
+                        _b.label = 5;
+                    case 5:
+                        if (!(_i < ids_1.length)) return [3 /*break*/, 36];
+                        id = ids_1[_i];
+                        if (!this.isCancel) return [3 /*break*/, 7];
+                        return [4 /*yield*/, logger_1.Logger.Log("Парсер остановлен")];
+                    case 6:
                         _b.sent();
                         this.isCancel = false;
                         this.isWork = false;
                         throw "Work canceled";
-                    case 5: return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).count({ _id: id })];
-                    case 6:
-                        filmEx = _b.sent();
-                        if (filmEx > 0)
-                            return [3 /*break*/, 20];
-                        return [4 /*yield*/, new HtmlLoader_1.HtmlLoader(id, 1 /* film */, this.req).getHtmlAsync()];
-                    case 7:
-                        html = _b.sent();
-                        film = new FilmParser_1.FilmParser(html, id).getFilm();
-                        idsName = filmUtil_1.FilmUtil.GetNameIds(film);
-                        return [4 /*yield*/, functions_1.Wait(20)];
+                    case 7: return [4 /*yield*/, logger_1.Logger.Log("Проверяем фильм в базе " + id)];
                     case 8:
                         _b.sent();
-                        _a = 0, idsName_1 = idsName;
-                        _b.label = 9;
+                        return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).count({ _id: id })];
                     case 9:
-                        if (!(_a < idsName_1.length)) return [3 /*break*/, 16];
+                        filmEx = _b.sent();
+                        if (!(filmEx > 0)) return [3 /*break*/, 11];
+                        return [4 /*yield*/, logger_1.Logger.Log("Фильм " + id + 'уже есть в базе')];
+                    case 10:
+                        _b.sent();
+                        return [3 /*break*/, 35];
+                    case 11: return [4 /*yield*/, logger_1.Logger.Log("Фильма " + id + 'нет в базе - начинаем загрузку html')];
+                    case 12:
+                        _b.sent();
+                        return [4 /*yield*/, new HtmlLoader_1.HtmlLoader(id, 1 /* film */, this.req).getHtmlAsync()];
+                    case 13:
+                        html = _b.sent();
+                        return [4 /*yield*/, logger_1.Logger.Log('html загружен ' + id++ + 'начинаем парсинг фильма')];
+                    case 14:
+                        _b.sent();
+                        film = new FilmParser_1.FilmParser(html, id).getFilm();
+                        return [4 /*yield*/, logger_1.Logger.Log('парсинг закончен ' + id + 'получаем ids актеров и т.д.')];
+                    case 15:
+                        _b.sent();
+                        idsName = filmUtil_1.FilmUtil.GetNameIds(film);
+                        return [4 /*yield*/, logger_1.Logger.Log('ids актеров получены ' + id + 'ждем и начинаем загрузку актора')];
+                    case 16:
+                        _b.sent();
+                        return [4 /*yield*/, functions_1.Wait(20)];
+                    case 17:
+                        _b.sent();
+                        _a = 0, idsName_1 = idsName;
+                        _b.label = 18;
+                    case 18:
+                        if (!(_a < idsName_1.length)) return [3 /*break*/, 26];
                         nameId = idsName_1[_a];
                         return [4 /*yield*/, Db_1.db.getCollection(name_model_1.Name).count({ _id: nameId })];
-                    case 10:
+                    case 19:
                         exists = _b.sent();
                         if (exists > 0)
-                            return [3 /*break*/, 15];
+                            return [3 /*break*/, 25];
                         return [4 /*yield*/, new HtmlLoader_1.HtmlLoader(nameId, 2 /* name */, this.req).getHtmlAsync()];
-                    case 11:
+                    case 20:
                         nameHtml = _b.sent();
                         name_1 = new NameParser_1.NameParser(nameHtml, nameId).getModelName();
                         return [4 /*yield*/, nameUtil_1.NameUtil.PrepaireInsertAsync(name_1)];
-                    case 12:
+                    case 21:
                         _b.sent();
                         return [4 /*yield*/, Db_1.db.getCollection(name_model_1.Name).insertOne(name_1)];
-                    case 13:
+                    case 22:
+                        _b.sent();
+                        return [4 /*yield*/, logger_1.Logger.Log('актер получен ' + nameId)];
+                    case 23:
                         _b.sent();
                         return [4 /*yield*/, functions_1.Wait(10)];
-                    case 14:
+                    case 24:
                         _b.sent();
-                        _b.label = 15;
-                    case 15:
+                        _b.label = 25;
+                    case 25:
                         _a++;
-                        return [3 /*break*/, 9];
-                    case 16:
-                        _b.trys.push([16, 19, , 20]);
+                        return [3 /*break*/, 18];
+                    case 26:
+                        _b.trys.push([26, 31, , 35]);
+                        return [4 /*yield*/, logger_1.Logger.Log('film prepaire save')];
+                    case 27:
+                        _b.sent();
                         return [4 /*yield*/, filmUtil_1.FilmUtil.PrepaireInsertAsync(film)];
-                    case 17:
+                    case 28:
+                        _b.sent();
+                        return [4 /*yield*/, logger_1.Logger.Log('film save')];
+                    case 29:
                         _b.sent();
                         return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).insertOne(film)];
-                    case 18:
+                    case 30:
                         _b.sent();
                         logger_1.Logger.Log("Фильм добавлен - " + id);
-                        return [3 /*break*/, 20];
-                    case 19:
+                        return [3 /*break*/, 35];
+                    case 31:
                         error_1 = _b.sent();
-                        if (error_1.code === 11000) { }
-                        else {
-                            throw (error_1);
-                        }
-                        return [3 /*break*/, 20];
-                    case 20:
+                        if (!(error_1.code === 11000)) return [3 /*break*/, 32];
+                        return [3 /*break*/, 34];
+                    case 32: return [4 /*yield*/, logger_1.Logger.Log('Error ' + error_1)];
+                    case 33:
+                        _b.sent();
+                        throw (error_1);
+                    case 34: return [3 /*break*/, 35];
+                    case 35:
                         _i++;
-                        return [3 /*break*/, 3];
-                    case 21:
+                        return [3 /*break*/, 5];
+                    case 36:
                         ;
                         return [2 /*return*/];
                 }
