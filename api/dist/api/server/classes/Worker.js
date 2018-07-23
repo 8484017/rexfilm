@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var BStreamGetIds_1 = require("./balancers/BStreamGetIds");
+var MoonGetIds_1 = require("./balancers/MoonGetIds");
 var FilmParser_1 = require("./parsers/FilmParser");
 var HtmlLoader_1 = require("./HtmlLoader");
 var NameParser_1 = require("./parsers/NameParser");
@@ -168,15 +168,13 @@ var Worker = /** @class */ (function () {
     };
     Worker.getIdsAsync = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var bstr;
+            var moon;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, new BStreamGetIds_1.BSreamGetIds().GetAllIDsAsync()];
+                    case 0: return [4 /*yield*/, new MoonGetIds_1.MoonGetIds().GetAllIDsAsync()];
                     case 1:
-                        bstr = _a.sent();
-                        // let moon = await new MoonGetIds().GetAllIDsAsync();
-                        // let full = bstr.concat(moon)
-                        return [2 /*return*/, Array.from(new Set(bstr))];
+                        moon = _a.sent();
+                        return [2 /*return*/, Array.from(new Set(moon))];
                 }
             });
         });
