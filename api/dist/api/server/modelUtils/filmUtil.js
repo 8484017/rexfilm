@@ -61,8 +61,7 @@ var FilmUtil = /** @class */ (function () {
             return false;
         if (!film.description)
             return false;
-        if (!film.poster)
-            return false;
+        //  if (!film.poster) return false;
         if (!film.year)
             return false;
         if (film.counrty.length === 0)
