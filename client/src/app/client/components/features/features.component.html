@@ -1,0 +1,6 @@
+<button *ngIf="needBtn" class="btn btn-dark float-right" (click)="btnShow = !btnShow">{{!btnShow?'Показать':'Скрыть'}}</button>
+<div class="w-100 border border-secondary  rounded">
+  <div *ngFor="let f of features;let i = index" [ngClass]="[i>1 && !btnShow?'d-none':'']" class="small p-2 border-bottom border-secondary">
+    {{f}}
+  </div>
+</div>

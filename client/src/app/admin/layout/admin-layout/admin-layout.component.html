@@ -1,0 +1,15 @@
+<div class="container bg-light p-0">
+    <div class="row m-0">
+        <div class="col-3 p-0">
+            <div class=" w-100">
+                <a class="btn btn-dark w-100 rounded-0" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" routerLink="/m2m">Главная</a>
+                <a class="btn btn-dark w-100 rounded-0" [routerLinkActive]="['active']" routerLink="/m2m/parser">Парсер</a>
+
+            </div>
+        </div>
+        <div class="col-9 p-0">
+            <my-logger></my-logger>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

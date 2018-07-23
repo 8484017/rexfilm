@@ -1,0 +1,8 @@
+<div class="main">
+  <a [routerLink]="['/online',film._id,slug]">
+    <span class="cont">
+      <img [src]="film.poster_thumb" [alt]="film.name">
+      <small class="title">{{film.name}}</small>
+    </span>
+  </a>
+</div>

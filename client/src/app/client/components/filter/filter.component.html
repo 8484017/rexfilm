@@ -1,0 +1,46 @@
+<form #form="ngForm">
+
+
+  <div class="row m-0  rounded main p-2 mb-1">
+    <div class="col-12 p-0 mb-2">
+      <small>Сортировать по:</small>
+    </div>
+
+    <label class="small col-12 p-0 pl-3">
+      <input class="form-control-feedback" name="sort" type="radio" [(ngModel)]="filter.sortBy" value="timespan"> Дате добавления
+    </label>
+    <label class="small col-12 p-0 pl-3">
+      <input class="form-control-feedback" name="sort" type="radio" [(ngModel)]="filter.sortBy" value="count"> Популярности
+    </label>
+    <label class="small col-12 p-0 pl-3">
+      <input class="form-control-feedback" name="sort" type="radio" [(ngModel)]="filter.sortBy" value="kp"> Рейтингу
+    </label>
+    <label class="small col-12 p-0 pl-3">
+      <input class="form-control-feedback" name="sort" type="radio" [(ngModel)]="filter.sortBy" value="year"> Году
+    </label>
+
+  </div>
+
+
+
+
+  <div class="row m-0 rounded main p-2">
+    <div class="col-12 p-0">
+      <small>Жанры:</small>
+    </div>
+
+    <div class="col-12 p-0">
+      <label>
+        <input name="all" [(ngModel)]="allGenreCheck" #all (ngModelChange)="ClearGenre($event)" class="form-control-feedback" type="checkbox">
+        <small class="pl-1"> Все жанры </small>
+      </label>
+    </div>
+    <div *ngFor="let g of genres" class="col-6 p-0">
+      <label>
+        <input name="genre" class="form-control-feedback genre" (ngModelChange)="SetAllFalse($event)" [(ngModel)]="filter.genre"
+          [ngValue]="g" type="checkbox">
+        <small class="pl-1">{{g | titlecase }}</small>
+      </label>
+    </div>
+  </div>
+</form>

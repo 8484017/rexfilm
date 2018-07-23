@@ -1,0 +1,11 @@
+<div class="row w-100 m-0 p-0 navbar-main">
+  <div class="col-auto p-0">
+    <a routerLink="/">
+      <img src="/static/images/logo.png" alt="">
+    </a>
+  </div>
+  <div class="col p-0 d-flex align-content-center justify-content-start align-items-stretch pl-3">
+    <a [routerLink]="['/','films']" [routerLinkActive]="'active'" class="navbar-link mr-3">Фильмы</a>
+    <a [routerLink]="['/','serials']" [routerLinkActive]="'active'" class="navbar-link mr-3">Сериалы</a>
+  </div>
+</div>

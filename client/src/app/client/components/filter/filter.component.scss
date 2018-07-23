@@ -1,0 +1,13 @@
+.main{
+    border: 1px solid #e0e0e0
+}
+
+
+input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+input,label{
+    user-select: none;
+}

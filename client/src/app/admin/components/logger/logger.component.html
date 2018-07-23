@@ -1,0 +1,8 @@
+<div class="text-right pr-2 bg-dark">
+  <button class="btn btn-sm py-0 m-1 btn-outline-warning " (click)="clearLog()">очистить</button>
+</div>
+<div class="row w-100 m-0 bg-secondary logger align-items-start align-content-start">
+  <div *ngFor="let log of logs " class="w-100 bg-light pl-2 m-1">{{ log.timestamp | date: '(dd) HH:mm:ss'}} {{log.message}}
+    <div class="w-100 pl-4 small text-danger">{{log.error}}</div>
+  </div>
+</div>

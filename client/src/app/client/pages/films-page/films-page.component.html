@@ -1,0 +1,21 @@
+<div class="row w-100 m-0 p-0">
+    <div class="col-9 border-right br">
+
+        <div class="col-12 row justify-content-center mt-4 p-0 m-0">
+            <pagination-controls id="some_id" (pageChange)="pageChanged($event)" maxSize="9" directionLinks="true" autoHide="true" previousLabel="назад"
+                nextLabel="вперед">
+            </pagination-controls>
+        </div>
+        <my-films-list [films]="films.films"></my-films-list>
+
+        <div class="col-12 row justify-content-center mt-4 mb-4 p-0 m-0">
+            <pagination-controls id="some_id" (pageChange)="pageChanged($event)" maxSize="9" directionLinks="true" autoHide="true" previousLabel="назад"
+                nextLabel="вперед">
+            </pagination-controls>
+        </div>
+    </div>
+
+    <div class="col-3 p-2">
+        <my-filter></my-filter>
+    </div>
+</div>

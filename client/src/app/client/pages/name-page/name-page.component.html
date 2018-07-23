@@ -1,0 +1,23 @@
+<div class="row m-0 w-100">
+  <div class="col-9">
+    <my-films-list [films]="nameFilms.films" [paginationEnabled]="false"></my-films-list>
+  </div>
+  <div class="col-3 p-0 bg">
+    <div class="w-100">
+      <img class="img-thumbnail img bg-transparent border-0 border-bottom rounded" [src]="nameFilms.name.poster" alt="">
+    </div>
+    <div class="row m-0 text-center">
+      <h4 class="text-light w-100">{{nameFilms.name.name}}</h4>
+      <h6 class="text-secondary w-100">{{nameFilms.name.alternateName}}</h6>
+      <div class="w-100 pl-2">
+        <span class="small text-light">
+          фильмы:
+        </span>
+        <span class="pl-1 small text-warning">
+          {{nameFilms.films.length}}
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>

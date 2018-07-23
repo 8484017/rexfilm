@@ -1,0 +1,43 @@
+.main{
+    width: 150px;
+    height: 225px;
+    margin: 4px;
+}
+
+img{
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+    border: 2px solid #979797;
+    border-radius: 5px;
+}
+
+.cont{
+   position: relative;
+   display: block;
+   width: 100%;
+
+}
+
+a:hover{
+    box-shadow: 0 0 24px 0 #ff000033;
+    display: block;
+
+}
+.title{
+position: absolute;
+bottom: 0;
+min-height: 50px;
+left: 0;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-content: center;
+align-items: center;
+right: 0;
+text-align: center;
+border-top: 1px solid #fff;
+background: rgba(24, 18, 18, 0.85);
+color: rgb(255, 255, 255);
+padding-bottom: 6px;
+}

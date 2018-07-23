@@ -1,0 +1,17 @@
+@import './_colors';
+
+
+html{
+    height: 100%;
+}
+
+ body{
+   background-color: $body;
+    height: 100%;
+}
+.container{
+    min-height: 100%;
+    background-color: $bc;
+    padding: 0;
+    box-shadow: 0 0 16px 0 #884c4c;
+}
