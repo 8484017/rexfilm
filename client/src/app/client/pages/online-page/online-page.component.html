@@ -11,7 +11,8 @@
     </div>
   </div>
   <div class="col-3 p-1 bg">
-    <img [src]="film.poster" class="w-100  img-thumbnail bg-secondary border border-dark" alt="">
+    <img [src]="film.poster? film.poster : '/static/images/empty.jpeg'" class="w-100  img-thumbnail bg-secondary border border-dark"
+      alt="">
 
 
 

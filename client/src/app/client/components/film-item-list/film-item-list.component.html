@@ -2,7 +2,7 @@
   <div class="row w-100 m-0 p-2">
     <div class="col-aut ">
       <div class="position-relative">
-        <img [src]="film.poster_thumb" class="img-thumb" [alt]="film.name + ' - смотреть онлайн' ">
+        <img [src]="film.poster_thumb? film.poster_thumb : '/static/images/empty.jpeg'" class="img-thumb" [alt]="film.name + ' - смотреть онлайн' ">
         <div class="time">
           <small class="tshadow d-flex align-content-center">{{film.time}}</small>
         </div>

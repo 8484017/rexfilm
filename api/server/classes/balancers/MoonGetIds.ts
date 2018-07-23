@@ -33,7 +33,7 @@ export class MoonGetIds implements ParseIdList {
         let all = s1.report.movies.concat(s2.report.movies, s3.report.movies, s4.report.serials, s5.report.serials, s6.report.serials, s7.report.movies)
 
         let allIdsD = all.map(element => {
-            return element.kinopoisk_id
+            return parseInt(element.kinopoisk_id)
         });
 
         let ids = Array.from(new Set(allIdsD));

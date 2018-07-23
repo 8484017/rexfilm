@@ -48,7 +48,9 @@ router.get("/api/film/:id", async (r, s) => {
 
     let id = parseInt(r.params.id)
 
+
     let result = await db.getCollection(Film).findOne({ _id: id }) as Film;
+
     let actors = db.getCollection(Name).find({ _id: { $in: result.actors } }).toArray();
     let compositors = db.getCollection(Name).find({ _id: { $in: result.compositors } }).toArray();
     let hudognik = db.getCollection(Name).find({ _id: { $in: result.hudognik } }).toArray();

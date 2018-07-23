@@ -1,7 +1,7 @@
 <div class="main">
   <a [routerLink]="['/online',film._id,slug]">
     <span class="cont">
-      <img [src]="film.poster_thumb" [alt]="film.name">
+      <img [src]="film.poster_thumb? film.poster_thumb : '/static/images/empty.jpeg'" [alt]="film.name">
       <small class="title">{{film.name}}</small>
     </span>
   </a>
