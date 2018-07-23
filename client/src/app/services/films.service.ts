@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Films, FilmFilter, IndexFilms } from '../../../../models/films.model';
 import { Film, FilmType } from '../../../../models/film.model';
 import { BehaviorSubject } from 'rxjs';
-import { tap, debounceTime, distinctUntilChanged, skipLast } from 'rxjs/operators';
+import { tap, debounceTime, distinctUntilChanged, skipLast, catchError } from 'rxjs/operators';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { NameFilms } from '../../../../models/name.model';
 
@@ -45,7 +45,8 @@ export class FilmsService {
 
   public getIndexFilms() {
     return this.http.get<IndexFilms>("/api/films/index").pipe(tap(
-      s => this.indexFilms$.next(s)
+      s => this.indexFilms$.next(s),
+      s => console.log(s)
     ))
   }
 

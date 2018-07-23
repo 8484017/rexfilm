@@ -2738,12 +2738,11 @@ var HttpInterCeptor = /** @class */ (function () {
         this.platformId = platformId;
     }
     HttpInterCeptor.prototype.intercept = function (req, next) {
-        var headers = new http_1.HttpHeaders();
         if (common_1.isPlatformServer(this.platformId)) {
-            var serreq = this.injector.get('REQUEST');
-            headers = Object.assign(headers, req.headers);
-            headers = headers.append("cookie", serreq.headers.cookie);
-            var newreq = req.clone({ url: "http://127.0.0.1:3000" + req.url, headers: headers, withCredentials: true });
+            var exreq = this.injector.get('REQUEST');
+            var newreq = req.clone({ url: 'http://127.0.0.1:3000' + req.url, setHeaders: exreq.headers.cookie ? { "Cookie": exreq.headers.cookie } : {} });
+            console.log(newreq.headers);
+            console.log(newreq);
             return next.handle(newreq);
         }
         return next.handle(req);
@@ -2751,6 +2750,16 @@ var HttpInterCeptor = /** @class */ (function () {
     return HttpInterCeptor;
 }());
 exports.HttpInterCeptor = HttpInterCeptor;
+// var headers = req.headers
+// let newreq = req.clone({ url: 'http://127.0.0.1' + req.url, headers: headers })
+// headers.keys().forEach(s => {
+//     console.log(s);
+// })
+// console.log('-------------------------------------');
+// serreq.forEach(s => {
+//     console.log(s);
+// })
+// return next.handle(newreq);
 
 
 /***/ }),
@@ -3207,7 +3216,7 @@ var FilmsService = /** @class */ (function () {
     };
     FilmsService.prototype.getIndexFilms = function () {
         var _this = this;
-        return this.http.get("/api/films/index").pipe(operators_1.tap(function (s) { return _this.indexFilms$.next(s); }));
+        return this.http.get("/api/films/index").pipe(operators_1.tap(function (s) { return _this.indexFilms$.next(s); }, function (s) { return console.log(s); }));
     };
     FilmsService.prototype.updateFilmsRand = function () {
         var _this = this;
