@@ -1,4 +1,3 @@
-import { BSreamGetIds } from "./balancers/BStreamGetIds";
 import { MoonGetIds } from "./balancers/MoonGetIds";
 import { FilmParser } from "./parsers/FilmParser";
 import { HtmlLoader, HtmlLoaderType } from "./HtmlLoader";
@@ -8,8 +7,7 @@ import { Name } from "../../../models/name.model";
 import { Wait } from "../util/functions";
 import { db } from "./Db";
 import { Film } from "../../../models/film.model";
-import { MongooseDocument } from "mongoose";
-import { MongoError } from "mongodb";
+
 import { Logger } from "../../../api/server/util/logger";
 import { FilmUtil } from "../modelUtils/filmUtil";
 import { NameUtil } from "../modelUtils/nameUtil";
@@ -79,10 +77,10 @@ export class Worker {
     }
 
     private static async getIdsAsync() {
-        let bstr = await new BSreamGetIds().GetAllIDsAsync();
-        // let moon = await new MoonGetIds().GetAllIDsAsync();
-        // let full = bstr.concat(moon)
-        return Array.from(new Set(bstr))
+
+        let moon = await new MoonGetIds().GetAllIDsAsync();
+
+        return Array.from(new Set(moon))
     }
 
 
