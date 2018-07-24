@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MetrikaService } from '../../../services/metrika.service';
 
 @Component({
   selector: 'my-client-layout',
@@ -8,9 +9,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class ClientLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private metrik: MetrikaService
+  ) { }
 
   ngOnInit() {
+    this.metrik.EnableMetrikka()
+  }
+
+  ngOnDestroy() {
+    this.metrik.DisableMetrika()
   }
 
 }

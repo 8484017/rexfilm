@@ -2181,12 +2181,13 @@ var i2 = __webpack_require__(/*! ../../components/navbar/navbar.component.ngfact
 var i3 = __webpack_require__(/*! ../../components/navbar/navbar.component */ "./src/app/client/components/navbar/navbar.component.ts");
 var i4 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var i5 = __webpack_require__(/*! ./client-layout.component */ "./src/app/client/layout/client-layout/client-layout.component.ts");
+var i6 = __webpack_require__(/*! ../../../services/metrika.service */ "./src/app/services/metrika.service.ts");
 var styles_ClientLayoutComponent = [i0.styles];
 var RenderType_ClientLayoutComponent = i1.ɵcrt({ encapsulation: 2, styles: styles_ClientLayoutComponent, data: {} });
 exports.RenderType_ClientLayoutComponent = RenderType_ClientLayoutComponent;
 function View_ClientLayoutComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "div", [["class", "container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 6, "div", [["class", "row m-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 2, "div", [["class", "w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 1, "my-navbar", [], null, null, null, i2.View_NavbarComponent_0, i2.RenderType_NavbarComponent)), i1.ɵdid(4, 114688, null, 0, i3.NavbarComponent, [], null, null), (_l()(), i1.ɵeld(5, 0, null, null, 2, "div", [["class", "w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(7, 212992, null, 0, i4.RouterOutlet, [i4.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { _ck(_v, 4, 0); _ck(_v, 7, 0); }, null); }
 exports.View_ClientLayoutComponent_0 = View_ClientLayoutComponent_0;
-function View_ClientLayoutComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-client-layout", [], null, null, null, View_ClientLayoutComponent_0, RenderType_ClientLayoutComponent)), i1.ɵdid(1, 114688, null, 0, i5.ClientLayoutComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_ClientLayoutComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-client-layout", [], null, null, null, View_ClientLayoutComponent_0, RenderType_ClientLayoutComponent)), i1.ɵdid(1, 245760, null, 0, i5.ClientLayoutComponent, [i6.MetrikaService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_ClientLayoutComponent_Host_0 = View_ClientLayoutComponent_Host_0;
 var ClientLayoutComponentNgFactory = i1.ɵccf("my-client-layout", i5.ClientLayoutComponent, View_ClientLayoutComponent_Host_0, {}, {}, []);
 exports.ClientLayoutComponentNgFactory = ClientLayoutComponentNgFactory;
@@ -2227,10 +2228,16 @@ exports.styles = styles;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var metrika_service_1 = __webpack_require__(/*! ../../../services/metrika.service */ "./src/app/services/metrika.service.ts");
 var ClientLayoutComponent = /** @class */ (function () {
-    function ClientLayoutComponent() {
+    function ClientLayoutComponent(metrik) {
+        this.metrik = metrik;
     }
     ClientLayoutComponent.prototype.ngOnInit = function () {
+        this.metrik.EnableMetrikka();
+    };
+    ClientLayoutComponent.prototype.ngOnDestroy = function () {
+        this.metrik.DisableMetrika();
     };
     return ClientLayoutComponent;
 }());
@@ -3342,6 +3349,50 @@ var LogService = /** @class */ (function () {
     return LogService;
 }());
 exports.LogService = LogService;
+
+
+/***/ }),
+
+/***/ "./src/app/services/metrika.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/metrika.service.ts ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
+var common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i2 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var MetrikaService = /** @class */ (function () {
+    function MetrikaService(router, location, platformId) {
+        this.router = router;
+        this.location = location;
+        this.platformId = platformId;
+    }
+    MetrikaService.prototype.EnableMetrikka = function () {
+        var _this = this;
+        if (common_1.isPlatformBrowser(this.platformId)) {
+            this.yaCounter = new Ya.Metrika({ id: 49735270, clickmap: true, trackLinks: true, accurateTrackBounce: true });
+            this.subs = this.router.events.pipe(operators_1.filter(function (s) { return s instanceof router_1.NavigationEnd; })).subscribe(function (s) {
+                _this.yaCounter['hit'](window.location.href);
+            });
+        }
+    };
+    MetrikaService.prototype.DisableMetrika = function () {
+        if (this.subs) {
+            this.subs.unsubscribe();
+        }
+    };
+    MetrikaService.ngInjectableDef = i0.defineInjectable({ factory: function MetrikaService_Factory() { return new MetrikaService(i0.inject(i1.Router), i0.inject(i2.Location), i0.inject(i0.PLATFORM_ID)); }, token: MetrikaService, providedIn: "root" });
+    return MetrikaService;
+}());
+exports.MetrikaService = MetrikaService;
 
 
 /***/ }),
