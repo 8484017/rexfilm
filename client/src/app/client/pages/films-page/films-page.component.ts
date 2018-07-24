@@ -33,15 +33,16 @@ export class FilmsPageComponent implements OnInit {
       this.films = s
       this.title.setTitle(`RexFilm.ru - ${this.filmsServ.filter$.value.type}ы онлайн.`)
       this.meta.updateTag({ property: "description", content: `RexFilm.ru - подбор ${this.filmsServ.filter$.value.type}ов по критериям` })
-      window.scrollTo(0, 0)
+
     })
 
   }
 
-  pageChanged(e) {
+  async pageChanged(e) {
 
     this.filmsServ.setFilterPage(e)
-    this.filmsServ.getFilms().toPromise();
+    await this.filmsServ.getFilms().toPromise();
+    window.scrollTo(0, 0)
   }
 
   ngOnDestroy() {
