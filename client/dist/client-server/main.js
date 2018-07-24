@@ -865,7 +865,7 @@ var RenderType_AppComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AppCom
 exports.RenderType_AppComponent = RenderType_AppComponent;
 function View_AppComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "ngx-loading-bar", [], [[2, "loading-bar-fixed", null]], null, null, i2.View_LoadingBarComponent_0, i2.RenderType_LoadingBarComponent)), i1.ɵdid(1, 49152, null, 0, i3.LoadingBarComponent, [i3.LoadingBarService], { color: [0, "color"] }, null), (_l()(), i1.ɵeld(2, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(3, 212992, null, 0, i4.RouterOutlet, [i4.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { var currVal_1 = "red"; _ck(_v, 1, 0, currVal_1); _ck(_v, 3, 0); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1).fixed; _ck(_v, 0, 0, currVal_0); }); }
 exports.View_AppComponent_0 = View_AppComponent_0;
-function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 114688, null, 0, i5.AppComponent, [i1.PLATFORM_ID], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 114688, null, 0, i5.AppComponent, [i1.PLATFORM_ID, i4.Router], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_AppComponent_Host_0 = View_AppComponent_Host_0;
 var AppComponentNgFactory = i1.ɵccf("my-root", i5.AppComponent, View_AppComponent_Host_0, {}, {}, []);
 exports.AppComponentNgFactory = AppComponentNgFactory;
@@ -906,13 +906,24 @@ exports.styles = styles;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platformId) {
+    function AppComponent(platformId, router) {
         this.platformId = platformId;
+        this.router = router;
     }
     AppComponent.prototype.ngOnInit = function () {
         if (common_1.isPlatformBrowser(this.platformId)) {
             __webpack_require__(/*! delayed-scroll-restoration-polyfill */ "delayed-scroll-restoration-polyfill");
+            this.router.events.pipe(operators_1.filter(function (s) { return s instanceof router_1.NavigationStart || s instanceof router_1.NavigationEnd; }), operators_1.pairwise()).subscribe(function (s) {
+                if (s[0] instanceof router_1.NavigationStart && s["0"].navigationTrigger === "imperative" && s["1"] instanceof router_1.NavigationEnd) {
+                    setTimeout(function () {
+                        console.log("OK&");
+                        window.scrollTo(0, 0);
+                    }, 0);
+                }
+            });
         }
     };
     return AppComponent;
@@ -1716,7 +1727,7 @@ var FilterComponent = /** @class */ (function () {
             _this.filter = s;
             _this.allGenreCheck = _this.filter.genre.length > 0 ? false : true;
         });
-        this.formSubs = this.from.valueChanges.pipe(operators_1.debounceTime(1500), operators_1.distinctUntilChanged(), operators_1.skipLast(1)).subscribe(function (s) {
+        this.formSubs = this.from.valueChanges.pipe(operators_1.debounceTime(1500), operators_1.distinctUntilChanged()).subscribe(function (s) {
             _this.filter.page = 1;
             _this.filmsServ.setFilter(_this.filter);
             _this.filmsServ.getFilms().toPromise();
