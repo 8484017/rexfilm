@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var ImageWorker_1 = require("../classes/ImageWorker");
+var logger_1 = require("../util/logger");
 var NameUtil = /** @class */ (function () {
     function NameUtil() {
     }
@@ -53,11 +54,12 @@ var NameUtil = /** @class */ (function () {
     };
     NameUtil.MakePosterAsync = function (name) {
         return __awaiter(this, void 0, void 0, function () {
-            var img;
+            var img, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (name.poster == null)
+                        _a.trys.push([0, 4, , 5]);
+                        if (!name || name.poster == null)
                             return [2 /*return*/];
                         img = new ImageWorker_1.ImageWorker(name.poster);
                         return [4 /*yield*/, img.loadFileAsync()];
@@ -71,7 +73,12 @@ var NameUtil = /** @class */ (function () {
                         _a.sent();
                         name.poster = '/static/data/names/' + name._id + '.jpeg';
                         name.poster_thumb = '/static/data/names/' + name._id + '_thumb.jpeg';
-                        return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 4:
+                        error_1 = _a.sent();
+                        logger_1.Logger.Log(error_1);
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
         });
