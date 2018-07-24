@@ -863,9 +863,9 @@ var i5 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts"
 var styles_AppComponent = [i0.styles];
 var RenderType_AppComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AppComponent, data: {} });
 exports.RenderType_AppComponent = RenderType_AppComponent;
-function View_AppComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "ngx-loading-bar", [], [[2, "loading-bar-fixed", null]], null, null, i2.View_LoadingBarComponent_0, i2.RenderType_LoadingBarComponent)), i1.ɵdid(1, 49152, null, 0, i3.LoadingBarComponent, [i3.LoadingBarService], null, null), (_l()(), i1.ɵeld(2, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(3, 212992, null, 0, i4.RouterOutlet, [i4.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { _ck(_v, 3, 0); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1).fixed; _ck(_v, 0, 0, currVal_0); }); }
+function View_AppComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "ngx-loading-bar", [], [[2, "loading-bar-fixed", null]], null, null, i2.View_LoadingBarComponent_0, i2.RenderType_LoadingBarComponent)), i1.ɵdid(1, 49152, null, 0, i3.LoadingBarComponent, [i3.LoadingBarService], { color: [0, "color"] }, null), (_l()(), i1.ɵeld(2, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(3, 212992, null, 0, i4.RouterOutlet, [i4.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { var currVal_1 = "red"; _ck(_v, 1, 0, currVal_1); _ck(_v, 3, 0); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1).fixed; _ck(_v, 0, 0, currVal_0); }); }
 exports.View_AppComponent_0 = View_AppComponent_0;
-function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 49152, null, 0, i5.AppComponent, [], null, null)], null, null); }
+function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 114688, null, 0, i5.AppComponent, [i1.PLATFORM_ID], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_AppComponent_Host_0 = View_AppComponent_Host_0;
 var AppComponentNgFactory = i1.ɵccf("my-root", i5.AppComponent, View_AppComponent_Host_0, {}, {}, []);
 exports.AppComponentNgFactory = AppComponentNgFactory;
@@ -905,9 +905,16 @@ exports.styles = styles;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(platformId) {
+        this.platformId = platformId;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        if (common_1.isPlatformBrowser(this.platformId)) {
+            __webpack_require__(/*! delayed-scroll-restoration-polyfill */ "delayed-scroll-restoration-polyfill");
+        }
+    };
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
@@ -2319,8 +2326,8 @@ var FilmsPageComponent = /** @class */ (function () {
         var _this = this;
         this.filmsServ.films$.subscribe(function (s) {
             _this.films = s;
-            _this.title.setTitle("KinoFast.ru - " + _this.filmsServ.filter$.value.type + "\u044B \u043E\u043D\u043B\u0430\u0439\u043D.");
-            _this.meta.updateTag({ property: "description", content: "KinoFast.ru - \u043F\u043E\u0434\u0431\u043E\u0440 " + _this.filmsServ.filter$.value.type + "\u043E\u0432 \u043F\u043E \u043A\u0440\u0438\u0442\u0435\u0440\u0438\u044F\u043C" });
+            _this.title.setTitle("RexFilm.ru - " + _this.filmsServ.filter$.value.type + "\u044B \u043E\u043D\u043B\u0430\u0439\u043D.");
+            _this.meta.updateTag({ property: "description", content: "RexFilm.ru - \u043F\u043E\u0434\u0431\u043E\u0440 " + _this.filmsServ.filter$.value.type + "\u043E\u0432 \u043F\u043E \u043A\u0440\u0438\u0442\u0435\u0440\u0438\u044F\u043C" });
         });
     };
     FilmsPageComponent.prototype.pageChanged = function (e) {
@@ -2420,8 +2427,8 @@ var IndexPageComponent = /** @class */ (function () {
     IndexPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.filmServ.indexFilms$.subscribe(function (s) { return _this.indexFilms = s; });
-        this.title.setTitle("KinoFast.ru - фильмы и сериалы онлайн.");
-        this.meta.updateTag({ property: "description", content: "KinoFast.ru - это большая коллекция кино, которой вам хватит надолго. Коллекция постоянно пополняется как новыми фильмами и сериалами, так и признанными шедеврами прошлых лет!" });
+        this.title.setTitle("RexFilm.ru - фильмы и сериалы онлайн.");
+        this.meta.updateTag({ property: "description", content: "RexFilm.ru - это большая коллекция кино, которой вам хватит надолго. Коллекция постоянно пополняется как новыми фильмами и сериалами, так и признанными шедеврами прошлых лет!" });
     };
     return IndexPageComponent;
 }());
@@ -3263,7 +3270,7 @@ var LogService = /** @class */ (function () {
         this.http = http;
     }
     LogService.prototype.getLog = function () {
-        return this.http.get("/api/log");
+        return this.http.get("/api/log", { headers: { ignoreLoadingBar: '' } });
     };
     LogService.prototype.clearLog = function () {
         var _this = this;
@@ -3297,7 +3304,7 @@ var ParserService = /** @class */ (function () {
         this.http = http;
     }
     ParserService.prototype.GetStatus = function () {
-        return this.http.get("/api/parser/status");
+        return this.http.get("/api/parser/status", { headers: { ignoreLoadingBar: '' } });
     };
     ParserService.prototype.StartParser = function () {
         return this.http.get("/api/parser/start");
@@ -3543,6 +3550,17 @@ module.exports = require("@ngx-loading-bar/http-client");
 /***/ (function(module, exports) {
 
 module.exports = require("cyrillic-to-translit-js");
+
+/***/ }),
+
+/***/ "delayed-scroll-restoration-polyfill":
+/*!******************************************************!*\
+  !*** external "delayed-scroll-restoration-polyfill" ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("delayed-scroll-restoration-polyfill");
 
 /***/ }),
 

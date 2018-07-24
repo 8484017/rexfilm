@@ -15,7 +15,7 @@ export class LogService {
 
 
   public getLog(): Observable<Log[]> {
-    return this.http.get<Log[]>("/api/log")
+    return this.http.get<Log[]>("/api/log", { headers: { ignoreLoadingBar: '' } })
   }
 
   public clearLog() {

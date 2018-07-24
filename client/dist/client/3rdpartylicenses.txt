@@ -346,6 +346,10 @@ MIT
 MIT
 MIT
 
+delayed-scroll-restoration-polyfill@0.1.1
+MIT
+MIT
+
 @angular/core@6.0.9
 MIT
 MIT

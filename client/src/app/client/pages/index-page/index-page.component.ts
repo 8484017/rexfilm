@@ -19,8 +19,8 @@ export class IndexPageComponent implements OnInit {
   indexFilms: IndexFilms
   ngOnInit() {
     this.filmServ.indexFilms$.subscribe(s => this.indexFilms = s)
-    this.title.setTitle("KinoFast.ru - фильмы и сериалы онлайн.")
-    this.meta.updateTag({ property: "description", content: "KinoFast.ru - это большая коллекция кино, которой вам хватит надолго. Коллекция постоянно пополняется как новыми фильмами и сериалами, так и признанными шедеврами прошлых лет!" })
+    this.title.setTitle("RexFilm.ru - фильмы и сериалы онлайн.")
+    this.meta.updateTag({ property: "description", content: "RexFilm.ru - это большая коллекция кино, которой вам хватит надолго. Коллекция постоянно пополняется как новыми фильмами и сериалами, так и признанными шедеврами прошлых лет!" })
   }
 
 }

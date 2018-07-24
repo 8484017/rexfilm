@@ -29,8 +29,8 @@ export class FilmsPageComponent implements OnInit {
 
     this.filmsServ.films$.subscribe(s => {
       this.films = s
-      this.title.setTitle(`KinoFast.ru - ${this.filmsServ.filter$.value.type}ы онлайн.`)
-      this.meta.updateTag({ property: "description", content: `KinoFast.ru - подбор ${this.filmsServ.filter$.value.type}ов по критериям` })
+      this.title.setTitle(`RexFilm.ru - ${this.filmsServ.filter$.value.type}ы онлайн.`)
+      this.meta.updateTag({ property: "description", content: `RexFilm.ru - подбор ${this.filmsServ.filter$.value.type}ов по критериям` })
 
     })
 

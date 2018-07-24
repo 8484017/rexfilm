@@ -7,6 +7,7 @@ import { IsAdminResolver } from './resolvers/admin.resolver';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { HttpInterCeptor } from './interceptors/http.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,

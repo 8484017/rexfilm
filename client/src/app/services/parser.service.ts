@@ -11,7 +11,7 @@ export class ParserService {
   ) { }
 
   public GetStatus() {
-    return this.http.get("/api/parser/status")
+    return this.http.get("/api/parser/status",{ headers: { ignoreLoadingBar: '' } })
   }
 
   public StartParser() {
