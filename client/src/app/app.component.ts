@@ -24,7 +24,6 @@ export class AppComponent {
 
         if (s[0] instanceof NavigationStart && (s["0"] as NavigationStart).navigationTrigger === "imperative" && s["1"] instanceof NavigationEnd) {
           setTimeout(() => {
-            console.log("OK&");
             window.scrollTo(0, 0)
           }, 0);
         }

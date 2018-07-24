@@ -919,7 +919,6 @@ var AppComponent = /** @class */ (function () {
             this.router.events.pipe(operators_1.filter(function (s) { return s instanceof router_1.NavigationStart || s instanceof router_1.NavigationEnd; }), operators_1.pairwise()).subscribe(function (s) {
                 if (s[0] instanceof router_1.NavigationStart && s["0"].navigationTrigger === "imperative" && s["1"] instanceof router_1.NavigationEnd) {
                     setTimeout(function () {
-                        console.log("OK&");
                         window.scrollTo(0, 0);
                     }, 0);
                 }
@@ -2279,7 +2278,7 @@ function View_FilmsPageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0
         ad = (pd_0 && ad);
     } return ad; }, i2.View_PaginationControlsComponent_0, i2.RenderType_PaginationControlsComponent)), i1.ɵdid(9, 49152, null, 0, i3.PaginationControlsComponent, [], { id: [0, "id"], maxSize: [1, "maxSize"], directionLinks: [2, "directionLinks"], autoHide: [3, "autoHide"], previousLabel: [4, "previousLabel"], nextLabel: [5, "nextLabel"] }, { pageChange: "pageChange" }), (_l()(), i1.ɵeld(10, 0, null, null, 2, "div", [["class", "col-3 p-2"]], null, null, null, null, null)), (_l()(), i1.ɵeld(11, 0, null, null, 1, "my-filter", [], null, null, null, i7.View_FilterComponent_0, i7.RenderType_FilterComponent)), i1.ɵdid(12, 245760, null, 0, i8.FilterComponent, [i6.FilmsService, i9.ActivatedRoute, i9.Router], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = "some_id"; var currVal_1 = "9"; var currVal_2 = "true"; var currVal_3 = "true"; var currVal_4 = "\u043D\u0430\u0437\u0430\u0434"; var currVal_5 = "\u0432\u043F\u0435\u0440\u0435\u0434"; _ck(_v, 4, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5); var currVal_6 = _co.films.films; _ck(_v, 6, 0, currVal_6); var currVal_7 = "some_id"; var currVal_8 = "9"; var currVal_9 = "true"; var currVal_10 = "true"; var currVal_11 = "\u043D\u0430\u0437\u0430\u0434"; var currVal_12 = "\u0432\u043F\u0435\u0440\u0435\u0434"; _ck(_v, 9, 0, currVal_7, currVal_8, currVal_9, currVal_10, currVal_11, currVal_12); _ck(_v, 12, 0); }, null); }
 exports.View_FilmsPageComponent_0 = View_FilmsPageComponent_0;
-function View_FilmsPageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-films-page", [], null, null, null, View_FilmsPageComponent_0, RenderType_FilmsPageComponent)), i1.ɵdid(1, 114688, null, 0, i10.FilmsPageComponent, [i6.FilmsService, i9.ActivatedRoute, i9.Router, i11.Title, i11.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_FilmsPageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-films-page", [], null, null, null, View_FilmsPageComponent_0, RenderType_FilmsPageComponent)), i1.ɵdid(1, 245760, null, 0, i10.FilmsPageComponent, [i6.FilmsService, i9.ActivatedRoute, i9.Router, i11.Title, i11.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_FilmsPageComponent_Host_0 = View_FilmsPageComponent_Host_0;
 var FilmsPageComponentNgFactory = i1.ɵccf("my-films-page", i10.FilmsPageComponent, View_FilmsPageComponent_Host_0, {}, {}, []);
 exports.FilmsPageComponentNgFactory = FilmsPageComponentNgFactory;
@@ -2324,6 +2323,7 @@ var films_service_1 = __webpack_require__(/*! ../../../services/films.service */
 var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var films_model_1 = __webpack_require__(/*! ../../../../../../models/films.model */ "../models/films.model.ts");
 var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
 var FilmsPageComponent = /** @class */ (function () {
     function FilmsPageComponent(filmsServ, route, router, title, meta) {
         this.filmsServ = filmsServ;
@@ -2335,15 +2335,19 @@ var FilmsPageComponent = /** @class */ (function () {
     }
     FilmsPageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.filmsServ.films$.subscribe(function (s) {
+        this.subs = this.filmsServ.films$.subscribe(function (s) {
             _this.films = s;
             _this.title.setTitle("RexFilm.ru - " + _this.filmsServ.filter$.value.type + "\u044B \u043E\u043D\u043B\u0430\u0439\u043D.");
             _this.meta.updateTag({ property: "description", content: "RexFilm.ru - \u043F\u043E\u0434\u0431\u043E\u0440 " + _this.filmsServ.filter$.value.type + "\u043E\u0432 \u043F\u043E \u043A\u0440\u0438\u0442\u0435\u0440\u0438\u044F\u043C" });
+            window.scrollTo(0, 0);
         });
     };
     FilmsPageComponent.prototype.pageChanged = function (e) {
         this.filmsServ.setFilterPage(e);
         this.filmsServ.getFilms().toPromise();
+    };
+    FilmsPageComponent.prototype.ngOnDestroy = function () {
+        this.subs.unsubscribe();
     };
     return FilmsPageComponent;
 }());

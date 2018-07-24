@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FilmsService } from '../../../services/films.service';
 
 
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd, ResolveEnd } from '@angular/router';
 import { Films } from '../../../../../../models/films.model';
 import { Title, Meta } from '@angular/platform-browser';
+import { Subscriber, Subscription } from 'rxjs';
 
 
 @Component({
@@ -25,19 +26,25 @@ export class FilmsPageComponent implements OnInit {
 
 
   films: Films = new Films();
+  subs: Subscription
   ngOnInit() {
 
-    this.filmsServ.films$.subscribe(s => {
+    this.subs = this.filmsServ.films$.subscribe(s => {
       this.films = s
       this.title.setTitle(`RexFilm.ru - ${this.filmsServ.filter$.value.type}ы онлайн.`)
       this.meta.updateTag({ property: "description", content: `RexFilm.ru - подбор ${this.filmsServ.filter$.value.type}ов по критериям` })
-
+      window.scrollTo(0, 0)
     })
 
   }
 
   pageChanged(e) {
+
     this.filmsServ.setFilterPage(e)
     this.filmsServ.getFilms().toPromise();
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe()
   }
 }

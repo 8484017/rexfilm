@@ -55,7 +55,7 @@ export class Worker {
             let html = await new HtmlLoader(id, HtmlLoaderType.film, this.req).getHtmlAsync();
             let film = new FilmParser(html, id).getFilm()
             let idsName = FilmUtil.GetNameIds(film)
-            await Wait(10)
+            await Wait(30)
             for (let nameId of idsName) {
                 let exists = await db.getCollection(Name).count({ _id: nameId })
                 if (exists > 0) continue;
@@ -64,7 +64,7 @@ export class Worker {
                 let name = new NameParser(nameHtml, nameId).getModelName()
                 await NameUtil.PrepaireInsertAsync(name)
                 await db.getCollection(Name).insertOne(name);
-                await Wait(5)
+                await Wait(20)
             }
             try {
                 await FilmUtil.PrepaireInsertAsync(film);
