@@ -11,7 +11,6 @@ export class MetrikaService {
 
   constructor(
     private router: Router,
-    private location: Location,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
@@ -20,6 +19,7 @@ export class MetrikaService {
   EnableMetrikka() {
     if (isPlatformBrowser(this.platformId)) {
       this.yaCounter = new Ya.Metrika({ id: 49735270, clickmap: true, trackLinks: true, accurateTrackBounce: true });
+      this.yaCounter['hit'](window.location.href)
       this.subs = this.router.events.pipe(filter(s => s instanceof NavigationEnd)).subscribe(s => {
         this.yaCounter['hit'](window.location.href)
       })

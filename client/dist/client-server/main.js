@@ -3368,17 +3368,16 @@ var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
 var common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i2 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var MetrikaService = /** @class */ (function () {
-    function MetrikaService(router, location, platformId) {
+    function MetrikaService(router, platformId) {
         this.router = router;
-        this.location = location;
         this.platformId = platformId;
     }
     MetrikaService.prototype.EnableMetrikka = function () {
         var _this = this;
         if (common_1.isPlatformBrowser(this.platformId)) {
             this.yaCounter = new Ya.Metrika({ id: 49735270, clickmap: true, trackLinks: true, accurateTrackBounce: true });
+            this.yaCounter['hit'](window.location.href);
             this.subs = this.router.events.pipe(operators_1.filter(function (s) { return s instanceof router_1.NavigationEnd; })).subscribe(function (s) {
                 _this.yaCounter['hit'](window.location.href);
             });
@@ -3389,7 +3388,7 @@ var MetrikaService = /** @class */ (function () {
             this.subs.unsubscribe();
         }
     };
-    MetrikaService.ngInjectableDef = i0.defineInjectable({ factory: function MetrikaService_Factory() { return new MetrikaService(i0.inject(i1.Router), i0.inject(i2.Location), i0.inject(i0.PLATFORM_ID)); }, token: MetrikaService, providedIn: "root" });
+    MetrikaService.ngInjectableDef = i0.defineInjectable({ factory: function MetrikaService_Factory() { return new MetrikaService(i0.inject(i1.Router), i0.inject(i0.PLATFORM_ID)); }, token: MetrikaService, providedIn: "root" });
     return MetrikaService;
 }());
 exports.MetrikaService = MetrikaService;
