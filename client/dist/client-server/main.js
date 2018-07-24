@@ -1727,7 +1727,7 @@ var FilterComponent = /** @class */ (function () {
             _this.filter = s;
             _this.allGenreCheck = _this.filter.genre.length > 0 ? false : true;
         });
-        this.formSubs = this.from.valueChanges.pipe(operators_1.debounceTime(1500), operators_1.distinctUntilChanged()).subscribe(function (s) {
+        this.formSubs = this.from.valueChanges.pipe(operators_1.debounceTime(100), operators_1.skipLast(1), operators_1.debounceTime(1500), operators_1.distinctUntilChanged()).subscribe(function (s) {
             _this.filter.page = 1;
             _this.filmsServ.setFilter(_this.filter);
             _this.filmsServ.getFilms().toPromise();
