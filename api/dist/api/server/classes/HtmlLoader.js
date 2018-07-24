@@ -54,10 +54,9 @@ var HtmlLoader = /** @class */ (function () {
             var dom;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, jsdom_1.JSDOM.fromURL(this.url)]; //{ cookieJar: this.req.cookies, userAgent: this.req.header("User-Agent") }
+                    case 0: return [4 /*yield*/, jsdom_1.JSDOM.fromURL(this.url, { cookieJar: this.req.cookies, userAgent: this.req.header("User-Agent") })];
                     case 1:
-                        dom = _a.sent() //{ cookieJar: this.req.cookies, userAgent: this.req.header("User-Agent") }
-                        ;
+                        dom = _a.sent();
                         return [2 /*return*/, dom.serialize()];
                 }
             });

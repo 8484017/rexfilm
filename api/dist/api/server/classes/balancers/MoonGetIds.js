@@ -91,6 +91,7 @@ var MoonGetIds = /** @class */ (function () {
                             return parseInt(element.kinopoisk_id);
                         });
                         ids = Array.from(new Set(allIdsD));
+                        ids = ids.filter(function (s) { return !Number.isNaN(s); });
                         return [2 /*return*/, ids];
                 }
             });

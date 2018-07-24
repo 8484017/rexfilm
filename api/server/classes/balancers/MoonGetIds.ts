@@ -1,5 +1,6 @@
 import { ParseIdList } from "../../interfaces/ParseIdList";
 import fetch from 'node-fetch'
+import * as fse from 'fs-extra'
 export class MoonGetIds implements ParseIdList {
 
     private url_en_films = "http://moonwalk.cc/api/movies_foreign.json?api_token=3df23da89b78aa32335efa233c2a18d0"
@@ -32,12 +33,12 @@ export class MoonGetIds implements ParseIdList {
 
         let all = s1.report.movies.concat(s2.report.movies, s3.report.movies, s4.report.serials, s5.report.serials, s6.report.serials, s7.report.movies)
 
-        let allIdsD = all.map(element => {
+        let allIdsD: number[] = all.map(element => {
             return parseInt(element.kinopoisk_id)
         });
 
         let ids = Array.from(new Set(allIdsD));
-
+        ids = ids.filter(s => !Number.isNaN(s))
 
         return (ids as number[])
     }

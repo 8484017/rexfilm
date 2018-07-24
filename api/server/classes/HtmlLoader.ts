@@ -16,7 +16,7 @@ export class HtmlLoader {
 
 
     async getHtmlAsync(): Promise<string> {
-        var dom = await JSDOM.fromURL(this.url) //{ cookieJar: this.req.cookies, userAgent: this.req.header("User-Agent") }
+        var dom = await JSDOM.fromURL(this.url, { cookieJar: this.req.cookies, userAgent: this.req.header("User-Agent") })
         return dom.serialize();
     }
 }
