@@ -1,5 +1,5 @@
 <div class="row w-100 m-0 p-0">
-    <div class="col-9 border-right br">
+    <div class="col-12 col-lg-9 border-right br">
 
         <div class="col-12 row justify-content-center mt-4 p-0 m-0">
             <pagination-controls id="some_id" (pageChange)="pageChanged($event)" maxSize="9" directionLinks="true" autoHide="true" previousLabel="назад"
@@ -15,7 +15,10 @@
         </div>
     </div>
 
-    <div class="col-3 p-2">
+    <div class="col-3 py-2 px-0 d-lg-flex d-none">
         <my-filter></my-filter>
     </div>
+    <my-fade-panel name="Фильтр">
+        <my-filter></my-filter>
+    </my-fade-panel>
 </div>

@@ -1,0 +1,46 @@
+.divrot{
+    position: fixed;
+    transform: rotate(-90deg);
+    transform-origin: right bottom;
+    right: 0;
+    top: 40%;
+    z-index: 10000;
+}
+.panel{
+   
+ position: fixed;
+ right: -320px;
+ width: 320px;
+ top:0;
+ bottom: 0;
+ overflow-y: auto;
+ opacity: 0;
+ z-index: 9999;
+ transition: opacity 0.1s linear, right 0.1s linear;
+border-left: 1px solid #d3d3d3;
+}
+
+.panelr{
+ border-left: 1px solid #d3d3d3;
+ position: fixed;
+ right: 0;
+ width: 320px;
+ top:0;
+ bottom: 0;
+ overflow-y: auto;
+ opacity: 1;
+ z-index: 9999;
+
+ transition: opacity 0.1s linear, right 0.1s linear;
+
+}
+
+.cpanel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #23121299;
+    z-index: 8888;
+}

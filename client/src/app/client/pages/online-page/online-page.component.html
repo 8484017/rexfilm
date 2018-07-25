@@ -1,5 +1,5 @@
 <div class="row w-100 m-0 d-flex align-items-stretch">
-  <div class="col-9 p-0">
+  <div class="col-12 col-lg-9 p-0">
     <my-player></my-player>
 
     <div class="w-100 p-2 mt-2">
@@ -10,111 +10,10 @@
       <my-features class="d-block mt-4" [features]="film.features"></my-features>
     </div>
   </div>
-  <div class="col-3 p-1 bg">
-    <img [src]="film.poster? film.poster : '/static/images/empty.jpeg'" class="w-100  img-thumbnail bg-secondary border border-dark"
-      alt="">
-
-
-
-    <my-lr-block class="mt-3 d-block">
-      <span title>{{film.type | titlecase}}</span>
-      <span>{{film.name}}</span>
-    </my-lr-block>
-    <hr>
-
-    <my-lr-block>
-      <span title>Рейтинг:</span>
-      <my-rating [rating]="film.kp"></my-rating>
-    </my-lr-block>
-    <hr>
-    <my-lr-block>
-      <span title>Страна:</span>
-      <div class="w-100 text-light" *ngFor="let g of film.counrty">
-        {{g}}
-      </div>
-    </my-lr-block>
-    <hr>
-
-    <my-lr-block>
-      <span title>Жанр:</span>
-      <div class="w-100 text-light" *ngFor="let g of film.genre">
-        {{g}}
-      </div>
-    </my-lr-block>
-    <hr>
-
-    <my-lr-block class="d-block ">
-      <span title>Время:</span>
-      <span>{{film.time}}</span>
-    </my-lr-block>
-    <hr>
-
-    <my-lr-block *ngIf="film.regisers.length !== 0">
-      <span title>Режиссер:</span>
-
-      <a *ngFor="let name of film.regisers" class="d-block" [routerLink]="['/name',name._id]">
-        {{name.name}}
-      </a>
-
-    </my-lr-block>
-    <hr>
-
-
-    <my-lr-block *ngIf="film.scenarists.length !== 0" class="d-block ">
-      <span title>Сценарий:</span>
-      <a *ngFor="let name of film.scenarists" class="" [routerLink]="['/name',name._id]">
-        {{name.name}}
-      </a>
-    </my-lr-block>
-    <hr>
-
-
-    <my-lr-block *ngIf="film.produsers.length !== 0" class="d-block ">
-      <span title>Продюсер:</span>
-      <a *ngFor="let name of film.produsers" class="" [routerLink]="['/name',name._id]">
-        {{name.name}}
-      </a>
-    </my-lr-block>
-    <hr>
-
-
-
-    <my-lr-block *ngIf="film.operators.length !== 0" class="d-block ">
-      <span title>Оператор:</span>
-      <a *ngFor="let name of film.operators" class="" [routerLink]="['/name',name._id]">
-        {{name.name}}
-      </a>
-    </my-lr-block>
-    <hr>
-
-
-    <my-lr-block *ngIf="film.compositors.length !== 0" class="d-block ">
-      <span title>Композитор:</span>
-      <a *ngFor="let name of film.compositors" class="" [routerLink]="['/name',name._id]">
-        {{name.name}}
-      </a>
-    </my-lr-block>
-    <hr>
-
-
-    <my-lr-block *ngIf="film.hudognik.length !== 0" class="d-block ">
-      <span title>Художник:</span>
-      <a *ngFor="let name of film.hudognik" class="" [routerLink]="['/name',name._id]">
-        {{name.name}}
-      </a>
-    </my-lr-block>
-    <hr>
-
-    <my-lr-block *ngIf="film.montag.length !== 0" class="d-block ">
-      <span title>Монтаж:</span>
-      <a *ngFor="let name of film.montag" class="" [routerLink]="['/name',name._id]">
-        {{name.name}}
-      </a>
-    </my-lr-block>
-    <hr>
-
-
-    <my-actors-list *ngIf="film.actors.length !== 0" [names]="film.actors" [title]="'В ролях:'"></my-actors-list>
-
+  <div class="col-3 p-0 d-none d-lg-flex">
+    <my-film-info-panel [film]="film"></my-film-info-panel>
   </div>
+  <my-fade-panel name="О фильме">
+    <my-film-info-panel [film]="film"></my-film-info-panel>
+  </my-fade-panel>
 </div>

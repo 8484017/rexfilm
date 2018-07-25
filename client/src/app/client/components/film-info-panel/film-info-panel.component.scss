@@ -1,0 +1,9 @@
+.bg{
+ 
+    background: rgb(99,73,62); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(99,73,62,1) 0%, rgba(63,54,54,1) 50%, rgba(65,54,54,1) 86%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(99,73,62,1) 0%,rgba(63,54,54,1) 50%,rgba(65,54,54,1) 86%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(99,73,62,1) 0%,rgba(63,54,54,1) 50%,rgba(65,54,54,1) 86%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63493e', endColorstr='#413636',GradientType=1 ); /* IE6-9 */
+    
+    }

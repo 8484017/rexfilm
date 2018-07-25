@@ -24,6 +24,10 @@ import { IndexFilmsResolver } from '../resolvers/index.films.resolver';
 import { FilmItemIndexComponent } from './components/film-item-index/film-item-index.component';
 import { NamePageComponent } from './pages/name-page/name-page.component';
 import { NameResolver } from '../resolvers/name.resolver';
+import { FadePanelComponent } from './components/fade-panel/fade-panel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { FilmInfoPanelComponent } from './components/film-info-panel/film-info-panel.component';
 
 
 @NgModule({
@@ -51,7 +55,7 @@ import { NameResolver } from '../resolvers/name.resolver';
     RatingComponent, FeaturesComponent,
     ActorsListComponent,
     ForNumberPipe,
-    FilterComponent, NgValueDirective, FilmItemIndexComponent, NamePageComponent
+    FilterComponent, NgValueDirective, FilmItemIndexComponent, NamePageComponent, FadePanelComponent, FilmInfoPanelComponent
   ],
   providers: [FilmsResolver, FilmResolver, IndexFilmsResolver, NameResolver]
 

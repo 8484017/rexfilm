@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { IsAdminResolver } from './resolvers/admin.resolver';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { HttpInterCeptor } from './interceptors/http.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { HttpInterCeptor } from './interceptors/http.interceptor';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+
+    BrowserAnimationsModule,
     LoadingBarHttpClientModule,
     HttpClientModule,
     RouterModule.forRoot([
