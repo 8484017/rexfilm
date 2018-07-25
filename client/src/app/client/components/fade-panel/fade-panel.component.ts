@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -9,19 +10,24 @@ import { Component, OnInit, Input, HostBinding } from '@angular/core';
 })
 export class FadePanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   width: number = 991;
   @Input() name: string = ""
-  isShow = false
+  isShow = true
   minWidth = false
 
 
 
   ngOnInit() {
-    this.setButtonShow()
-    window.onresize = (e) => {
+    if (isPlatformBrowser(this.platformId)) {
       this.setButtonShow()
+      window.onresize = (e) => {
+        this.setButtonShow()
+      }
+
     }
   }
 
