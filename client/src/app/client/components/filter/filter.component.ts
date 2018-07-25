@@ -38,10 +38,11 @@ export class FilterComponent implements OnInit {
       this.filter = s
       this.allGenreCheck = this.filter.genre.length > 0 ? false : true
     })
-    this.formSubs = this.from.valueChanges.pipe(debounceTime(100), skipLast(1), debounceTime(1500), distinctUntilChanged()).subscribe(s => {
+    this.formSubs = this.from.valueChanges.pipe(debounceTime(100), skipLast(1), debounceTime(1500), distinctUntilChanged()).subscribe(async s => {
       this.filter.page = 1
       this.filmsServ.setFilter(this.filter)
-      this.filmsServ.getFilms().toPromise()
+      await this.filmsServ.getFilms().toPromise()
+      window.scrollTo(0, 0)
     })
   }
 

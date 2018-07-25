@@ -3,7 +3,8 @@
     <h3>Новые фильмы:</h3>
   </div>
   <div class="row w-100 border  m-0 py-2  border-secondary">
-    <my-film-item-index class="col-2" *ngFor="let film of indexFilms.newFilms" [film]="film"></my-film-item-index>
+    <my-film-item-index class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center" *ngFor="let film of indexFilms.newFilms"
+      [film]="film"></my-film-item-index>
   </div>
 </div>
 
@@ -12,7 +13,8 @@
     <h3>Новые сериалы:</h3>
   </div>
   <div class="row w-100 border  m-0 py-2  border-secondary ">
-    <my-film-item-index class="col-2" *ngFor="let film of indexFilms.newSerials" [film]="film"></my-film-item-index>
+    <my-film-item-index class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center" *ngFor="let film of indexFilms.newSerials"
+      [film]="film"></my-film-item-index>
   </div>
 </div>
 
@@ -21,7 +23,8 @@
     <h3>Популярные фильмы:</h3>
   </div>
   <div class="row w-100 border  m-0 py-2  border-secondary">
-    <my-film-item-index class="col-2" *ngFor="let film of indexFilms.popularFilms" [film]="film"></my-film-item-index>
+    <my-film-item-index class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center" *ngFor="let film of indexFilms.popularFilms"
+      [film]="film"></my-film-item-index>
   </div>
 </div>
 
@@ -30,7 +33,8 @@
     <h3>Популярные сериалы:</h3>
   </div>
   <div class="row w-100 border  m-0 py-2  border-secondary ">
-    <my-film-item-index class="col-2" *ngFor="let film of indexFilms.popularSerials" [film]="film"></my-film-item-index>
+    <my-film-item-index class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center" *ngFor="let film of indexFilms.popularSerials"
+      [film]="film"></my-film-item-index>
   </div>
 </div>
 
@@ -39,6 +43,7 @@
     <h3>Случайные фильмы и сериалы:</h3>
   </div>
   <div class="row w-100 border  m-0 py-2  border-secondary ">
-    <my-film-item-index class="col-2" *ngFor="let film of indexFilms.randomFilms" [film]="film"></my-film-item-index>
+    <my-film-item-index class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center" *ngFor="let film of indexFilms.randomFilms"
+      [film]="film"></my-film-item-index>
   </div>
 </div>
