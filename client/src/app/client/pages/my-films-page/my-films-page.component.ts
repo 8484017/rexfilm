@@ -14,12 +14,12 @@ export class MyFilmsPageComponent implements OnInit {
     private filmServ: FilmsService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
-  films: Film[]
+  films: Film[] = []
   message = ""
-  ngOnInit() {
+  async ngOnInit() {
     if (isPlatformServer(this.platformId)) return
     this.filmServ.myFilms$.next([])
-    this.filmServ.GetFilmsFromLocalStorage().toPromise();
+    await this.filmServ.GetFilmsFromLocalStorage().toPromise();
     this.filmServ.myFilms$.subscribe(s => {
       this.films = s;
       if (s.length === 0) {
