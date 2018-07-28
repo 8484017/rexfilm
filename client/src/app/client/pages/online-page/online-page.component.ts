@@ -18,6 +18,7 @@ export class OnlinePageComponent implements OnInit {
     private meta: Meta
   ) { }
   film: Film = new Film()
+  isFilmLocalStorage = false;
   ngOnInit() {
     this.filmsServ.film$.subscribe(s => {
       this.film = s
@@ -25,7 +26,16 @@ export class OnlinePageComponent implements OnInit {
 
       this.meta.updateTag({ property: "description", content: this.film.description.substring(0, 200).replace(/\s/g, ' ').trim() })
 
+      this.isFilmLocalStorage = this.filmsServ.IsFilmInLocalStorage(this.film._id)
     })
+
+  }
+
+  SetFilmLocalStorage() {
+
+    this.filmsServ.SwitchFilmFromLocalStorage(this.film._id)
+
+    this.isFilmLocalStorage = this.filmsServ.IsFilmInLocalStorage(this.film._id)
   }
 
 }

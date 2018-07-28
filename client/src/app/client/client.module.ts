@@ -28,6 +28,7 @@ import { FadePanelComponent } from './components/fade-panel/fade-panel.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FilmInfoPanelComponent } from './components/film-info-panel/film-info-panel.component';
+import { MyFilmsPageComponent } from './pages/my-films-page/my-films-page.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FilmInfoPanelComponent } from './components/film-info-panel/film-info-p
           { path: ":type", resolve: [FilmsResolver], component: FilmsPageComponent },
           { path: "online/:id/:slug", resolve: [FilmResolver], component: OnlinePageComponent },
           { path: "name/:id", resolve: [NameResolver], component: NamePageComponent },
+          { path: "my/playlist", component: MyFilmsPageComponent },
         ]
       }
     ])
@@ -55,7 +57,7 @@ import { FilmInfoPanelComponent } from './components/film-info-panel/film-info-p
     RatingComponent, FeaturesComponent,
     ActorsListComponent,
     ForNumberPipe,
-    FilterComponent, NgValueDirective, FilmItemIndexComponent, NamePageComponent, FadePanelComponent, FilmInfoPanelComponent
+    FilterComponent, NgValueDirective, FilmItemIndexComponent, NamePageComponent, FadePanelComponent, FilmInfoPanelComponent, MyFilmsPageComponent
   ],
   providers: [FilmsResolver, FilmResolver, IndexFilmsResolver, NameResolver]
 

@@ -150,6 +150,18 @@ router.get("/api/films/byname/:id", async (r, s) => {
     s.json(nameFilms)
 })
 
+
+router.post("/api/films/my", async (r, s) => {
+    let obj: number[] = r.body
+    let films = await db.getCollection(Film).find({ _id: { $in: obj } })
+        .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
+        .toArray()
+    s.json(films)
+})
+
+
+
+
 export const FilmsRouter: express.Router = router;
 
 

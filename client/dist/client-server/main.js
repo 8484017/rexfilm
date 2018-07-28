@@ -1038,21 +1038,23 @@ var i4 = __webpack_require__(/*! ./pages/index-page/index-page.component.ngfacto
 var i5 = __webpack_require__(/*! ./pages/films-page/films-page.component.ngfactory */ "./src/app/client/pages/films-page/films-page.component.ngfactory.js");
 var i6 = __webpack_require__(/*! ./pages/online-page/online-page.component.ngfactory */ "./src/app/client/pages/online-page/online-page.component.ngfactory.js");
 var i7 = __webpack_require__(/*! ./pages/name-page/name-page.component.ngfactory */ "./src/app/client/pages/name-page/name-page.component.ngfactory.js");
-var i8 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i9 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
-var i10 = __webpack_require__(/*! ngx-pagination */ "ngx-pagination");
-var i11 = __webpack_require__(/*! ../resolvers/films.resolver */ "./src/app/resolvers/films.resolver.ts");
-var i12 = __webpack_require__(/*! ../services/films.service */ "./src/app/services/films.service.ts");
-var i13 = __webpack_require__(/*! ../resolvers/film.resolver */ "./src/app/resolvers/film.resolver.ts");
-var i14 = __webpack_require__(/*! ../resolvers/index.films.resolver */ "./src/app/resolvers/index.films.resolver.ts");
-var i15 = __webpack_require__(/*! ../resolvers/name.resolver */ "./src/app/resolvers/name.resolver.ts");
-var i16 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i17 = __webpack_require__(/*! ./layout/client-layout/client-layout.component */ "./src/app/client/layout/client-layout/client-layout.component.ts");
-var i18 = __webpack_require__(/*! ./pages/index-page/index-page.component */ "./src/app/client/pages/index-page/index-page.component.ts");
-var i19 = __webpack_require__(/*! ./pages/films-page/films-page.component */ "./src/app/client/pages/films-page/films-page.component.ts");
-var i20 = __webpack_require__(/*! ./pages/online-page/online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
-var i21 = __webpack_require__(/*! ./pages/name-page/name-page.component */ "./src/app/client/pages/name-page/name-page.component.ts");
-var ClientModuleNgFactory = i0.ɵcmf(i1.ClientModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.ClientLayoutComponentNgFactory, i4.IndexPageComponentNgFactory, i5.FilmsPageComponentNgFactory, i6.OnlinePageComponentNgFactory, i7.NamePageComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i8.NgLocalization, i8.NgLocaleLocalization, [i0.LOCALE_ID, [2, i8.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i9.ɵangular_packages_forms_forms_i, i9.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i10.PaginationService, i10.PaginationService, []), i0.ɵmpd(4608, i9.FormBuilder, i9.FormBuilder, []), i0.ɵmpd(4608, i11.FilmsResolver, i11.FilmsResolver, [i12.FilmsService]), i0.ɵmpd(4608, i13.FilmResolver, i13.FilmResolver, [i12.FilmsService]), i0.ɵmpd(4608, i14.IndexFilmsResolver, i14.IndexFilmsResolver, [i12.FilmsService]), i0.ɵmpd(4608, i15.NameResolver, i15.NameResolver, [i12.FilmsService]), i0.ɵmpd(1073742336, i8.CommonModule, i8.CommonModule, []), i0.ɵmpd(1073742336, i9.ɵangular_packages_forms_forms_bb, i9.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i9.FormsModule, i9.FormsModule, []), i0.ɵmpd(1073742336, i10.NgxPaginationModule, i10.NgxPaginationModule, []), i0.ɵmpd(1073742336, i9.ReactiveFormsModule, i9.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i16.RouterModule, i16.RouterModule, [[2, i16.ɵangular_packages_router_router_a], [2, i16.Router]]), i0.ɵmpd(1073742336, i1.ClientModule, i1.ClientModule, []), i0.ɵmpd(1024, i16.ROUTES, function () { return [[{ path: "", component: i17.ClientLayoutComponent, children: [{ path: "", resolve: [i14.IndexFilmsResolver], component: i18.IndexPageComponent }, { path: ":type", resolve: [i11.FilmsResolver], component: i19.FilmsPageComponent }, { path: "online/:id/:slug", resolve: [i13.FilmResolver], component: i20.OnlinePageComponent }, { path: "name/:id", resolve: [i15.NameResolver], component: i21.NamePageComponent }] }]]; }, [])]); });
+var i8 = __webpack_require__(/*! ./pages/my-films-page/my-films-page.component.ngfactory */ "./src/app/client/pages/my-films-page/my-films-page.component.ngfactory.js");
+var i9 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i10 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
+var i11 = __webpack_require__(/*! ngx-pagination */ "ngx-pagination");
+var i12 = __webpack_require__(/*! ../resolvers/films.resolver */ "./src/app/resolvers/films.resolver.ts");
+var i13 = __webpack_require__(/*! ../services/films.service */ "./src/app/services/films.service.ts");
+var i14 = __webpack_require__(/*! ../resolvers/film.resolver */ "./src/app/resolvers/film.resolver.ts");
+var i15 = __webpack_require__(/*! ../resolvers/index.films.resolver */ "./src/app/resolvers/index.films.resolver.ts");
+var i16 = __webpack_require__(/*! ../resolvers/name.resolver */ "./src/app/resolvers/name.resolver.ts");
+var i17 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i18 = __webpack_require__(/*! ./layout/client-layout/client-layout.component */ "./src/app/client/layout/client-layout/client-layout.component.ts");
+var i19 = __webpack_require__(/*! ./pages/index-page/index-page.component */ "./src/app/client/pages/index-page/index-page.component.ts");
+var i20 = __webpack_require__(/*! ./pages/films-page/films-page.component */ "./src/app/client/pages/films-page/films-page.component.ts");
+var i21 = __webpack_require__(/*! ./pages/online-page/online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
+var i22 = __webpack_require__(/*! ./pages/name-page/name-page.component */ "./src/app/client/pages/name-page/name-page.component.ts");
+var i23 = __webpack_require__(/*! ./pages/my-films-page/my-films-page.component */ "./src/app/client/pages/my-films-page/my-films-page.component.ts");
+var ClientModuleNgFactory = i0.ɵcmf(i1.ClientModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.ClientLayoutComponentNgFactory, i4.IndexPageComponentNgFactory, i5.FilmsPageComponentNgFactory, i6.OnlinePageComponentNgFactory, i7.NamePageComponentNgFactory, i8.MyFilmsPageComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i9.NgLocalization, i9.NgLocaleLocalization, [i0.LOCALE_ID, [2, i9.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i10.ɵangular_packages_forms_forms_i, i10.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i11.PaginationService, i11.PaginationService, []), i0.ɵmpd(4608, i10.FormBuilder, i10.FormBuilder, []), i0.ɵmpd(4608, i12.FilmsResolver, i12.FilmsResolver, [i13.FilmsService]), i0.ɵmpd(4608, i14.FilmResolver, i14.FilmResolver, [i13.FilmsService]), i0.ɵmpd(4608, i15.IndexFilmsResolver, i15.IndexFilmsResolver, [i13.FilmsService]), i0.ɵmpd(4608, i16.NameResolver, i16.NameResolver, [i13.FilmsService]), i0.ɵmpd(1073742336, i9.CommonModule, i9.CommonModule, []), i0.ɵmpd(1073742336, i10.ɵangular_packages_forms_forms_bb, i10.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i10.FormsModule, i10.FormsModule, []), i0.ɵmpd(1073742336, i11.NgxPaginationModule, i11.NgxPaginationModule, []), i0.ɵmpd(1073742336, i10.ReactiveFormsModule, i10.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i17.RouterModule, i17.RouterModule, [[2, i17.ɵangular_packages_router_router_a], [2, i17.Router]]), i0.ɵmpd(1073742336, i1.ClientModule, i1.ClientModule, []), i0.ɵmpd(1024, i17.ROUTES, function () { return [[{ path: "", component: i18.ClientLayoutComponent, children: [{ path: "", resolve: [i15.IndexFilmsResolver], component: i19.IndexPageComponent }, { path: ":type", resolve: [i12.FilmsResolver], component: i20.FilmsPageComponent }, { path: "online/:id/:slug", resolve: [i14.FilmResolver], component: i21.OnlinePageComponent }, { path: "name/:id", resolve: [i16.NameResolver], component: i22.NamePageComponent }, { path: "my/playlist", component: i23.MyFilmsPageComponent }] }]]; }, [])]); });
 exports.ClientModuleNgFactory = ClientModuleNgFactory;
 
 
@@ -2144,16 +2146,19 @@ var i4 = __webpack_require__(/*! ./navbar.component */ "./src/app/client/compone
 var styles_NavbarComponent = [i0.styles];
 var RenderType_NavbarComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_NavbarComponent, data: {} });
 exports.RenderType_NavbarComponent = RenderType_NavbarComponent;
-function View_NavbarComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 19, "div", [["class", "row w-100 m-0 p-0 navbar-main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 3, "div", [["class", "col-auto p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 2, "a", [["routerLink", "/"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+function View_NavbarComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 26, "div", [["class", "row w-100 m-0 p-0 navbar-main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 3, "div", [["class", "col-auto p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 2, "a", [["routerLink", "/"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 3).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(3, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(4, 0, null, null, 0, "img", [["alt", ""], ["src", "/static/images/logo.png"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 14, "div", [["class", "col p-0 d-flex align-content-center justify-content-start align-items-stretch pl-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+    } return ad; }, null, null)), i1.ɵdid(3, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(4, 0, null, null, 0, "img", [["alt", ""], ["src", "/static/images/logo.png"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 21, "div", [["class", "col p-0 d-flex align-content-center justify-content-start align-items-stretch pl-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 7).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), i1.ɵdid(7, 671744, [[2, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(8, 2), i1.ɵdid(9, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 1, { links: 1 }), i1.ɵqud(603979776, 2, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u0424\u0438\u043B\u044C\u043C\u044B"])), (_l()(), i1.ɵeld(13, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 14).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(14, 671744, [[4, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(15, 2), i1.ɵdid(16, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 3, { links: 1 }), i1.ɵqud(603979776, 4, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u0421\u0435\u0440\u0438\u0430\u043B\u044B"]))], function (_ck, _v) { var currVal_2 = "/"; _ck(_v, 3, 0, currVal_2); var currVal_5 = _ck(_v, 8, 0, "/", "films"); _ck(_v, 7, 0, currVal_5); var currVal_6 = "active"; _ck(_v, 9, 0, currVal_6); var currVal_9 = _ck(_v, 15, 0, "/", "serials"); _ck(_v, 14, 0, currVal_9); var currVal_10 = "active"; _ck(_v, 16, 0, currVal_10); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 3).target; var currVal_1 = i1.ɵnov(_v, 3).href; _ck(_v, 2, 0, currVal_0, currVal_1); var currVal_3 = i1.ɵnov(_v, 7).target; var currVal_4 = i1.ɵnov(_v, 7).href; _ck(_v, 6, 0, currVal_3, currVal_4); var currVal_7 = i1.ɵnov(_v, 14).target; var currVal_8 = i1.ɵnov(_v, 14).href; _ck(_v, 13, 0, currVal_7, currVal_8); }); }
+    } return ad; }, null, null)), i1.ɵdid(14, 671744, [[4, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(15, 2), i1.ɵdid(16, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 3, { links: 1 }), i1.ɵqud(603979776, 4, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u0421\u0435\u0440\u0438\u0430\u043B\u044B"])), (_l()(), i1.ɵeld(20, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 21).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), i1.ɵdid(21, 671744, [[6, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(22, 1), i1.ɵdid(23, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 5, { links: 1 }), i1.ɵqud(603979776, 6, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u041C\u043E\u0438 \u0444\u0438\u043B\u044C\u043C\u044B"]))], function (_ck, _v) { var currVal_2 = "/"; _ck(_v, 3, 0, currVal_2); var currVal_5 = _ck(_v, 8, 0, "/", "films"); _ck(_v, 7, 0, currVal_5); var currVal_6 = "active"; _ck(_v, 9, 0, currVal_6); var currVal_9 = _ck(_v, 15, 0, "/", "serials"); _ck(_v, 14, 0, currVal_9); var currVal_10 = "active"; _ck(_v, 16, 0, currVal_10); var currVal_13 = _ck(_v, 22, 0, "/my/playlist"); _ck(_v, 21, 0, currVal_13); var currVal_14 = "active"; _ck(_v, 23, 0, currVal_14); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 3).target; var currVal_1 = i1.ɵnov(_v, 3).href; _ck(_v, 2, 0, currVal_0, currVal_1); var currVal_3 = i1.ɵnov(_v, 7).target; var currVal_4 = i1.ɵnov(_v, 7).href; _ck(_v, 6, 0, currVal_3, currVal_4); var currVal_7 = i1.ɵnov(_v, 14).target; var currVal_8 = i1.ɵnov(_v, 14).href; _ck(_v, 13, 0, currVal_7, currVal_8); var currVal_11 = i1.ɵnov(_v, 21).target; var currVal_12 = i1.ɵnov(_v, 21).href; _ck(_v, 20, 0, currVal_11, currVal_12); }); }
 exports.View_NavbarComponent_0 = View_NavbarComponent_0;
 function View_NavbarComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-navbar", [], null, null, null, View_NavbarComponent_0, RenderType_NavbarComponent)), i1.ɵdid(1, 114688, null, 0, i4.NavbarComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_NavbarComponent_Host_0 = View_NavbarComponent_Host_0;
@@ -2786,6 +2791,105 @@ exports.IndexPageComponent = IndexPageComponent;
 
 /***/ }),
 
+/***/ "./src/app/client/pages/my-films-page/my-films-page.component.ngfactory.js":
+/*!*********************************************************************************!*\
+  !*** ./src/app/client/pages/my-films-page/my-films-page.component.ngfactory.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./my-films-page.component.scss.shim.ngstyle */ "./src/app/client/pages/my-films-page/my-films-page.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ../../components/films-list/films-list.component.ngfactory */ "./src/app/client/components/films-list/films-list.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ../../components/films-list/films-list.component */ "./src/app/client/components/films-list/films-list.component.ts");
+var i4 = __webpack_require__(/*! ../../../services/films.service */ "./src/app/services/films.service.ts");
+var i5 = __webpack_require__(/*! ./my-films-page.component */ "./src/app/client/pages/my-films-page/my-films-page.component.ts");
+var styles_MyFilmsPageComponent = [i0.styles];
+var RenderType_MyFilmsPageComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MyFilmsPageComponent, data: {} });
+exports.RenderType_MyFilmsPageComponent = RenderType_MyFilmsPageComponent;
+function View_MyFilmsPageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, "div", [["class", "row m-0 p-2 position-relative"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "small", [["class", "w-100 text-center position-absolute mt-5"]], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "my-films-list", [], null, null, null, i2.View_FilmsListComponent_0, i2.RenderType_FilmsListComponent)), i1.ɵdid(4, 114688, null, 0, i3.FilmsListComponent, [i4.FilmsService], { films: [0, "films"], paginationEnabled: [1, "paginationEnabled"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.films; var currVal_2 = false; _ck(_v, 4, 0, currVal_1, currVal_2); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.message; _ck(_v, 2, 0, currVal_0); }); }
+exports.View_MyFilmsPageComponent_0 = View_MyFilmsPageComponent_0;
+function View_MyFilmsPageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-my-films-page", [], null, null, null, View_MyFilmsPageComponent_0, RenderType_MyFilmsPageComponent)), i1.ɵdid(1, 114688, null, 0, i5.MyFilmsPageComponent, [i4.FilmsService, i1.PLATFORM_ID], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_MyFilmsPageComponent_Host_0 = View_MyFilmsPageComponent_Host_0;
+var MyFilmsPageComponentNgFactory = i1.ɵccf("my-my-films-page", i5.MyFilmsPageComponent, View_MyFilmsPageComponent_Host_0, {}, {}, []);
+exports.MyFilmsPageComponentNgFactory = MyFilmsPageComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/client/pages/my-films-page/my-films-page.component.scss.shim.ngstyle.js":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/client/pages/my-films-page/my-films-page.component.scss.shim.ngstyle.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/client/pages/my-films-page/my-films-page.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/client/pages/my-films-page/my-films-page.component.ts ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var films_service_1 = __webpack_require__(/*! ../../../services/films.service */ "./src/app/services/films.service.ts");
+var common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var MyFilmsPageComponent = /** @class */ (function () {
+    function MyFilmsPageComponent(filmServ, platformId) {
+        this.filmServ = filmServ;
+        this.platformId = platformId;
+        this.message = "";
+    }
+    MyFilmsPageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (common_1.isPlatformServer(this.platformId))
+            return;
+        this.filmServ.myFilms$.next([]);
+        this.filmServ.GetFilmsFromLocalStorage().toPromise();
+        this.filmServ.myFilms$.subscribe(function (s) {
+            _this.films = s;
+            if (s.length === 0) {
+                _this.message = "Нет сохраненных фильмов.";
+            }
+            else {
+                _this.message = "";
+            }
+        });
+    };
+    return MyFilmsPageComponent;
+}());
+exports.MyFilmsPageComponent = MyFilmsPageComponent;
+
+
+/***/ }),
+
 /***/ "./src/app/client/pages/name-page/name-page.component.ngfactory.js":
 /*!*************************************************************************!*\
   !*** ./src/app/client/pages/name-page/name-page.component.ngfactory.js ***!
@@ -2900,23 +3004,27 @@ var i2 = __webpack_require__(/*! ../../components/player/player.component.ngfact
 var i3 = __webpack_require__(/*! ../../components/player/player.component */ "./src/app/client/components/player/player.component.ts");
 var i4 = __webpack_require__(/*! ../../../services/films.service */ "./src/app/services/films.service.ts");
 var i5 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
-var i6 = __webpack_require__(/*! ../../components/features/features.component.ngfactory */ "./src/app/client/components/features/features.component.ngfactory.js");
-var i7 = __webpack_require__(/*! ../../components/features/features.component */ "./src/app/client/components/features/features.component.ts");
-var i8 = __webpack_require__(/*! ../../components/film-info-panel/film-info-panel.component.ngfactory */ "./src/app/client/components/film-info-panel/film-info-panel.component.ngfactory.js");
-var i9 = __webpack_require__(/*! ../../components/film-info-panel/film-info-panel.component */ "./src/app/client/components/film-info-panel/film-info-panel.component.ts");
-var i10 = __webpack_require__(/*! ../../components/fade-panel/fade-panel.component.ngfactory */ "./src/app/client/components/fade-panel/fade-panel.component.ngfactory.js");
-var i11 = __webpack_require__(/*! ../../components/fade-panel/fade-panel.component */ "./src/app/client/components/fade-panel/fade-panel.component.ts");
-var i12 = __webpack_require__(/*! ./online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
-var i13 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i14 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i6 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i7 = __webpack_require__(/*! ../../components/features/features.component.ngfactory */ "./src/app/client/components/features/features.component.ngfactory.js");
+var i8 = __webpack_require__(/*! ../../components/features/features.component */ "./src/app/client/components/features/features.component.ts");
+var i9 = __webpack_require__(/*! ../../components/film-info-panel/film-info-panel.component.ngfactory */ "./src/app/client/components/film-info-panel/film-info-panel.component.ngfactory.js");
+var i10 = __webpack_require__(/*! ../../components/film-info-panel/film-info-panel.component */ "./src/app/client/components/film-info-panel/film-info-panel.component.ts");
+var i11 = __webpack_require__(/*! ../../components/fade-panel/fade-panel.component.ngfactory */ "./src/app/client/components/fade-panel/fade-panel.component.ngfactory.js");
+var i12 = __webpack_require__(/*! ../../components/fade-panel/fade-panel.component */ "./src/app/client/components/fade-panel/fade-panel.component.ts");
+var i13 = __webpack_require__(/*! ./online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
+var i14 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i15 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
 var styles_OnlinePageComponent = [i0.styles];
 var RenderType_OnlinePageComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_OnlinePageComponent, data: {} });
 exports.RenderType_OnlinePageComponent = RenderType_OnlinePageComponent;
-function View_OnlinePageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 20, "div", [["class", "row w-100 m-0 d-flex align-items-stretch"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 12, "div", [["class", "col-12 col-lg-9 p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "my-player", [], null, null, null, i2.View_PlayerComponent_0, i2.RenderType_PlayerComponent)), i1.ɵdid(3, 114688, null, 0, i3.PlayerComponent, [i4.FilmsService, i5.HttpClient, i1.Renderer2, i1.PLATFORM_ID], null, null), (_l()(), i1.ɵeld(4, 0, null, null, 9, "div", [["class", "w-100 p-2 mt-2"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(6, null, ["", " (", ")"])), (_l()(), i1.ɵeld(7, 0, null, null, 1, "h5", [["class", "pl-5 small text-secondary"]], null, null, null, null, null)), (_l()(), i1.ɵted(8, null, ["", " - ", ""])), (_l()(), i1.ɵeld(9, 0, null, null, 0, "hr", [["class", "my-1"]], null, null, null, null, null)), (_l()(), i1.ɵeld(10, 0, null, null, 1, "div", [["class", "desc"]], null, null, null, null, null)), (_l()(), i1.ɵted(11, null, ["", ""])), (_l()(), i1.ɵeld(12, 0, null, null, 1, "my-features", [["class", "d-block mt-4"]], null, null, null, i6.View_FeaturesComponent_0, i6.RenderType_FeaturesComponent)), i1.ɵdid(13, 638976, null, 0, i7.FeaturesComponent, [], { features: [0, "features"] }, null), (_l()(), i1.ɵeld(14, 0, null, null, 2, "div", [["class", "col-3 p-0 d-none d-lg-flex"]], null, null, null, null, null)), (_l()(), i1.ɵeld(15, 0, null, null, 1, "my-film-info-panel", [], null, null, null, i8.View_FilmInfoPanelComponent_0, i8.RenderType_FilmInfoPanelComponent)), i1.ɵdid(16, 114688, null, 0, i9.FilmInfoPanelComponent, [], { film: [0, "film"] }, null), (_l()(), i1.ɵeld(17, 0, null, null, 3, "my-fade-panel", [["name", "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"]], null, null, null, i10.View_FadePanelComponent_0, i10.RenderType_FadePanelComponent)), i1.ɵdid(18, 114688, null, 0, i11.FadePanelComponent, [i1.PLATFORM_ID], { name: [0, "name"] }, null), (_l()(), i1.ɵeld(19, 0, null, 0, 1, "my-film-info-panel", [], null, null, null, i8.View_FilmInfoPanelComponent_0, i8.RenderType_FilmInfoPanelComponent)), i1.ɵdid(20, 114688, null, 0, i9.FilmInfoPanelComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var _co = _v.component; _ck(_v, 3, 0); var currVal_5 = _co.film.features; _ck(_v, 13, 0, currVal_5); var currVal_6 = _co.film; _ck(_v, 16, 0, currVal_6); var currVal_7 = "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"; _ck(_v, 18, 0, currVal_7); var currVal_8 = _co.film; _ck(_v, 20, 0, currVal_8); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.film.name; var currVal_1 = _co.film.year; _ck(_v, 6, 0, currVal_0, currVal_1); var currVal_2 = _co.film.alternateName; var currVal_3 = _co.film.slogan; _ck(_v, 8, 0, currVal_2, currVal_3); var currVal_4 = _co.film.description; _ck(_v, 11, 0, currVal_4); }); }
+function View_OnlinePageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 26, "div", [["class", "row w-100 m-0 d-flex align-items-stretch"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 18, "div", [["class", "col-12 col-lg-9 p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "my-player", [], null, null, null, i2.View_PlayerComponent_0, i2.RenderType_PlayerComponent)), i1.ɵdid(3, 114688, null, 0, i3.PlayerComponent, [i4.FilmsService, i5.HttpClient, i1.Renderer2, i1.PLATFORM_ID], null, null), (_l()(), i1.ɵeld(4, 0, null, null, 15, "div", [["class", "w-100 p-2 mt-2 row mb-0 mr-0 ml-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 2, "div", [["class", "col"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", " (", ")"])), (_l()(), i1.ɵeld(8, 0, null, null, 4, "div", [["class", "col-auto"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 3, "button", [["class", "btn btn-sm rounded-0"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.SetFilmLocalStorage() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), i1.ɵdid(10, 278528, null, 0, i6.NgClass, [i1.IterableDiffers, i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { klass: [0, "klass"], ngClass: [1, "ngClass"] }, null), (_l()(), i1.ɵeld(11, 0, null, null, 1, "small", [], null, null, null, null, null)), (_l()(), i1.ɵted(12, null, ["", ""])), (_l()(), i1.ɵeld(13, 0, null, null, 1, "h5", [["class", "pl-5 w-100 small text-secondary"]], null, null, null, null, null)), (_l()(), i1.ɵted(14, null, ["", " - ", ""])), (_l()(), i1.ɵeld(15, 0, null, null, 0, "hr", [["class", "my-1 w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(16, 0, null, null, 1, "div", [["class", "desc w-100"]], null, null, null, null, null)), (_l()(), i1.ɵted(17, null, ["", ""])), (_l()(), i1.ɵeld(18, 0, null, null, 1, "my-features", [["class", "d-block mt-4 w-100"]], null, null, null, i7.View_FeaturesComponent_0, i7.RenderType_FeaturesComponent)), i1.ɵdid(19, 638976, null, 0, i8.FeaturesComponent, [], { features: [0, "features"] }, null), (_l()(), i1.ɵeld(20, 0, null, null, 2, "div", [["class", "col-3 p-0 d-none d-lg-flex"]], null, null, null, null, null)), (_l()(), i1.ɵeld(21, 0, null, null, 1, "my-film-info-panel", [], null, null, null, i9.View_FilmInfoPanelComponent_0, i9.RenderType_FilmInfoPanelComponent)), i1.ɵdid(22, 114688, null, 0, i10.FilmInfoPanelComponent, [], { film: [0, "film"] }, null), (_l()(), i1.ɵeld(23, 0, null, null, 3, "my-fade-panel", [["name", "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"]], null, null, null, i11.View_FadePanelComponent_0, i11.RenderType_FadePanelComponent)), i1.ɵdid(24, 114688, null, 0, i12.FadePanelComponent, [i1.PLATFORM_ID], { name: [0, "name"] }, null), (_l()(), i1.ɵeld(25, 0, null, 0, 1, "my-film-info-panel", [], null, null, null, i9.View_FilmInfoPanelComponent_0, i9.RenderType_FilmInfoPanelComponent)), i1.ɵdid(26, 114688, null, 0, i10.FilmInfoPanelComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var _co = _v.component; _ck(_v, 3, 0); var currVal_2 = "btn btn-sm rounded-0"; var currVal_3 = (_co.isFilmLocalStorage ? "btn-outline-danger" : "btn-info"); _ck(_v, 10, 0, currVal_2, currVal_3); var currVal_8 = _co.film.features; _ck(_v, 19, 0, currVal_8); var currVal_9 = _co.film; _ck(_v, 22, 0, currVal_9); var currVal_10 = "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"; _ck(_v, 24, 0, currVal_10); var currVal_11 = _co.film; _ck(_v, 26, 0, currVal_11); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.film.name; var currVal_1 = _co.film.year; _ck(_v, 7, 0, currVal_0, currVal_1); var currVal_4 = (_co.isFilmLocalStorage ? "\u0423\u0414\u0410\u041B\u0418\u0422\u042C \u0424\u0418\u041B\u042C\u041C" : "\u041F\u041E\u0421\u041C\u041E\u0422\u0420\u0415\u0422\u042C \u041F\u041E\u0417\u0416\u0415"); _ck(_v, 12, 0, currVal_4); var currVal_5 = _co.film.alternateName; var currVal_6 = _co.film.slogan; _ck(_v, 14, 0, currVal_5, currVal_6); var currVal_7 = _co.film.description; _ck(_v, 17, 0, currVal_7); }); }
 exports.View_OnlinePageComponent_0 = View_OnlinePageComponent_0;
-function View_OnlinePageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-online-page", [], null, null, null, View_OnlinePageComponent_0, RenderType_OnlinePageComponent)), i1.ɵdid(1, 114688, null, 0, i12.OnlinePageComponent, [i4.FilmsService, i13.ActivatedRoute, i14.Title, i14.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_OnlinePageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-online-page", [], null, null, null, View_OnlinePageComponent_0, RenderType_OnlinePageComponent)), i1.ɵdid(1, 114688, null, 0, i13.OnlinePageComponent, [i4.FilmsService, i14.ActivatedRoute, i15.Title, i15.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_OnlinePageComponent_Host_0 = View_OnlinePageComponent_Host_0;
-var OnlinePageComponentNgFactory = i1.ɵccf("my-online-page", i12.OnlinePageComponent, View_OnlinePageComponent_Host_0, {}, {}, []);
+var OnlinePageComponentNgFactory = i1.ɵccf("my-online-page", i13.OnlinePageComponent, View_OnlinePageComponent_Host_0, {}, {}, []);
 exports.OnlinePageComponentNgFactory = OnlinePageComponentNgFactory;
 
 
@@ -2966,6 +3074,7 @@ var OnlinePageComponent = /** @class */ (function () {
         this.title = title;
         this.meta = meta;
         this.film = new film_model_1.Film();
+        this.isFilmLocalStorage = false;
     }
     OnlinePageComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2973,7 +3082,12 @@ var OnlinePageComponent = /** @class */ (function () {
             _this.film = s;
             _this.title.setTitle(_this.film.type.toLocaleUpperCase() + " - " + _this.film.name + " (" + _this.film.year + ") -  \u043E\u043D\u043B\u0430\u0439\u043D");
             _this.meta.updateTag({ property: "description", content: _this.film.description.substring(0, 200).replace(/\s/g, ' ').trim() });
+            _this.isFilmLocalStorage = _this.filmsServ.IsFilmInLocalStorage(_this.film._id);
         });
+    };
+    OnlinePageComponent.prototype.SetFilmLocalStorage = function () {
+        this.filmsServ.SwitchFilmFromLocalStorage(this.film._id);
+        this.isFilmLocalStorage = this.filmsServ.IsFilmInLocalStorage(this.film._id);
     };
     return OnlinePageComponent;
 }());
@@ -3492,18 +3606,21 @@ var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
 var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
 var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var name_model_1 = __webpack_require__(/*! ../../../../models/name.model */ "../models/name.model.ts");
+var common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
 var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var FilmsService = /** @class */ (function () {
-    function FilmsService(http, route) {
+    function FilmsService(http, route, platformId) {
         this.http = http;
         this.route = route;
+        this.platformId = platformId;
         this.indexFilms$ = new rxjs_1.BehaviorSubject(new films_model_1.IndexFilms());
         this.films$ = new rxjs_1.BehaviorSubject(new films_model_1.Films());
         this.filter$ = new rxjs_1.BehaviorSubject(new films_model_1.FilmFilter());
         this.filmsByName$ = new rxjs_1.BehaviorSubject(new name_model_1.NameFilms());
         this.film$ = new rxjs_1.BehaviorSubject(new film_model_1.Film());
+        this.myFilms$ = new rxjs_1.BehaviorSubject([]);
     }
     FilmsService.prototype.getFilms = function () {
         var _this = this;
@@ -3550,7 +3667,49 @@ var FilmsService = /** @class */ (function () {
         nf.type = newtype;
         this.filter$.next(nf);
     };
-    FilmsService.ngInjectableDef = i0.defineInjectable({ factory: function FilmsService_Factory() { return new FilmsService(i0.inject(i1.HttpClient), i0.inject(i2.ActivatedRoute)); }, token: FilmsService, providedIn: "root" });
+    ///*LocalStorageFilms*///
+    FilmsService.prototype.SwitchFilmFromLocalStorage = function (id) {
+        if (common_1.isPlatformServer(this.platformId))
+            return;
+        var filmsIds = JSON.parse(localStorage.getItem("myFilms"));
+        if (!filmsIds) {
+            localStorage.setItem("myFilms", JSON.stringify([id]));
+            return;
+        }
+        if (filmsIds && !filmsIds.includes(id)) {
+            if (filmsIds.length > 100) {
+                alert("Первышен лимит. Пожалуйста очистите просмотренные фильмы из списка.");
+                return;
+            }
+            filmsIds.push(id);
+            localStorage.setItem("myFilms", JSON.stringify(filmsIds));
+            return;
+        }
+        if (filmsIds && filmsIds.includes(id)) {
+            localStorage.setItem("myFilms", JSON.stringify(filmsIds.filter(function (s) { return s !== id; })));
+            return;
+        }
+    };
+    FilmsService.prototype.IsFilmInLocalStorage = function (id) {
+        if (common_1.isPlatformServer(this.platformId))
+            return;
+        var filmsIds = localStorage.getItem("myFilms");
+        if (filmsIds) {
+            var pfilmsIds = JSON.parse(filmsIds);
+            return pfilmsIds.includes(id);
+        }
+        else {
+            return false;
+        }
+    };
+    FilmsService.prototype.GetFilmsFromLocalStorage = function () {
+        var _this = this;
+        var filmsIds = localStorage.getItem("myFilms");
+        return this.http.post('/api/films/my', filmsIds, { headers: { "Content-Type": "application/json" } }).pipe(operators_1.tap(function (s) {
+            _this.myFilms$.next(s);
+        }));
+    };
+    FilmsService.ngInjectableDef = i0.defineInjectable({ factory: function FilmsService_Factory() { return new FilmsService(i0.inject(i1.HttpClient), i0.inject(i2.ActivatedRoute), i0.inject(i0.PLATFORM_ID)); }, token: FilmsService, providedIn: "root" });
     return FilmsService;
 }());
 exports.FilmsService = FilmsService;

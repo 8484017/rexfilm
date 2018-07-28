@@ -2,12 +2,19 @@
   <div class="col-12 col-lg-9 p-0">
     <my-player></my-player>
 
-    <div class="w-100 p-2 mt-2">
-      <h1>{{film.name}} ({{film.year}})</h1>
-      <h5 class="pl-5 small text-secondary">{{film.alternateName}} - {{film.slogan}}</h5>
-      <hr class="my-1">
-      <div class="desc">{{film.description}}</div>
-      <my-features class="d-block mt-4" [features]="film.features"></my-features>
+    <div class="w-100 p-2 mt-2 row mb-0 mr-0 ml-0">
+      <div class="col">
+        <h1>{{film.name}} ({{film.year}})</h1>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-sm rounded-0" [ngClass]="isFilmLocalStorage ?'btn-outline-danger': 'btn-info' " (click)="SetFilmLocalStorage()">
+          <small>{{isFilmLocalStorage ? 'УДАЛИТЬ ФИЛЬМ' : 'ПОСМОТРЕТЬ ПОЗЖЕ'}}</small>
+        </button>
+      </div>
+      <h5 class="pl-5 w-100 small text-secondary">{{film.alternateName}} - {{film.slogan}}</h5>
+      <hr class="my-1 w-100">
+      <div class="desc w-100">{{film.description}}</div>
+      <my-features class="d-block mt-4 w-100" [features]="film.features"></my-features>
     </div>
   </div>
   <div class="col-3 p-0 d-none d-lg-flex">

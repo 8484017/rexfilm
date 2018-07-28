@@ -207,4 +207,20 @@ router.get("/api/films/byname/:id", function (r, s) { return __awaiter(_this, vo
         }
     });
 }); });
+router.post("/api/films/my", function (r, s) { return __awaiter(_this, void 0, void 0, function () {
+    var obj, films;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                obj = r.body;
+                return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).find({ _id: { $in: obj } })
+                        .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
+                        .toArray()];
+            case 1:
+                films = _a.sent();
+                s.json(films);
+                return [2 /*return*/];
+        }
+    });
+}); });
 exports.FilmsRouter = router;
