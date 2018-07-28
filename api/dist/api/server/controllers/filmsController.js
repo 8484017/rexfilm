@@ -41,6 +41,7 @@ var Db_1 = require("../classes/Db");
 var film_model_1 = require("../../../models/film.model");
 var films_model_1 = require("../../../models/films.model");
 var name_model_1 = require("../../../models/name.model");
+var util_1 = require("util");
 var pageCount = 10;
 var router = express.Router();
 router.post("/api/films", function (r, s) { return __awaiter(_this, void 0, void 0, function () {
@@ -213,7 +214,7 @@ router.post("/api/films/my", function (r, s) { return __awaiter(_this, void 0, v
         switch (_a.label) {
             case 0:
                 obj = r.body;
-                if (!obj)
+                if (!util_1.isArray(obj))
                     return [2 /*return*/, s.json([])];
                 return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).find({ _id: { $in: obj } })
                         .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })

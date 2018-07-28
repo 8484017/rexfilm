@@ -4,6 +4,7 @@ import { Film, FilmType } from '../../../models/film.model';
 import { Films, FilmFilter, Pagination, IndexFilms } from '../../../models/films.model';
 import { Name, NameFilms } from '../../../models/name.model';
 import { NameUtil } from '../modelUtils/nameUtil';
+import { isArray } from 'util';
 
 
 
@@ -153,7 +154,7 @@ router.get("/api/films/byname/:id", async (r, s) => {
 
 router.post("/api/films/my", async (r, s) => {
     let obj: number[] = r.body
-    if (!obj) return s.json([])
+    if (!isArray(obj)) return s.json([])
     let films = await db.getCollection(Film).find({ _id: { $in: obj } })
         .project({ _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1 })
         .toArray()
