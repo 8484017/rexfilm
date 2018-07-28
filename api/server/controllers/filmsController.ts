@@ -110,7 +110,7 @@ router.get("/api/films/index", async (r, s) => {
         indexFilms.newFilms = newFilms
         indexFilms.newSerials = newSerials
         indexFilms.popularFilms = popularFilms
-        indexFilms.popularSerials = popularFilms
+        indexFilms.popularSerials = popularSerials
         indexFilms.randomFilms = rand
     })
     s.json(indexFilms)

@@ -152,7 +152,7 @@ router.get("/api/films/index", function (r, s) { return __awaiter(_this, void 0,
                         indexFilms.newFilms = newFilms;
                         indexFilms.newSerials = newSerials;
                         indexFilms.popularFilms = popularFilms;
-                        indexFilms.popularSerials = popularFilms;
+                        indexFilms.popularSerials = popularSerials;
                         indexFilms.randomFilms = rand;
                     })];
             case 1:
