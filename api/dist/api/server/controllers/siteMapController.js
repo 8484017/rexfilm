@@ -45,7 +45,7 @@ router.get("/api/sitemap.xml", function (r, s) { return __awaiter(_this, void 0,
     var filmsCount, filesCount, index;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).countDocuments()];
+            case 0: return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).countDocuments({ isPublic: true })];
             case 1:
                 filmsCount = _a.sent();
                 filesCount = Math.ceil(filmsCount / 10000);
@@ -67,7 +67,7 @@ router.get("/api/:num.xml", function (r, s) { return __awaiter(_this, void 0, vo
     var fileNum, cursor;
     return __generator(this, function (_a) {
         fileNum = parseInt(r.params.num);
-        cursor = Db_1.db.getCollection(film_model_1.Film).find({}).skip(fileNum * 10000).limit(10000).project({ _id: 1, name: 1, timespan: 1 });
+        cursor = Db_1.db.getCollection(film_model_1.Film).find({ isPublic: true }).skip(fileNum * 10000).limit(10000).project({ _id: 1, name: 1, timespan: 1 });
         s.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
         cursor.forEach(function (d) {
             var slug = CyrillicToTranslit().transform(d.name, "-").toLocaleLowerCase().replace(/[^0-9a-z-]/gi, '');

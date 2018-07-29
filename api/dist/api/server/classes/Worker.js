@@ -116,7 +116,7 @@ var Worker = /** @class */ (function () {
                         html = _b.sent();
                         film = new FilmParser_1.FilmParser(html, id).getFilm();
                         idsName = filmUtil_1.FilmUtil.GetNameIds(film);
-                        return [4 /*yield*/, functions_1.Wait(30)];
+                        return [4 /*yield*/, functions_1.Wait(5)];
                     case 10:
                         _b.sent();
                         _a = 0, idsName_1 = idsName;
@@ -139,7 +139,7 @@ var Worker = /** @class */ (function () {
                         return [4 /*yield*/, Db_1.db.getCollection(name_model_1.Name).insertOne(name_1)];
                     case 15:
                         _b.sent();
-                        return [4 /*yield*/, functions_1.Wait(20)];
+                        return [4 /*yield*/, functions_1.Wait(2)];
                     case 16:
                         _b.sent();
                         _b.label = 17;

@@ -11,7 +11,7 @@ const router = express.Router();
 
 
 router.get("/api/sitemap.xml", async (r, s) => {
-    let filmsCount = await db.getCollection(Film).countDocuments();
+    let filmsCount = await db.getCollection(Film).countDocuments({ isPublic: true });
     let filesCount = Math.ceil(filmsCount / 10000)
 
     s.write('<?xml version="1.0" encoding="UTF-8"?>')
@@ -33,7 +33,7 @@ router.get("/api/sitemap.xml", async (r, s) => {
 router.get("/api/:num.xml", async (r, s) => {
     let fileNum = parseInt(r.params.num)
 
-    let cursor = db.getCollection(Film).find({}).skip(fileNum * 10000).limit(10000).project({ _id: 1, name: 1, timespan: 1 })
+    let cursor = db.getCollection(Film).find({ isPublic: true }).skip(fileNum * 10000).limit(10000).project({ _id: 1, name: 1, timespan: 1 })
     s.write(`<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`)
     cursor.forEach((d) => {
