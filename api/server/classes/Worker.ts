@@ -32,50 +32,55 @@ export class Worker {
     }
 
     public static async StartAsync(req) {
-        if (this.isWork) return;
-        await Logger.Log("Парсер запущен")
-        this.isWork = true;
-        this.req = req
-        await Logger.Log("Грузим ids файлы")
-        var ids = await this.getIdsAsync();
-        await Logger.Log("ids файлы загружены")
-        for (let id of ids) {
-            if (this.isCancel) {
-                await Logger.Log("Парсер остановлен")
-                this.isCancel = false;
-                this.isWork = false
-                throw "Work canceled";
-            }
+        try {
+            if (this.isWork) return;
+            await Logger.Log("Парсер запущен")
+            this.isWork = true;
+            this.req = req
+            await Logger.Log("Грузим ids файлы")
+            var ids = await this.getIdsAsync();
+            await Logger.Log("ids файлы загружены")
+            for (let id of ids) {
+                if (this.isCancel) {
+                    await Logger.Log("Парсер остановлен")
+                    this.isCancel = false;
+                    this.isWork = false
+                    throw "Work canceled";
+                }
 
-            let filmEx = await db.getCollection(Film).count({ _id: id })
-            if (filmEx > 0) {
-                continue;
-            }
+                let filmEx = await db.getCollection(Film).count({ _id: id })
+                if (filmEx > 0) {
+                    continue;
+                }
 
-            let html = await new HtmlLoader(id, HtmlLoaderType.film, this.req).getHtmlAsync();
-            let film = new FilmParser(html, id).getFilm()
-            let idsName = FilmUtil.GetNameIds(film)
-            await Wait(5)
-            for (let nameId of idsName) {
-                let exists = await db.getCollection(Name).count({ _id: nameId })
-                if (exists > 0) continue;
+                let html = await new HtmlLoader(id, HtmlLoaderType.film, this.req).getHtmlAsync();
+                let film = new FilmParser(html, id).getFilm()
+                let idsName = FilmUtil.GetNameIds(film)
+                await Wait(5)
+                for (let nameId of idsName) {
+                    let exists = await db.getCollection(Name).count({ _id: nameId })
+                    if (exists > 0) continue;
 
-                let nameHtml = await new HtmlLoader(nameId, HtmlLoaderType.name, this.req).getHtmlAsync();
-                let name = new NameParser(nameHtml, nameId).getModelName()
-                await NameUtil.PrepaireInsertAsync(name)
-                await db.getCollection(Name).insertOne(name);
-                await Wait(2)
-            }
-            try {
+                    let nameHtml = await new HtmlLoader(nameId, HtmlLoaderType.name, this.req).getHtmlAsync();
+                    let name = new NameParser(nameHtml, nameId).getModelName()
+                    await NameUtil.PrepaireInsertAsync(name)
+                    await db.getCollection(Name).insertOne(name);
+                    await Wait(2)
+                }
+
                 await FilmUtil.PrepaireInsertAsync(film);
                 await db.getCollection(Film).insertOne(film);
                 Logger.Log("Фильм добавлен - " + id);
-            } catch (error) {
-                if (error.code === 11000) { }
-                else {
-                    await Logger.Log('Error ' + error)
-                    throw (error)
-                }
+
+            }
+        } catch (error) {
+            if (error.code === 11000) { }
+            else {
+                await Logger.Log('Error ' + error)
+                await Logger.Log("Парсер остановлен")
+                this.isCancel = false;
+                this.isWork = false
+                await this.StartAsync(this.req)
             }
 
         };

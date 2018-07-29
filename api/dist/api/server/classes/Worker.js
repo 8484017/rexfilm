@@ -77,6 +77,7 @@ var Worker = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        _b.trys.push([0, 23, , 29]);
                         if (this.isWork)
                             return [2 /*return*/];
                         return [4 /*yield*/, logger_1.Logger.Log("Парсер запущен")];
@@ -96,7 +97,7 @@ var Worker = /** @class */ (function () {
                         _i = 0, ids_1 = ids;
                         _b.label = 5;
                     case 5:
-                        if (!(_i < ids_1.length)) return [3 /*break*/, 26];
+                        if (!(_i < ids_1.length)) return [3 /*break*/, 22];
                         id = ids_1[_i];
                         if (!this.isCancel) return [3 /*break*/, 7];
                         return [4 /*yield*/, logger_1.Logger.Log("Парсер остановлен")];
@@ -109,7 +110,7 @@ var Worker = /** @class */ (function () {
                     case 8:
                         filmEx = _b.sent();
                         if (filmEx > 0) {
-                            return [3 /*break*/, 25];
+                            return [3 /*break*/, 21];
                         }
                         return [4 /*yield*/, new HtmlLoader_1.HtmlLoader(id, 1 /* film */, this.req).getHtmlAsync()];
                     case 9:
@@ -146,29 +147,36 @@ var Worker = /** @class */ (function () {
                     case 17:
                         _a++;
                         return [3 /*break*/, 11];
-                    case 18:
-                        _b.trys.push([18, 21, , 25]);
-                        return [4 /*yield*/, filmUtil_1.FilmUtil.PrepaireInsertAsync(film)];
+                    case 18: return [4 /*yield*/, filmUtil_1.FilmUtil.PrepaireInsertAsync(film)];
                     case 19:
                         _b.sent();
                         return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).insertOne(film)];
                     case 20:
                         _b.sent();
                         logger_1.Logger.Log("Фильм добавлен - " + id);
-                        return [3 /*break*/, 25];
+                        _b.label = 21;
                     case 21:
-                        error_1 = _b.sent();
-                        if (!(error_1.code === 11000)) return [3 /*break*/, 22];
-                        return [3 /*break*/, 24];
-                    case 22: return [4 /*yield*/, logger_1.Logger.Log('Error ' + error_1)];
-                    case 23:
-                        _b.sent();
-                        throw (error_1);
-                    case 24: return [3 /*break*/, 25];
-                    case 25:
                         _i++;
                         return [3 /*break*/, 5];
+                    case 22: return [3 /*break*/, 29];
+                    case 23:
+                        error_1 = _b.sent();
+                        if (!(error_1.code === 11000)) return [3 /*break*/, 24];
+                        return [3 /*break*/, 28];
+                    case 24: return [4 /*yield*/, logger_1.Logger.Log('Error ' + error_1)];
+                    case 25:
+                        _b.sent();
+                        return [4 /*yield*/, logger_1.Logger.Log("Парсер остановлен")];
                     case 26:
+                        _b.sent();
+                        this.isCancel = false;
+                        this.isWork = false;
+                        return [4 /*yield*/, this.StartAsync(this.req)];
+                    case 27:
+                        _b.sent();
+                        _b.label = 28;
+                    case 28: return [3 /*break*/, 29];
+                    case 29:
                         ;
                         return [2 /*return*/];
                 }
