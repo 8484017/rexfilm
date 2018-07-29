@@ -16,7 +16,7 @@
       <div class="desc w-100">{{film.description}}</div>
       <my-features class="d-block mt-4 w-100" [features]="film.features"></my-features>
     </div>
-    <my-carusel-films [grid]="{ xs: 2, sm: 3, md: 4, lg: 4, all: 0 }" [title]="'Похожие ' + film.type + 'ы'" [films]="filmsLike"></my-carusel-films>
+    <my-carusel-films [grid]="{ xs: 2, sm: 3, md: 4, lg: 4, all: 0 }" [title]="'Похожее'" [films]="filmsLike"></my-carusel-films>
   </div>
   <div class="col-3 p-0 d-none d-lg-flex">
     <my-film-info-panel [film]="film"></my-film-info-panel>
