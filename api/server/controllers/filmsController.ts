@@ -1,6 +1,7 @@
 import * as express from 'express'
 import { db } from '../classes/Db';
 import { Film, FilmType } from '../../../models/film.model';
+import { FilmView } from '../../../models/film.view';
 import { Films, FilmFilter, Pagination, IndexFilms } from '../../../models/films.model';
 import { Name, NameFilms } from '../../../models/name.model';
 import { NameUtil } from '../modelUtils/nameUtil';
@@ -73,8 +74,22 @@ router.get("/api/film/:id", async (r, s) => {
             result.regisers = regisers;
             result.scenarists = scenarists;
         });
+    let filmView = new FilmView()
+    filmView.film = result;
+    let films = await SearchFilmsByNameAndGenre(result.name, result._id, result.genre);
+    films = films.concat(await FilmsByGenres(result.genre, result._id))
+
+    filmView.films = films.reduce(function (previous, current) {
+
+        var object = previous.filter(object => object._id === current._id);
+        if (object.length == 0) {
+            previous.push(current);
+        }
+        return previous;
+    }, []);
+
+    s.json(filmView)
     db.getCollection(Film).updateOne({ _id: r.params.id }, { $inc: { count: 1 } })
-    s.json(result)
 })
 
 router.get("/api/films/index", async (r, s) => {
@@ -162,7 +177,55 @@ router.post("/api/films/my", async (r, s) => {
 })
 
 
+const FilmsByGenres = async (genres: string[], id): Promise<Film[]> => {
+    try {
 
+        return await db.getCollection(Film).aggregate([
+            { $match: { isPublic: true } },
+            { $match: { _id: { $ne: id } } },
+            { $match: { genre: { $in: genres } } },
+            {
+                $project: {
+                    genres: {
+                        $size: {
+                            $setIntersection: [genres, "$genre"]
+                        }
+                    },
+                    _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1
+                }
+            },
+            { "$sort": { "genres": -1 } },
+            { "$limit": 12 }
+        ]).toArray()
+    } catch (error) {
+        return []
+
+    }
+}
+
+const SearchFilmsByNameAndGenre = async (text: string, id, genres, limit = 12): Promise<Film[]> => {
+    try {
+
+        return await db.getCollection(Film).aggregate([
+            { $match: { $text: { $search: text } } },
+            { $match: { _id: { $ne: id } } },
+            { $match: { genre: { $in: genres } } },
+            { $match: { isPublic: true } },
+            {
+                $project: {
+
+                    _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1
+                }
+            },
+            { "$limit": limit }
+        ]).toArray()
+    } catch (error) {
+        console.log(error);
+
+        return []
+
+    }
+}
 
 export const FilmsRouter: express.Router = router;
 

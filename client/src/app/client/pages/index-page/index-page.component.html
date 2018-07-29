@@ -1,3 +1,22 @@
+<div class="p-2">
+  <my-carusel-films *ngIf="indexFilms.newFilms.length > 0" [title]="'Новые фильмы'" [films]="indexFilms.newFilms">
+  </my-carusel-films>
+</div>
+
+<my-carusel-films *ngIf="indexFilms.newSerials.length > 0" [title]="'Новые сериалы'" [films]="indexFilms.newSerials">
+</my-carusel-films>
+
+<my-carusel-films *ngIf="indexFilms.popularFilms.length > 0" [title]="'Популярные фильмы'" [films]="indexFilms.popularFilms">
+</my-carusel-films>
+
+<my-carusel-films *ngIf="indexFilms.popularSerials.length > 0" [title]="'Популярные сериалы'" [films]="indexFilms.popularSerials">
+</my-carusel-films>
+
+<my-carusel-films *ngIf="indexFilms.randomFilms.length > 0" [title]="'Случайные фильмы и сериалы'" [films]="indexFilms.randomFilms">
+</my-carusel-films>
+
+
+<!-- 
 <div class="row m-0 col-12">
   <div class="title">
     <h3>Новые фильмы:</h3>
@@ -46,4 +65,4 @@
     <my-film-item-index class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center" *ngFor="let film of indexFilms.randomFilms"
       [film]="film"></my-film-item-index>
   </div>
-</div>
+</div> -->

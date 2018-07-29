@@ -18,10 +18,12 @@ export class OnlinePageComponent implements OnInit {
     private meta: Meta
   ) { }
   film: Film = new Film()
+  filmsLike: Film[] = []
   isFilmLocalStorage = false;
   ngOnInit() {
     this.filmsServ.film$.subscribe(s => {
-      this.film = s
+      this.film = s.film
+      this.filmsLike = s.films
       this.title.setTitle(`${this.film.type.toLocaleUpperCase()} - ${this.film.name} (${this.film.year}) -  онлайн`)
 
       this.meta.updateTag({ property: "description", content: this.film.description.substring(0, 200).replace(/\s/g, ' ').trim() })

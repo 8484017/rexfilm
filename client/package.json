@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/platform-server": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@ngu/carousel": "^1.4.8",
     "@nguniversal/express-engine": "^6.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "@ngx-loading-bar/http-client": "^2.1.1",
@@ -36,6 +37,7 @@
     "delayed-scroll-restoration-polyfill": "^0.1.1",
     "ngx-pagination": "^3.1.1",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.2",
     "scroll-restoration-polyfill": "^0.6.1",
     "ts-loader": "^4.4.2",
     "zone.js": "^0.8.26"

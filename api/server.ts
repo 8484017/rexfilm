@@ -10,6 +10,7 @@ import { Logger } from './server/util/logger';
 import { SiteMapRouter } from './server/controllers/siteMapController';
 import { AdminRouter } from './server/controllers/adminController';
 import * as session from "express-session";
+import { Film } from '../models/film.model';
 const MongoStore = require('connect-mongo')(session);
 
 module.exports = (async () => {
@@ -18,6 +19,9 @@ module.exports = (async () => {
 
 
     await db.Connect();
+
+    await db.getCollection(Film).createIndex({ name: 'text' }, { default_language: "ru" })
+
 
     app.use(express.urlencoded({ extended: false }))
     app.use(express.json())

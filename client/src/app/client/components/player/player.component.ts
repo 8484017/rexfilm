@@ -25,7 +25,7 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit() {
     this.filmServ.film$.subscribe(s => {
-      this.film = s
+      this.film = s.film
     })
 
     if (isPlatformBrowser(this.platformId)) {

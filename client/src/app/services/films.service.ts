@@ -2,6 +2,7 @@ import { Injectable, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Films, FilmFilter, IndexFilms } from '../../../../models/films.model';
 import { Film, FilmType } from '../../../../models/film.model';
+import { FilmView } from '../../../../models/film.view';
 import { BehaviorSubject } from 'rxjs';
 import { tap, debounceTime, distinctUntilChanged, skipLast, catchError } from 'rxjs/operators';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
@@ -29,7 +30,7 @@ export class FilmsService {
   films$ = new BehaviorSubject(new Films())
   filter$ = new BehaviorSubject(new FilmFilter())
   filmsByName$ = new BehaviorSubject(new NameFilms())
-  film$ = new BehaviorSubject(new Film())
+  film$ = new BehaviorSubject(new FilmView())
   myFilms$ = new BehaviorSubject([])
   public getFilms() {
 
@@ -40,7 +41,7 @@ export class FilmsService {
   }
 
   public getFilmById(id: string) {
-    return this.http.get<Film>('/api/film/' + id).pipe(tap(s => {
+    return this.http.get<FilmView>('/api/film/' + id).pipe(tap(s => {
       this.film$.next(s)
     }))
   }

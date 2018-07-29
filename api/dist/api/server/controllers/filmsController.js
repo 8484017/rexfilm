@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var Db_1 = require("../classes/Db");
 var film_model_1 = require("../../../models/film.model");
+var film_view_1 = require("../../../models/film.view");
 var films_model_1 = require("../../../models/films.model");
 var name_model_1 = require("../../../models/name.model");
 var util_1 = require("util");
@@ -81,14 +82,14 @@ router.post("/api/films", function (r, s) { return __awaiter(_this, void 0, void
     });
 }); });
 router.get("/api/film/:id", function (r, s) { return __awaiter(_this, void 0, void 0, function () {
-    var id, result, actors, compositors, hudognik, montag, operators, produsers, regisers, scenarists;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var id, result, actors, compositors, hudognik, montag, operators, produsers, regisers, scenarists, filmView, films, _a, _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
             case 0:
                 id = parseInt(r.params.id);
                 return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).findOne({ _id: id })];
             case 1:
-                result = _a.sent();
+                result = _c.sent();
                 actors = Db_1.db.getCollection(name_model_1.Name).find({ _id: { $in: result.actors } }).toArray();
                 compositors = Db_1.db.getCollection(name_model_1.Name).find({ _id: { $in: result.compositors } }).toArray();
                 hudognik = Db_1.db.getCollection(name_model_1.Name).find({ _id: { $in: result.hudognik } }).toArray();
@@ -110,9 +111,25 @@ router.get("/api/film/:id", function (r, s) { return __awaiter(_this, void 0, vo
                         result.scenarists = scenarists;
                     })];
             case 2:
-                _a.sent();
+                _c.sent();
+                filmView = new film_view_1.FilmView();
+                filmView.film = result;
+                return [4 /*yield*/, SearchFilmsByNameAndGenre(result.name, result._id, result.genre)];
+            case 3:
+                films = _c.sent();
+                _b = (_a = films).concat;
+                return [4 /*yield*/, FilmsByGenres(result.genre, result._id)];
+            case 4:
+                films = _b.apply(_a, [_c.sent()]);
+                filmView.films = films.reduce(function (previous, current) {
+                    var object = previous.filter(function (object) { return object._id === current._id; });
+                    if (object.length == 0) {
+                        previous.push(current);
+                    }
+                    return previous;
+                }, []);
+                s.json(filmView);
                 Db_1.db.getCollection(film_model_1.Film).updateOne({ _id: r.params.id }, { $inc: { count: 1 } });
-                s.json(result);
                 return [2 /*return*/];
         }
     });
@@ -226,4 +243,65 @@ router.post("/api/films/my", function (r, s) { return __awaiter(_this, void 0, v
         }
     });
 }); });
+var FilmsByGenres = function (genres, id) { return __awaiter(_this, void 0, void 0, function () {
+    var error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).aggregate([
+                        { $match: { isPublic: true } },
+                        { $match: { _id: { $ne: id } } },
+                        { $match: { genre: { $in: genres } } },
+                        {
+                            $project: {
+                                genres: {
+                                    $size: {
+                                        $setIntersection: [genres, "$genre"]
+                                    }
+                                },
+                                _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1
+                            }
+                        },
+                        { "$sort": { "genres": -1 } },
+                        { "$limit": 12 }
+                    ]).toArray()];
+            case 1: return [2 /*return*/, _a.sent()];
+            case 2:
+                error_1 = _a.sent();
+                return [2 /*return*/, []];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+var SearchFilmsByNameAndGenre = function (text, id, genres, limit) {
+    if (limit === void 0) { limit = 12; }
+    return __awaiter(_this, void 0, void 0, function () {
+        var error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).aggregate([
+                            { $match: { $text: { $search: text } } },
+                            { $match: { _id: { $ne: id } } },
+                            { $match: { genre: { $in: genres } } },
+                            { $match: { isPublic: true } },
+                            {
+                                $project: {
+                                    _id: 1, name: 1, description: 1, poster_thumb: 1, time: 1, kp: 1, genre: 1, counrty: 1, year: 1
+                                }
+                            },
+                            { "$limit": limit }
+                        ]).toArray()];
+                case 1: return [2 /*return*/, _a.sent()];
+                case 2:
+                    error_2 = _a.sent();
+                    console.log(error_2);
+                    return [2 /*return*/, []];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+};
 exports.FilmsRouter = router;

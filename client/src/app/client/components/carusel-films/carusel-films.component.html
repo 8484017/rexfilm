@@ -1,0 +1,13 @@
+<div class="row m-0 col-12">
+  <div class="title">
+    <h3>{{title}}:</h3>
+  </div>
+</div>
+<ngu-carousel [inputs]="carouselOne" (carouselLoad)="carLoad($event)">
+  <ngu-item class="d-flex justify-content-center" NguCarouselItem *ngFor="let film of films">
+    <my-film-item-index class="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center" [film]="film"></my-film-item-index>
+  </ngu-item>
+
+  <button NguCarouselPrev class='btn leftRs'>&lt;</button>
+  <button NguCarouselNext class='btn rightRs'>&gt;</button>
+</ngu-carousel>

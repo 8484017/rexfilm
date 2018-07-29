@@ -45,6 +45,7 @@ var logger_1 = require("./server/util/logger");
 var siteMapController_1 = require("./server/controllers/siteMapController");
 var adminController_1 = require("./server/controllers/adminController");
 var session = require("express-session");
+var film_model_1 = require("../models/film.model");
 var MongoStore = require('connect-mongo')(session);
 module.exports = (function () { return __awaiter(_this, void 0, void 0, function () {
     var app;
@@ -54,6 +55,9 @@ module.exports = (function () { return __awaiter(_this, void 0, void 0, function
                 app = express();
                 return [4 /*yield*/, Db_1.db.Connect()];
             case 1:
+                _a.sent();
+                return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).createIndex({ name: 'text' }, { default_language: "ru" })];
+            case 2:
                 _a.sent();
                 app.use(express.urlencoded({ extended: false }));
                 app.use(express.json());

@@ -8,14 +8,12 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { HttpInterCeptor } from './interceptors/http.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-
     BrowserAnimationsModule,
     LoadingBarHttpClientModule,
     HttpClientModule,

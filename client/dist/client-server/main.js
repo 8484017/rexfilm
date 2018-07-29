@@ -148,6 +148,26 @@ exports.Genres = [
 
 /***/ }),
 
+/***/ "../models/film.view.ts":
+/*!******************************!*\
+  !*** ../models/film.view.ts ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var FilmView = /** @class */ (function () {
+    function FilmView() {
+    }
+    return FilmView;
+}());
+exports.FilmView = FilmView;
+
+
+/***/ }),
+
 /***/ "../models/films.model.ts":
 /*!********************************!*\
   !*** ../models/films.model.ts ***!
@@ -259,6 +279,940 @@ function View_ɵEmptyOutletComponent_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i
 exports.View_ɵEmptyOutletComponent_Host_0 = View_ɵEmptyOutletComponent_Host_0;
 var ɵEmptyOutletComponentNgFactory = i0.ɵccf("ng-component", i1.ɵEmptyOutletComponent, View_ɵEmptyOutletComponent_Host_0, {}, {}, []);
 exports.ɵEmptyOutletComponentNgFactory = ɵEmptyOutletComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./node_modules/@ngu/carousel/src/ngu-carousel.directive.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@ngu/carousel/src/ngu-carousel.directive.js ***!
+  \******************************************************************/
+/*! exports provided: NguCarouselItemDirective, NguCarouselNextDirective, NguCarouselPrevDirective, NguCarouselPointDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NguCarouselItemDirective", function() { return NguCarouselItemDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NguCarouselNextDirective", function() { return NguCarouselNextDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NguCarouselPrevDirective", function() { return NguCarouselPrevDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NguCarouselPointDirective", function() { return NguCarouselPointDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "@angular/core");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_angular_core__WEBPACK_IMPORTED_MODULE_0__);
+
+var NguCarouselItemDirective = /** @class */ (function () {
+    function NguCarouselItemDirective() {
+    }
+    NguCarouselItemDirective.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                    // tslint:disable-next-line:directive-selector
+                    selector: '[NguCarouselItem]'
+                },] },
+    ];
+    /** @nocollapse */
+    NguCarouselItemDirective.ctorParameters = function () { return []; };
+    return NguCarouselItemDirective;
+}());
+
+var NguCarouselNextDirective = /** @class */ (function () {
+    function NguCarouselNextDirective() {
+    }
+    NguCarouselNextDirective.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                    // tslint:disable-next-line:directive-selector
+                    selector: '[NguCarouselNext]'
+                },] },
+    ];
+    /** @nocollapse */
+    NguCarouselNextDirective.ctorParameters = function () { return []; };
+    return NguCarouselNextDirective;
+}());
+
+var NguCarouselPrevDirective = /** @class */ (function () {
+    function NguCarouselPrevDirective() {
+    }
+    NguCarouselPrevDirective.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                    // tslint:disable-next-line:directive-selector
+                    selector: '[NguCarouselPrev]'
+                },] },
+    ];
+    /** @nocollapse */
+    NguCarouselPrevDirective.ctorParameters = function () { return []; };
+    return NguCarouselPrevDirective;
+}());
+
+var NguCarouselPointDirective = /** @class */ (function () {
+    function NguCarouselPointDirective() {
+    }
+    NguCarouselPointDirective.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                    // tslint:disable-next-line:directive-selector
+                    selector: '[NguCarouselPoint]'
+                },] },
+    ];
+    /** @nocollapse */
+    NguCarouselPointDirective.ctorParameters = function () { return []; };
+    return NguCarouselPointDirective;
+}());
+
+//# sourceMappingURL=ngu-carousel.directive.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@ngu/carousel/src/ngu-carousel.service.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@ngu/carousel/src/ngu-carousel.service.js ***!
+  \****************************************************************/
+/*! exports provided: NguCarouselService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NguCarouselService", function() { return NguCarouselService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "@angular/core");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_angular_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var rxjs_Subject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/Subject */ "rxjs/Subject");
+/* harmony import */ var rxjs_Subject__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(rxjs_Subject__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var NguCarouselService = /** @class */ (function () {
+    function NguCarouselService() {
+        this.getData = new rxjs_Subject__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+    }
+    NguCarouselService.prototype.reset = function (token) {
+        this.getData.next({ id: token, ref: 'reset' });
+    };
+    NguCarouselService.prototype.moveToSlide = function (token, index, animate) {
+        this.getData.next({
+            id: token,
+            ref: 'moveToSlide',
+            index: index,
+            animation: animate
+        });
+    };
+    NguCarouselService.prototype.destroy = function (token) {
+        this.getData.next({ id: token, ref: 'destroy' });
+    };
+    NguCarouselService.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
+    ];
+    /** @nocollapse */
+    NguCarouselService.ctorParameters = function () { return []; };
+    return NguCarouselService;
+}());
+
+//# sourceMappingURL=ngu-carousel.service.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@ngu/carousel/src/ngu-carousel/ngu-carousel.component.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@ngu/carousel/src/ngu-carousel/ngu-carousel.component.js ***!
+  \*******************************************************************************/
+/*! exports provided: NguCarouselComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NguCarouselComponent", function() { return NguCarouselComponent; });
+/* harmony import */ var _ngu_carousel_directive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../ngu-carousel.directive */ "./node_modules/@ngu/carousel/src/ngu-carousel.directive.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "@angular/core");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_angular_core__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "@angular/common");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_angular_common__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ngu_carousel_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../ngu-carousel.service */ "./node_modules/@ngu/carousel/src/ngu-carousel.service.js");
+
+
+
+
+var NguCarouselComponent = /** @class */ (function () {
+    function NguCarouselComponent(el, renderer, carouselSer, platformId) {
+        this.el = el;
+        this.renderer = renderer;
+        this.carouselSer = carouselSer;
+        this.platformId = platformId;
+        this.carouselLoad = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        // tslint:disable-next-line:no-output-on-prefix
+        this.onMove = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.initData = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.pauseCarousel = false;
+        this.Arr1 = Array;
+        this.pointNumbers = [];
+        this.data = {
+            type: 'fixed',
+            token: '',
+            deviceType: 'lg',
+            items: 0,
+            load: 0,
+            deviceWidth: 0,
+            carouselWidth: 0,
+            itemWidth: 0,
+            visibleItems: { start: 0, end: 0 },
+            slideItems: 0,
+            itemWidthPer: 0,
+            itemLength: 0,
+            currentSlide: 0,
+            easing: 'cubic-bezier(0, 0, 0.2, 1)',
+            speed: 400,
+            transform: { xs: 0, sm: 0, md: 0, lg: 0, all: 0 },
+            loop: false,
+            dexVal: 0,
+            touchTransform: 0,
+            touch: { active: false, swipe: '', velocity: 0 },
+            isEnd: false,
+            isFirst: true,
+            isLast: false,
+            RTL: false,
+            button: { visibility: 'disabled' },
+            point: true,
+            vertical: { enabled: false, height: 400 }
+        };
+    }
+    NguCarouselComponent.prototype.ngOnChanges = function (changes) { };
+    NguCarouselComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.carousel = this.el.nativeElement;
+        this.carouselMain = this.carouselMain1.nativeElement;
+        this.carouselInner = this.carouselInner1.nativeElement;
+        this.rightBtn = this.next.nativeElement;
+        this.leftBtn = this.prev.nativeElement;
+        this.data.type = this.userData.grid.all !== 0 ? 'fixed' : 'responsive';
+        this.data.loop = this.userData.loop || false;
+        this.userData.easing = this.userData.easing || 'cubic-bezier(0, 0, 0.2, 1)';
+        this.data.touch.active = this.userData.touch || false;
+        this.data.RTL = this.userData.RTL ? true : false;
+        if (this.userData.vertical && this.userData.vertical.enabled) {
+            this.data.vertical.enabled = this.userData.vertical.enabled;
+            this.data.vertical.height = this.userData.vertical.height;
+        }
+        this.directionSym = this.data.RTL ? '' : '-';
+        this.data.point =
+            this.userData.point && typeof this.userData.point.visible !== 'undefined'
+                ? this.userData.point.visible
+                : true;
+        this.withAnim = true;
+        this.carouselSize();
+        // const datas = this.itemsElements.first.nativeElement.getBoundingClientRect().width;
+        this.carouselSerSub = this.carouselSer.getData.subscribe(function (res) {
+            if (res.id === _this.data.token) {
+                if (res.ref === 'moveToSlide') {
+                    if (_this.pointers !== res.index && res.index < _this.pointIndex) {
+                        _this.withAnim = res.animation === false ? false : true;
+                        _this.moveTo(res.index);
+                    }
+                }
+                else if (res.ref === 'reset') {
+                    if (_this.pointers !== 0 && 0 < _this.pointIndex) {
+                        _this.withAnim = false;
+                        _this.reset();
+                    }
+                }
+            }
+        });
+    };
+    NguCarouselComponent.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.listener1 = this.renderer.listen(this.leftBtn, 'click', function () {
+            return _this.carouselScrollOne(0);
+        });
+        this.listener2 = this.renderer.listen(this.rightBtn, 'click', function () {
+            return _this.carouselScrollOne(1);
+        });
+        this.carouselCssNode = this.createStyleElem();
+        this.storeCarouselData();
+        this.buttonControl();
+        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId)) {
+            this.carouselInterval();
+            this.onWindowScrolling();
+            if (!this.data.vertical.enabled) {
+                this.touch();
+            }
+            this.listener3 = this.renderer.listen('window', 'resize', function (event) {
+                _this.onResizing(event);
+            });
+        }
+        this.items.changes.subscribe(function (val) {
+            _this.data.isLast = false;
+            _this.carouselPoint();
+            _this.buttonControl();
+        });
+    };
+    NguCarouselComponent.prototype.ngAfterViewInit = function () {
+        if (this.userData.point.pointStyles) {
+            var datas = this.userData.point.pointStyles.replace(/.ngucarouselPoint/g, "." + this.data.token + " .ngucarouselPoint");
+            this.createStyleElem(datas);
+        }
+        else if (this.userData.point && this.userData.point.visible) {
+            this.renderer.addClass(this.pointMain.nativeElement, 'ngucarouselPointDefault');
+        }
+    };
+    NguCarouselComponent.prototype.ngOnDestroy = function () {
+        clearInterval(this.carouselInt);
+        // tslint:disable-next-line:no-unused-expression
+        this.itemsSubscribe && this.itemsSubscribe.unsubscribe();
+        this.carouselSerSub && this.carouselSerSub.unsubscribe();
+        this.carouselLoad.complete();
+        // remove listeners
+        for (var i = 1; i <= 8; i++) {
+            // tslint:disable-next-line:no-eval
+            eval("this.listener" + i + " && this.listener" + i + "()");
+        }
+    };
+    NguCarouselComponent.prototype.onResizing = function (event) {
+        var _this = this;
+        clearTimeout(this.onResize);
+        this.onResize = setTimeout(function () {
+            if (_this.data.deviceWidth !== event.target.outerWidth) {
+                _this.setStyle(_this.carouselInner, 'transition', "");
+                _this.storeCarouselData();
+            }
+        }, 500);
+    };
+    /** Get Touch input */
+    NguCarouselComponent.prototype.touch = function () {
+        var _this = this;
+        if (this.userData.touch) {
+            var hammertime = new Hammer(this.carouselInner);
+            hammertime.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+            hammertime.on('panstart', function (ev) {
+                _this.data.carouselWidth = _this.carouselInner.offsetWidth;
+                _this.data.touchTransform = _this.data.transform[_this.data.deviceType];
+                _this.data.dexVal = 0;
+                _this.setStyle(_this.carouselInner, 'transition', '');
+            });
+            if (this.data.vertical.enabled) {
+                hammertime.on('panup', function (ev) {
+                    _this.touchHandling('panleft', ev);
+                });
+                hammertime.on('pandown', function (ev) {
+                    _this.touchHandling('panright', ev);
+                });
+            }
+            else {
+                hammertime.on('panleft', function (ev) {
+                    _this.touchHandling('panleft', ev);
+                });
+                hammertime.on('panright', function (ev) {
+                    _this.touchHandling('panright', ev);
+                });
+            }
+            hammertime.on('panend', function (ev) {
+                if (Math.abs(ev.velocity) > 1) {
+                    _this.data.touch.velocity = ev.velocity;
+                    var direc = 0;
+                    if (!_this.data.RTL) {
+                        direc = _this.data.touch.swipe === 'panright' ? 0 : 1;
+                    }
+                    else {
+                        direc = _this.data.touch.swipe === 'panright' ? 1 : 0;
+                    }
+                    _this.carouselScrollOne(direc);
+                }
+                else {
+                    _this.data.dexVal = 0;
+                    _this.setStyle(_this.carouselInner, 'transition', 'transform 324ms cubic-bezier(0, 0, 0.2, 1)');
+                    _this.setStyle(_this.carouselInner, 'transform', '');
+                }
+            });
+            hammertime.on('hammer.input', function (ev) {
+                // allow nested touch events to no propagate, this may have other side affects but works for now.
+                // TODO: It is probably better to check the source element of the event and only apply the handle to the correct carousel
+                ev.srcEvent.stopPropagation();
+            });
+        }
+    };
+    /** handle touch input */
+    NguCarouselComponent.prototype.touchHandling = function (e, ev) {
+        // vertical touch events seem to cause to panstart event with an odd delta
+        // and a center of {x:0,y:0} so this will ignore them
+        if (ev.center.x === 0) {
+            return;
+        }
+        ev = Math.abs(this.data.vertical.enabled ? ev.deltaY : ev.deltaX);
+        var valt = ev - this.data.dexVal;
+        valt =
+            this.data.type === 'responsive'
+                ? Math.abs(ev - this.data.dexVal) /
+                    (this.data.vertical.enabled
+                        ? this.data.vertical.height
+                        : this.data.carouselWidth) *
+                    100
+                : valt;
+        this.data.dexVal = ev;
+        this.data.touch.swipe = e;
+        if (!this.data.RTL) {
+            this.data.touchTransform =
+                e === 'panleft'
+                    ? valt + this.data.touchTransform
+                    : this.data.touchTransform - valt;
+        }
+        else {
+            this.data.touchTransform =
+                e === 'panright'
+                    ? valt + this.data.touchTransform
+                    : this.data.touchTransform - valt;
+        }
+        if (this.data.touchTransform > 0) {
+            if (this.data.type === 'responsive') {
+                this.setStyle(this.carouselInner, 'transform', this.data.vertical.enabled
+                    ? "translate3d(0, " + this.directionSym + this.data.touchTransform + "%, 0)"
+                    : "translate3d(" + this.directionSym + this.data.touchTransform + "%, 0, 0)");
+            }
+            else {
+                this.setStyle(this.carouselInner, 'transform', this.data.vertical.enabled
+                    ? "translate3d(0, " + this.directionSym + this.data.touchTransform + "px, 0)"
+                    : "translate3d(" + this.directionSym + this.data.touchTransform + "px, 0px, 0px)");
+            }
+        }
+        else {
+            this.data.touchTransform = 0;
+        }
+    };
+    /** this used to disable the scroll when it is not on the display */
+    NguCarouselComponent.prototype.onWindowScrolling = function () {
+        var top = this.carousel.offsetTop;
+        var scrollY = window.scrollY;
+        var heightt = window.innerHeight;
+        var carouselHeight = this.carousel.offsetHeight;
+        if (top <= scrollY + heightt - carouselHeight / 4 &&
+            top + carouselHeight / 2 >= scrollY) {
+            this.carouselIntervalEvent(0);
+        }
+        else {
+            this.carouselIntervalEvent(1);
+        }
+    };
+    /** store data based on width of the screen for the carousel */
+    NguCarouselComponent.prototype.storeCarouselData = function () {
+        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId)) {
+            this.data.deviceWidth = window.innerWidth;
+        }
+        else {
+            this.data.deviceWidth = 1200;
+        }
+        this.data.carouselWidth = this.carouselMain.offsetWidth;
+        if (this.data.type === 'responsive') {
+            this.data.deviceType =
+                this.data.deviceWidth >= 1200
+                    ? 'lg'
+                    : this.data.deviceWidth >= 992
+                        ? 'md'
+                        : this.data.deviceWidth >= 768 ? 'sm' : 'xs';
+            this.data.items = this.userData.grid[this.data.deviceType];
+            this.data.itemWidth = this.data.carouselWidth / this.data.items;
+        }
+        else {
+            this.data.items = Math.trunc(this.data.carouselWidth / this.userData.grid.all);
+            this.data.itemWidth = this.userData.grid.all;
+            this.data.deviceType = 'all';
+        }
+        this.data.slideItems = +(this.userData.slide < this.data.items
+            ? this.userData.slide
+            : this.data.items);
+        this.data.load =
+            this.userData.load >= this.data.slideItems
+                ? this.userData.load
+                : this.data.slideItems;
+        this.userData.speed =
+            this.userData.speed || this.userData.speed > -1
+                ? this.userData.speed
+                : 400;
+        this.initData.emit(this.data);
+        this.carouselPoint();
+    };
+    /** Used to reset the carousel */
+    NguCarouselComponent.prototype.reset = function () {
+        this.carouselCssNode.innerHTML = '';
+        this.moveTo(0);
+        this.carouselPoint();
+    };
+    /** Init carousel point */
+    NguCarouselComponent.prototype.carouselPoint = function () {
+        // if (this.userData.point.visible === true) {
+        var Nos = this.items.length - (this.data.items - this.data.slideItems);
+        this.pointIndex = Math.ceil(Nos / this.data.slideItems);
+        var pointers = [];
+        if (this.pointIndex > 1 || !this.userData.point.hideOnSingleSlide) {
+            for (var i = 0; i < this.pointIndex; i++) {
+                pointers.push(i);
+            }
+        }
+        this.pointNumbers = pointers;
+        this.carouselPointActiver();
+        if (this.pointIndex <= 1) {
+            this.btnBoolean(1, 1);
+        }
+        else {
+            if (this.data.currentSlide === 0 && !this.data.loop) {
+                this.btnBoolean(1, 0);
+            }
+            else {
+                this.btnBoolean(0, 0);
+            }
+        }
+        this.buttonControl();
+        // }
+    };
+    /** change the active point in carousel */
+    NguCarouselComponent.prototype.carouselPointActiver = function () {
+        var i = Math.ceil(this.data.currentSlide / this.data.slideItems);
+        this.pointers = i;
+    };
+    /** this function is used to scoll the carousel when point is clicked */
+    NguCarouselComponent.prototype.moveTo = function (index) {
+        if (this.pointers !== index && index < this.pointIndex) {
+            var slideremains = 0;
+            var btns = this.data.currentSlide < index ? 1 : 0;
+            if (index === 0) {
+                this.btnBoolean(1, 0);
+                slideremains = index * this.data.slideItems;
+            }
+            else if (index === this.pointIndex - 1) {
+                this.btnBoolean(0, 1);
+                slideremains = this.items.length - this.data.items;
+            }
+            else {
+                this.btnBoolean(0, 0);
+                slideremains = index * this.data.slideItems;
+            }
+            this.carouselScrollTwo(btns, slideremains, this.data.speed);
+        }
+    };
+    /** set the style of the carousel based the inputs data */
+    NguCarouselComponent.prototype.carouselSize = function () {
+        this.data.token = this.generateID();
+        var dism = '';
+        this.styleSelector = "." + this.data.token + " > .ngucarousel > .ngucarousel-inner > .ngucarousel-items";
+        if (this.userData.custom === 'banner') {
+            this.renderer.addClass(this.carousel, 'banner');
+        }
+        if (this.userData.animation === 'lazy') {
+            dism += this.styleSelector + " > .item {transition: transform .6s ease;}";
+        }
+        var itemStyle = '';
+        if (this.data.vertical.enabled) {
+            var itemWidth_xs = this.styleSelector + " > .item {height: " + this.data
+                .vertical.height / +this.userData.grid.xs + "px}";
+            var itemWidth_sm = this.styleSelector + " > .item {height: " + this.data
+                .vertical.height / +this.userData.grid.sm + "px}";
+            var itemWidth_md = this.styleSelector + " > .item {height: " + this.data
+                .vertical.height / +this.userData.grid.md + "px}";
+            var itemWidth_lg = this.styleSelector + " > .item {height: " + this.data
+                .vertical.height / +this.userData.grid.lg + "px}";
+            itemStyle = "@media (max-width:767px){" + itemWidth_xs + "}\n                    @media (min-width:768px){" + itemWidth_sm + "}\n                    @media (min-width:992px){" + itemWidth_md + "}\n                    @media (min-width:1200px){" + itemWidth_lg + "}";
+        }
+        else if (this.data.type === 'responsive') {
+            var itemWidth_xs = this.userData.type === 'mobile'
+                ? this.styleSelector + " .item {flex: 0 0 " + 95 /
+                    +this.userData.grid.xs + "%}"
+                : this.styleSelector + " .item {flex: 0 0 " + 100 /
+                    +this.userData.grid.xs + "%}";
+            var itemWidth_sm = this.styleSelector + " > .item {flex: 0 0 " + 100 /
+                +this.userData.grid.sm + "%}";
+            var itemWidth_md = this.styleSelector + " > .item {flex: 0 0 " + 100 /
+                +this.userData.grid.md + "%}";
+            var itemWidth_lg = this.styleSelector + " > .item {flex: 0 0 " + 100 /
+                +this.userData.grid.lg + "%}";
+            itemStyle = "@media (max-width:767px){" + itemWidth_xs + "}\n                    @media (min-width:768px){" + itemWidth_sm + "}\n                    @media (min-width:992px){" + itemWidth_md + "}\n                    @media (min-width:1200px){" + itemWidth_lg + "}";
+        }
+        else {
+            itemStyle = this.styleSelector + " .item {flex: 0 0 " + this.userData.grid.all + "px}";
+        }
+        this.renderer.addClass(this.carousel, this.data.token);
+        if (this.data.vertical.enabled) {
+            this.renderer.addClass(this.carouselInner, 'nguvertical');
+            this.renderer.setStyle(this.forTouch.nativeElement, 'height', this.data.vertical.height + "px");
+        }
+        // tslint:disable-next-line:no-unused-expression
+        this.data.RTL &&
+            !this.data.vertical.enabled &&
+            this.renderer.addClass(this.carousel, 'ngurtl');
+        this.createStyleElem(dism + " " + itemStyle);
+    };
+    /** logic to scroll the carousel step 1 */
+    NguCarouselComponent.prototype.carouselScrollOne = function (Btn) {
+        var itemSpeed = this.data.speed;
+        var translateXval, currentSlide = 0;
+        var touchMove = Math.ceil(this.data.dexVal / this.data.itemWidth);
+        this.setStyle(this.carouselInner, 'transform', '');
+        if (this.pointIndex === 1) {
+            return;
+        }
+        else if (Btn === 0 &&
+            ((!this.data.loop && !this.data.isFirst) || this.data.loop)) {
+            var slide = this.data.slideItems * this.pointIndex;
+            var currentSlideD = this.data.currentSlide - this.data.slideItems;
+            var MoveSlide = currentSlideD + this.data.slideItems;
+            this.btnBoolean(0, 1);
+            if (this.data.currentSlide === 0) {
+                currentSlide = this.items.length - this.data.items;
+                itemSpeed = 400;
+                this.btnBoolean(0, 1);
+            }
+            else if (this.data.slideItems >= MoveSlide) {
+                currentSlide = translateXval = 0;
+                this.btnBoolean(1, 0);
+            }
+            else {
+                this.btnBoolean(0, 0);
+                if (touchMove > this.data.slideItems) {
+                    currentSlide = this.data.currentSlide - touchMove;
+                    itemSpeed = 200;
+                }
+                else {
+                    currentSlide = this.data.currentSlide - this.data.slideItems;
+                }
+            }
+            this.carouselScrollTwo(Btn, currentSlide, itemSpeed);
+        }
+        else if (Btn === 1 &&
+            ((!this.data.loop && !this.data.isLast) || this.data.loop)) {
+            if (this.items.length <=
+                this.data.currentSlide + this.data.items + this.data.slideItems &&
+                !this.data.isLast) {
+                currentSlide = this.items.length - this.data.items;
+                this.btnBoolean(0, 1);
+            }
+            else if (this.data.isLast) {
+                currentSlide = translateXval = 0;
+                itemSpeed = 400;
+                this.btnBoolean(1, 0);
+            }
+            else {
+                this.btnBoolean(0, 0);
+                if (touchMove > this.data.slideItems) {
+                    currentSlide =
+                        this.data.currentSlide +
+                            this.data.slideItems +
+                            (touchMove - this.data.slideItems);
+                    itemSpeed = 200;
+                }
+                else {
+                    currentSlide = this.data.currentSlide + this.data.slideItems;
+                }
+            }
+            this.carouselScrollTwo(Btn, currentSlide, itemSpeed);
+        }
+        // cubic-bezier(0.15, 1.04, 0.54, 1.13)
+    };
+    /** logic to scroll the carousel step 2 */
+    NguCarouselComponent.prototype.carouselScrollTwo = function (Btn, currentSlide, itemSpeed) {
+        if (this.data.dexVal !== 0) {
+            var val = Math.abs(this.data.touch.velocity);
+            var somt = Math.floor(this.data.dexVal /
+                val /
+                this.data.dexVal *
+                (this.data.deviceWidth - this.data.dexVal));
+            somt = somt > itemSpeed ? itemSpeed : somt;
+            itemSpeed = somt < 200 ? 200 : somt;
+            this.data.dexVal = 0;
+        }
+        if (this.withAnim) {
+            this.setStyle(this.carouselInner, 'transition', "transform " + itemSpeed + "ms " + this.userData.easing);
+            this.userData.animation &&
+                this.carouselAnimator(Btn, currentSlide + 1, currentSlide + this.data.items, itemSpeed, Math.abs(this.data.currentSlide - currentSlide));
+        }
+        else {
+            this.setStyle(this.carouselInner, 'transition', "");
+        }
+        this.data.itemLength = this.items.length;
+        this.transformStyle(currentSlide);
+        this.data.currentSlide = currentSlide;
+        this.onMove.emit(this.data);
+        this.carouselPointActiver();
+        this.carouselLoadTrigger();
+        this.buttonControl();
+        this.withAnim = true;
+    };
+    /** boolean function for making isFirst and isLast */
+    NguCarouselComponent.prototype.btnBoolean = function (first, last) {
+        this.data.isFirst = first ? true : false;
+        this.data.isLast = last ? true : false;
+    };
+    NguCarouselComponent.prototype.transformString = function (grid, slide) {
+        var collect = '';
+        collect += this.styleSelector + " { transform: translate3d(";
+        if (this.data.vertical.enabled) {
+            this.data.transform[grid] =
+                this.data.vertical.height / this.userData.grid[grid] * slide;
+            collect += "0, -" + this.data.transform[grid] + "px, 0";
+        }
+        else {
+            this.data.transform[grid] = 100 / this.userData.grid[grid] * slide;
+            collect += "" + this.directionSym + this.data.transform[grid] + "%, 0, 0";
+        }
+        collect += "); }";
+        return collect;
+    };
+    /** set the transform style to scroll the carousel  */
+    NguCarouselComponent.prototype.transformStyle = function (slide) {
+        var slideCss = '';
+        if (this.data.type === 'responsive') {
+            slideCss = "@media (max-width: 767px) {" + this.transformString('xs', slide) + "}\n      @media (min-width: 768px) {" + this.transformString('sm', slide) + " }\n      @media (min-width: 992px) {" + this.transformString('md', slide) + " }\n      @media (min-width: 1200px) {" + this.transformString('lg', slide) + " }";
+        }
+        else {
+            this.data.transform.all = this.userData.grid.all * slide;
+            slideCss = this.styleSelector + " { transform: translate3d(" + this.directionSym + this.data.transform.all + "px, 0, 0);";
+        }
+        this.carouselCssNode.innerHTML = slideCss;
+    };
+    /** this will trigger the carousel to load the items */
+    NguCarouselComponent.prototype.carouselLoadTrigger = function () {
+        if (typeof this.userData.load === 'number') {
+            // tslint:disable-next-line:no-unused-expression
+            this.items.length - this.data.load <=
+                this.data.currentSlide + this.data.items &&
+                this.carouselLoad.emit(this.data.currentSlide);
+        }
+    };
+    /** generate Class for each carousel to set specific style */
+    NguCarouselComponent.prototype.generateID = function () {
+        var text = '';
+        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (var i = 0; i < 6; i++) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return "ngucarousel" + text;
+    };
+    /** handle the auto slide */
+    NguCarouselComponent.prototype.carouselInterval = function () {
+        var _this = this;
+        if (typeof this.userData.interval === 'number' && this.data.loop) {
+            this.listener4 = this.renderer.listen(this.carouselMain, 'touchstart', function () {
+                _this.carouselIntervalEvent(1);
+            });
+            this.listener5 = this.renderer.listen(this.carouselMain, 'touchend', function () {
+                _this.carouselIntervalEvent(0);
+            });
+            this.listener6 = this.renderer.listen(this.carouselMain, 'mouseenter', function () {
+                _this.carouselIntervalEvent(1);
+            });
+            this.listener7 = this.renderer.listen(this.carouselMain, 'mouseleave', function () {
+                _this.carouselIntervalEvent(0);
+            });
+            this.listener8 = this.renderer.listen('window', 'scroll', function () {
+                clearTimeout(_this.onScrolling);
+                _this.onScrolling = setTimeout(function () {
+                    _this.onWindowScrolling();
+                }, 600);
+            });
+            this.carouselInt = setInterval(function () {
+                // tslint:disable-next-line:no-unused-expression
+                !_this.pauseCarousel && _this.carouselScrollOne(1);
+            }, this.userData.interval);
+        }
+    };
+    /** pause interval for specific time */
+    NguCarouselComponent.prototype.carouselIntervalEvent = function (ev) {
+        var _this = this;
+        this.evtValue = ev;
+        if (this.evtValue === 0) {
+            clearTimeout(this.pauseInterval);
+            this.pauseInterval = setTimeout(function () {
+                // tslint:disable-next-line:no-unused-expression
+                _this.evtValue === 0 && (_this.pauseCarousel = false);
+            }, this.userData.interval);
+        }
+        else {
+            this.pauseCarousel = true;
+        }
+    };
+    /** animate the carousel items */
+    NguCarouselComponent.prototype.carouselAnimator = function (direction, start, end, speed, length) {
+        var _this = this;
+        var val = length < 5 ? length : 5;
+        val = val === 1 ? 3 : val;
+        var itemList = this.items.toArray();
+        if (direction === 1) {
+            for (var i = start - 1; i < end; i++) {
+                val = val * 2;
+                itemList[i] &&
+                    this.setStyle(itemList[i].nativeElement, 'transform', "translate3d(" + val + "px, 0, 0)");
+            }
+        }
+        else {
+            for (var i = end - 1; i >= start - 1; i--) {
+                val = val * 2;
+                itemList[i] &&
+                    this.setStyle(itemList[i].nativeElement, 'transform', "translate3d(-" + val + "px, 0, 0)");
+            }
+        }
+        setTimeout(function () {
+            _this.items.forEach(function (elem) {
+                return _this.setStyle(elem.nativeElement, 'transform', "translate3d(0, 0, 0)");
+            });
+        }, speed * 0.7);
+    };
+    /** control button for loop */
+    NguCarouselComponent.prototype.buttonControl = function () {
+        var arr = [];
+        if (!this.data.loop || (this.data.isFirst && this.data.isLast)) {
+            arr = [
+                this.data.isFirst ? 'none' : 'block',
+                this.data.isLast ? 'none' : 'block'
+            ];
+        }
+        else {
+            arr = ['block', 'block'];
+        }
+        this.setStyle(this.leftBtn, 'display', arr[0]);
+        this.setStyle(this.rightBtn, 'display', arr[1]);
+    };
+    /** Short form for setElementStyle */
+    NguCarouselComponent.prototype.setStyle = function (el, prop, val) {
+        this.renderer.setStyle(el, prop, val);
+    };
+    /** For generating style tag */
+    NguCarouselComponent.prototype.createStyleElem = function (datas) {
+        var styleItem = this.renderer.createElement('style');
+        if (datas) {
+            var styleText = this.renderer.createText(datas);
+            this.renderer.appendChild(styleItem, styleText);
+        }
+        this.renderer.appendChild(this.carousel, styleItem);
+        return styleItem;
+    };
+    NguCarouselComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"], args: [{
+                    // tslint:disable-next-line:component-selector
+                    selector: 'ngu-carousel',
+                    template: "<div #ngucarousel class=\"ngucarousel\"><div #forTouch class=\"ngucarousel-inner\"><div #nguitems class=\"ngucarousel-items\"><ng-content select=\"[NguCarouselItem]\"></ng-content></div><div style=\"clear: both\"></div></div><ng-content select=\"[NguCarouselPrev]\"></ng-content><ng-content select=\"[NguCarouselNext]\"></ng-content></div><div #points *ngIf=\"data.point\"><ul class=\"ngucarouselPoint\"><li #pointInner *ngFor=\"let i of pointNumbers; let i = index\" [class.active]=\"i==pointers\" (click)=\"moveTo(i)\"></li></ul></div>",
+                    styles: [
+                        "\n    :host {\n      display: block;\n      position: relative;\n    }\n\n    :host.ngurtl {\n      direction: rtl;\n    }\n    \n    .nguvertical {\n      flex-direction: column;\n    }\n\n    .ngucarousel .ngucarousel-inner {\n      position: relative;\n      overflow: hidden;\n    }\n    .ngucarousel .ngucarousel-inner .ngucarousel-items {\n      position: relative;\n      display: flex;\n    }\n\n    .banner .ngucarouselPointDefault .ngucarouselPoint {\n      position: absolute;\n      width: 100%;\n      bottom: 20px;\n    }\n    .banner .ngucarouselPointDefault .ngucarouselPoint li {\n      background: rgba(255, 255, 255, 0.55);\n    }\n    .banner .ngucarouselPointDefault .ngucarouselPoint li.active {\n      background: white;\n    }\n    .banner .ngucarouselPointDefault .ngucarouselPoint li:hover {\n      cursor: pointer;\n    }\n\n    .ngucarouselPointDefault .ngucarouselPoint {\n      list-style-type: none;\n      text-align: center;\n      padding: 12px;\n      margin: 0;\n      white-space: nowrap;\n      overflow: auto;\n      box-sizing: border-box;\n    }\n    .ngucarouselPointDefault .ngucarouselPoint li {\n      display: inline-block;\n      border-radius: 50%;\n      background: rgba(0, 0, 0, 0.55);\n      padding: 4px;\n      margin: 0 4px;\n      transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);\n      transition: 0.4s;\n    }\n    .ngucarouselPointDefault .ngucarouselPoint li.active {\n      background: #6b6b6b;\n      transform: scale(1.8);\n    }\n    .ngucarouselPointDefault .ngucarouselPoint li:hover {\n      cursor: pointer;\n    }\n\n  "
+                    ]
+                },] },
+    ];
+    /** @nocollapse */
+    NguCarouselComponent.ctorParameters = function () { return [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"], },
+        { type: _ngu_carousel_service__WEBPACK_IMPORTED_MODULE_3__["NguCarouselService"], },
+        { type: Object, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"],] },] },
+    ]; };
+    NguCarouselComponent.propDecorators = {
+        'userData': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['inputs',] },],
+        'reseter': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['reset',] },],
+        'carouselLoad': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ['carouselLoad',] },],
+        'onMove': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ['onMove',] },],
+        'initData': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"], args: ['initData',] },],
+        'items': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"], args: [_ngu_carousel_directive__WEBPACK_IMPORTED_MODULE_0__["NguCarouselItemDirective"], { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+        'points': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"], args: ['pointInner', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+        'next': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"], args: [_ngu_carousel_directive__WEBPACK_IMPORTED_MODULE_0__["NguCarouselNextDirective"], { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+        'prev': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"], args: [_ngu_carousel_directive__WEBPACK_IMPORTED_MODULE_0__["NguCarouselPrevDirective"], { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+        'carouselMain1': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['ngucarousel', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+        'carouselInner1': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['nguitems', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+        'carousel1': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['main', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+        'pointMain': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['points', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+        'forTouch': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['forTouch', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },] },],
+    };
+    return NguCarouselComponent;
+}());
+
+//# sourceMappingURL=ngu-carousel.component.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@ngu/carousel/src/ngu-carousel/ngu-carousel.component.ngfactory.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/@ngu/carousel/src/ngu-carousel/ngu-carousel.component.ngfactory.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i2 = __webpack_require__(/*! ./ngu-carousel.component */ "./node_modules/@ngu/carousel/src/ngu-carousel/ngu-carousel.component.js");
+var i3 = __webpack_require__(/*! ../ngu-carousel.service */ "./node_modules/@ngu/carousel/src/ngu-carousel.service.js");
+var styles_NguCarouselComponent = ["[_nghost-%COMP%] {\n      display: block;\n      position: relative;\n    }\n\n    .ngurtl[_nghost-%COMP%] {\n      direction: rtl;\n    }\n    \n    .nguvertical[_ngcontent-%COMP%] {\n      flex-direction: column;\n    }\n\n    .ngucarousel[_ngcontent-%COMP%]   .ngucarousel-inner[_ngcontent-%COMP%] {\n      position: relative;\n      overflow: hidden;\n    }\n    .ngucarousel[_ngcontent-%COMP%]   .ngucarousel-inner[_ngcontent-%COMP%]   .ngucarousel-items[_ngcontent-%COMP%] {\n      position: relative;\n      display: flex;\n    }\n\n    .banner[_ngcontent-%COMP%]   .ngucarouselPointDefault[_ngcontent-%COMP%]   .ngucarouselPoint[_ngcontent-%COMP%] {\n      position: absolute;\n      width: 100%;\n      bottom: 20px;\n    }\n    .banner[_ngcontent-%COMP%]   .ngucarouselPointDefault[_ngcontent-%COMP%]   .ngucarouselPoint[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n      background: rgba(255, 255, 255, 0.55);\n    }\n    .banner[_ngcontent-%COMP%]   .ngucarouselPointDefault[_ngcontent-%COMP%]   .ngucarouselPoint[_ngcontent-%COMP%]   li.active[_ngcontent-%COMP%] {\n      background: white;\n    }\n    .banner[_ngcontent-%COMP%]   .ngucarouselPointDefault[_ngcontent-%COMP%]   .ngucarouselPoint[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover {\n      cursor: pointer;\n    }\n\n    .ngucarouselPointDefault[_ngcontent-%COMP%]   .ngucarouselPoint[_ngcontent-%COMP%] {\n      list-style-type: none;\n      text-align: center;\n      padding: 12px;\n      margin: 0;\n      white-space: nowrap;\n      overflow: auto;\n      box-sizing: border-box;\n    }\n    .ngucarouselPointDefault[_ngcontent-%COMP%]   .ngucarouselPoint[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n      display: inline-block;\n      border-radius: 50%;\n      background: rgba(0, 0, 0, 0.55);\n      padding: 4px;\n      margin: 0 4px;\n      transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);\n      transition: 0.4s;\n    }\n    .ngucarouselPointDefault[_ngcontent-%COMP%]   .ngucarouselPoint[_ngcontent-%COMP%]   li.active[_ngcontent-%COMP%] {\n      background: #6b6b6b;\n      transform: scale(1.8);\n    }\n    .ngucarouselPointDefault[_ngcontent-%COMP%]   .ngucarouselPoint[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover {\n      cursor: pointer;\n    }"];
+var RenderType_NguCarouselComponent = i0.ɵcrt({ encapsulation: 0, styles: styles_NguCarouselComponent, data: {} });
+exports.RenderType_NguCarouselComponent = RenderType_NguCarouselComponent;
+function View_NguCarouselComponent_2(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, [[1, 0], ["pointInner", 1]], null, 0, "li", [], [[2, "active", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.moveTo(_v.context.$implicit) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_v.context.$implicit == _co.pointers); _ck(_v, 0, 0, currVal_0); }); }
+function View_NguCarouselComponent_1(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, [[5, 0], ["points", 1]], null, 3, "div", [], null, null, null, null, null)), (_l()(), i0.ɵeld(1, 0, null, null, 2, "ul", [["class", "ngucarouselPoint"]], null, null, null, null, null)), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_NguCarouselComponent_2)), i0.ɵdid(3, 802816, null, 0, i1.NgForOf, [i0.ViewContainerRef, i0.TemplateRef, i0.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.pointNumbers; _ck(_v, 3, 0, currVal_0); }, null); }
+function View_NguCarouselComponent_0(_l) { return i0.ɵvid(0, [i0.ɵqud(671088640, 1, { points: 1 }), i0.ɵqud(402653184, 2, { carouselMain1: 0 }), i0.ɵqud(402653184, 3, { carouselInner1: 0 }), i0.ɵqud(402653184, 4, { carousel1: 0 }), i0.ɵqud(671088640, 5, { pointMain: 0 }), i0.ɵqud(402653184, 6, { forTouch: 0 }), (_l()(), i0.ɵeld(6, 0, [[2, 0], ["ngucarousel", 1]], null, 6, "div", [["class", "ngucarousel"]], null, null, null, null, null)), (_l()(), i0.ɵeld(7, 0, [[6, 0], ["forTouch", 1]], null, 3, "div", [["class", "ngucarousel-inner"]], null, null, null, null, null)), (_l()(), i0.ɵeld(8, 0, [[3, 0], ["nguitems", 1]], null, 1, "div", [["class", "ngucarousel-items"]], null, null, null, null, null)), i0.ɵncd(null, 0), (_l()(), i0.ɵeld(10, 0, null, null, 0, "div", [["style", "clear: both"]], null, null, null, null, null)), i0.ɵncd(null, 1), i0.ɵncd(null, 2), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_NguCarouselComponent_1)), i0.ɵdid(14, 16384, null, 0, i1.NgIf, [i0.ViewContainerRef, i0.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.data.point; _ck(_v, 14, 0, currVal_0); }, null); }
+exports.View_NguCarouselComponent_0 = View_NguCarouselComponent_0;
+function View_NguCarouselComponent_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 4, "ngu-carousel", [], null, null, null, View_NguCarouselComponent_0, RenderType_NguCarouselComponent)), i0.ɵdid(1, 6012928, null, 3, i2.NguCarouselComponent, [i0.ElementRef, i0.Renderer2, i3.NguCarouselService, i0.PLATFORM_ID], null, null), i0.ɵqud(603979776, 1, { items: 1 }), i0.ɵqud(335544320, 2, { next: 0 }), i0.ɵqud(335544320, 3, { prev: 0 })], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_NguCarouselComponent_Host_0 = View_NguCarouselComponent_Host_0;
+var NguCarouselComponentNgFactory = i0.ɵccf("ngu-carousel", i2.NguCarouselComponent, View_NguCarouselComponent_Host_0, { userData: "inputs", reseter: "reset" }, { carouselLoad: "carouselLoad", onMove: "onMove", initData: "initData" }, ["[NguCarouselItem]", "[NguCarouselPrev]", "[NguCarouselNext]"]);
+exports.NguCarouselComponentNgFactory = NguCarouselComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./node_modules/@ngu/carousel/src/ngu-item/ngu-item.component.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@ngu/carousel/src/ngu-item/ngu-item.component.js ***!
+  \***********************************************************************/
+/*! exports provided: NguItemComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NguItemComponent", function() { return NguItemComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "@angular/core");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_angular_core__WEBPACK_IMPORTED_MODULE_0__);
+
+var NguItemComponent = /** @class */ (function () {
+    function NguItemComponent() {
+        this.classes = true;
+    }
+    NguItemComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                    selector: 'ngu-item',
+                    template: "<ng-content></ng-content>",
+                    styles: ["\n    :host {\n        display: inline-block;\n        white-space: initial;\n        vertical-align: top;\n    }\n  "]
+                },] },
+    ];
+    /** @nocollapse */
+    NguItemComponent.ctorParameters = function () { return []; };
+    NguItemComponent.propDecorators = {
+        'classes': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"], args: ['class.item',] },],
+    };
+    return NguItemComponent;
+}());
+
+//# sourceMappingURL=ngu-item.component.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@ngu/carousel/src/ngu-item/ngu-item.component.ngfactory.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@ngu/carousel/src/ngu-item/ngu-item.component.ngfactory.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! ./ngu-item.component */ "./node_modules/@ngu/carousel/src/ngu-item/ngu-item.component.js");
+var styles_NguItemComponent = ["[_nghost-%COMP%] {\n        display: inline-block;\n        white-space: initial;\n        vertical-align: top;\n    }"];
+var RenderType_NguItemComponent = i0.ɵcrt({ encapsulation: 0, styles: styles_NguItemComponent, data: {} });
+exports.RenderType_NguItemComponent = RenderType_NguItemComponent;
+function View_NguItemComponent_0(_l) { return i0.ɵvid(0, [i0.ɵncd(null, 0)], null, null); }
+exports.View_NguItemComponent_0 = View_NguItemComponent_0;
+function View_NguItemComponent_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "ngu-item", [], [[2, "item", null]], null, null, View_NguItemComponent_0, RenderType_NguItemComponent)), i0.ɵdid(1, 49152, null, 0, i1.NguItemComponent, [], null, null)], null, function (_ck, _v) { var currVal_0 = i0.ɵnov(_v, 1).classes; _ck(_v, 0, 0, currVal_0); }); }
+exports.View_NguItemComponent_Host_0 = View_NguItemComponent_Host_0;
+var NguItemComponentNgFactory = i0.ɵccf("ngu-item", i1.NguItemComponent, View_NguItemComponent_Host_0, {}, {}, ["*"]);
+exports.NguItemComponentNgFactory = NguItemComponentNgFactory;
 
 
 /***/ }),
@@ -1042,19 +1996,21 @@ var i8 = __webpack_require__(/*! ./pages/my-films-page/my-films-page.component.n
 var i9 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var i10 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
 var i11 = __webpack_require__(/*! ngx-pagination */ "ngx-pagination");
-var i12 = __webpack_require__(/*! ../resolvers/films.resolver */ "./src/app/resolvers/films.resolver.ts");
-var i13 = __webpack_require__(/*! ../services/films.service */ "./src/app/services/films.service.ts");
-var i14 = __webpack_require__(/*! ../resolvers/film.resolver */ "./src/app/resolvers/film.resolver.ts");
-var i15 = __webpack_require__(/*! ../resolvers/index.films.resolver */ "./src/app/resolvers/index.films.resolver.ts");
-var i16 = __webpack_require__(/*! ../resolvers/name.resolver */ "./src/app/resolvers/name.resolver.ts");
-var i17 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i18 = __webpack_require__(/*! ./layout/client-layout/client-layout.component */ "./src/app/client/layout/client-layout/client-layout.component.ts");
-var i19 = __webpack_require__(/*! ./pages/index-page/index-page.component */ "./src/app/client/pages/index-page/index-page.component.ts");
-var i20 = __webpack_require__(/*! ./pages/films-page/films-page.component */ "./src/app/client/pages/films-page/films-page.component.ts");
-var i21 = __webpack_require__(/*! ./pages/online-page/online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
-var i22 = __webpack_require__(/*! ./pages/name-page/name-page.component */ "./src/app/client/pages/name-page/name-page.component.ts");
-var i23 = __webpack_require__(/*! ./pages/my-films-page/my-films-page.component */ "./src/app/client/pages/my-films-page/my-films-page.component.ts");
-var ClientModuleNgFactory = i0.ɵcmf(i1.ClientModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.ClientLayoutComponentNgFactory, i4.IndexPageComponentNgFactory, i5.FilmsPageComponentNgFactory, i6.OnlinePageComponentNgFactory, i7.NamePageComponentNgFactory, i8.MyFilmsPageComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i9.NgLocalization, i9.NgLocaleLocalization, [i0.LOCALE_ID, [2, i9.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i10.ɵangular_packages_forms_forms_i, i10.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i11.PaginationService, i11.PaginationService, []), i0.ɵmpd(4608, i10.FormBuilder, i10.FormBuilder, []), i0.ɵmpd(4608, i12.FilmsResolver, i12.FilmsResolver, [i13.FilmsService]), i0.ɵmpd(4608, i14.FilmResolver, i14.FilmResolver, [i13.FilmsService]), i0.ɵmpd(4608, i15.IndexFilmsResolver, i15.IndexFilmsResolver, [i13.FilmsService]), i0.ɵmpd(4608, i16.NameResolver, i16.NameResolver, [i13.FilmsService]), i0.ɵmpd(1073742336, i9.CommonModule, i9.CommonModule, []), i0.ɵmpd(1073742336, i10.ɵangular_packages_forms_forms_bb, i10.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i10.FormsModule, i10.FormsModule, []), i0.ɵmpd(1073742336, i11.NgxPaginationModule, i11.NgxPaginationModule, []), i0.ɵmpd(1073742336, i10.ReactiveFormsModule, i10.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i17.RouterModule, i17.RouterModule, [[2, i17.ɵangular_packages_router_router_a], [2, i17.Router]]), i0.ɵmpd(1073742336, i1.ClientModule, i1.ClientModule, []), i0.ɵmpd(1024, i17.ROUTES, function () { return [[{ path: "", component: i18.ClientLayoutComponent, children: [{ path: "", resolve: [i15.IndexFilmsResolver], component: i19.IndexPageComponent }, { path: ":type", resolve: [i12.FilmsResolver], component: i20.FilmsPageComponent }, { path: "online/:id/:slug", resolve: [i14.FilmResolver], component: i21.OnlinePageComponent }, { path: "name/:id", resolve: [i16.NameResolver], component: i22.NamePageComponent }, { path: "my/playlist", component: i23.MyFilmsPageComponent }] }]]; }, [])]); });
+var i12 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel.service */ "@ngu/carousel/src/ngu-carousel.service");
+var i13 = __webpack_require__(/*! ../resolvers/films.resolver */ "./src/app/resolvers/films.resolver.ts");
+var i14 = __webpack_require__(/*! ../services/films.service */ "./src/app/services/films.service.ts");
+var i15 = __webpack_require__(/*! ../resolvers/film.resolver */ "./src/app/resolvers/film.resolver.ts");
+var i16 = __webpack_require__(/*! ../resolvers/index.films.resolver */ "./src/app/resolvers/index.films.resolver.ts");
+var i17 = __webpack_require__(/*! ../resolvers/name.resolver */ "./src/app/resolvers/name.resolver.ts");
+var i18 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel.module */ "@ngu/carousel/src/ngu-carousel.module");
+var i19 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i20 = __webpack_require__(/*! ./layout/client-layout/client-layout.component */ "./src/app/client/layout/client-layout/client-layout.component.ts");
+var i21 = __webpack_require__(/*! ./pages/index-page/index-page.component */ "./src/app/client/pages/index-page/index-page.component.ts");
+var i22 = __webpack_require__(/*! ./pages/films-page/films-page.component */ "./src/app/client/pages/films-page/films-page.component.ts");
+var i23 = __webpack_require__(/*! ./pages/online-page/online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
+var i24 = __webpack_require__(/*! ./pages/name-page/name-page.component */ "./src/app/client/pages/name-page/name-page.component.ts");
+var i25 = __webpack_require__(/*! ./pages/my-films-page/my-films-page.component */ "./src/app/client/pages/my-films-page/my-films-page.component.ts");
+var ClientModuleNgFactory = i0.ɵcmf(i1.ClientModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.ClientLayoutComponentNgFactory, i4.IndexPageComponentNgFactory, i5.FilmsPageComponentNgFactory, i6.OnlinePageComponentNgFactory, i7.NamePageComponentNgFactory, i8.MyFilmsPageComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i9.NgLocalization, i9.NgLocaleLocalization, [i0.LOCALE_ID, [2, i9.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i10.ɵangular_packages_forms_forms_i, i10.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i11.PaginationService, i11.PaginationService, []), i0.ɵmpd(4608, i12.NguCarouselService, i12.NguCarouselService, []), i0.ɵmpd(4608, i13.FilmsResolver, i13.FilmsResolver, [i14.FilmsService]), i0.ɵmpd(4608, i15.FilmResolver, i15.FilmResolver, [i14.FilmsService]), i0.ɵmpd(4608, i16.IndexFilmsResolver, i16.IndexFilmsResolver, [i14.FilmsService]), i0.ɵmpd(4608, i17.NameResolver, i17.NameResolver, [i14.FilmsService]), i0.ɵmpd(1073742336, i9.CommonModule, i9.CommonModule, []), i0.ɵmpd(1073742336, i10.ɵangular_packages_forms_forms_bb, i10.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i10.FormsModule, i10.FormsModule, []), i0.ɵmpd(1073742336, i11.NgxPaginationModule, i11.NgxPaginationModule, []), i0.ɵmpd(1073742336, i18.NguCarouselModule, i18.NguCarouselModule, []), i0.ɵmpd(1073742336, i19.RouterModule, i19.RouterModule, [[2, i19.ɵangular_packages_router_router_a], [2, i19.Router]]), i0.ɵmpd(1073742336, i1.ClientModule, i1.ClientModule, []), i0.ɵmpd(1024, i19.ROUTES, function () { return [[{ path: "", component: i20.ClientLayoutComponent, children: [{ path: "", resolve: [i16.IndexFilmsResolver], component: i21.IndexPageComponent }, { path: ":type", resolve: [i13.FilmsResolver], component: i22.FilmsPageComponent }, { path: "online/:id/:slug", resolve: [i15.FilmResolver], component: i23.OnlinePageComponent }, { path: "name/:id", resolve: [i17.NameResolver], component: i24.NamePageComponent }, { path: "my/playlist", component: i25.MyFilmsPageComponent }] }]]; }, [])]); });
 exports.ClientModuleNgFactory = ClientModuleNgFactory;
 
 
@@ -1161,6 +2117,114 @@ var ActorsListComponent = /** @class */ (function () {
     return ActorsListComponent;
 }());
 exports.ActorsListComponent = ActorsListComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/client/components/carusel-films/carusel-films.component.ngfactory.js":
+/*!**************************************************************************************!*\
+  !*** ./src/app/client/components/carusel-films/carusel-films.component.ngfactory.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./carusel-films.component.scss.shim.ngstyle */ "./src/app/client/components/carusel-films/carusel-films.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ../../../../../node_modules/@ngu/carousel/src/ngu-item/ngu-item.component.ngfactory */ "./node_modules/@ngu/carousel/src/ngu-item/ngu-item.component.ngfactory.js");
+var i3 = __webpack_require__(/*! @ngu/carousel/src/ngu-item/ngu-item.component */ "@ngu/carousel/src/ngu-item/ngu-item.component");
+var i4 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel.directive */ "@ngu/carousel/src/ngu-carousel.directive");
+var i5 = __webpack_require__(/*! ../film-item-index/film-item-index.component.ngfactory */ "./src/app/client/components/film-item-index/film-item-index.component.ngfactory.js");
+var i6 = __webpack_require__(/*! ../film-item-index/film-item-index.component */ "./src/app/client/components/film-item-index/film-item-index.component.ts");
+var i7 = __webpack_require__(/*! ../../../../../node_modules/@ngu/carousel/src/ngu-carousel/ngu-carousel.component.ngfactory */ "./node_modules/@ngu/carousel/src/ngu-carousel/ngu-carousel.component.ngfactory.js");
+var i8 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel/ngu-carousel.component */ "@ngu/carousel/src/ngu-carousel/ngu-carousel.component");
+var i9 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel.service */ "@ngu/carousel/src/ngu-carousel.service");
+var i10 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i11 = __webpack_require__(/*! ./carusel-films.component */ "./src/app/client/components/carusel-films/carusel-films.component.ts");
+var styles_CaruselFilmsComponent = [i0.styles];
+var RenderType_CaruselFilmsComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_CaruselFilmsComponent, data: {} });
+exports.RenderType_CaruselFilmsComponent = RenderType_CaruselFilmsComponent;
+function View_CaruselFilmsComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, [[1, 0]], null, 4, "ngu-item", [["NguCarouselItem", ""], ["class", "d-flex justify-content-center"]], [[2, "item", null]], null, null, i2.View_NguItemComponent_0, i2.RenderType_NguItemComponent)), i1.ɵdid(1, 49152, null, 0, i3.NguItemComponent, [], null, null), i1.ɵdid(2, 16384, null, 0, i4.NguCarouselItemDirective, [], null, null), (_l()(), i1.ɵeld(3, 0, null, 0, 1, "my-film-item-index", [["class", "col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center"]], null, null, null, i5.View_FilmItemIndexComponent_0, i5.RenderType_FilmItemIndexComponent)), i1.ɵdid(4, 114688, null, 0, i6.FilmItemIndexComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var currVal_1 = _v.context.$implicit; _ck(_v, 4, 0, currVal_1); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1).classes; _ck(_v, 0, 0, currVal_0); }); }
+function View_CaruselFilmsComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "div", [["class", "row m-0 col-12"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 2, "div", [["class", "title"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(3, null, ["", ":"])), (_l()(), i1.ɵeld(4, 0, null, null, 12, "ngu-carousel", [], null, [[null, "carouselLoad"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("carouselLoad" === en)) {
+        var pd_0 = (_co.carLoad($event) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, i7.View_NguCarouselComponent_0, i7.RenderType_NguCarouselComponent)), i1.ɵdid(5, 6012928, null, 3, i8.NguCarouselComponent, [i1.ElementRef, i1.Renderer2, i9.NguCarouselService, i1.PLATFORM_ID], { userData: [0, "userData"] }, { carouselLoad: "carouselLoad" }), i1.ɵqud(603979776, 1, { items: 1 }), i1.ɵqud(335544320, 2, { next: 0 }), i1.ɵqud(335544320, 3, { prev: 0 }), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_CaruselFilmsComponent_1)), i1.ɵdid(10, 802816, null, 0, i10.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(11, 0, [[3, 0]], 1, 2, "button", [["NguCarouselPrev", ""], ["class", "btn leftRs"]], null, null, null, null, null)), i1.ɵdid(12, 16384, null, 0, i4.NguCarouselPrevDirective, [], null, null), (_l()(), i1.ɵted(-1, null, ["<"])), (_l()(), i1.ɵeld(14, 0, [[2, 0]], 2, 2, "button", [["NguCarouselNext", ""], ["class", "btn rightRs"]], null, null, null, null, null)), i1.ɵdid(15, 16384, null, 0, i4.NguCarouselNextDirective, [], null, null), (_l()(), i1.ɵted(-1, null, [">"]))], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.carouselOne; _ck(_v, 5, 0, currVal_1); var currVal_2 = _co.films; _ck(_v, 10, 0, currVal_2); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.title; _ck(_v, 3, 0, currVal_0); }); }
+exports.View_CaruselFilmsComponent_0 = View_CaruselFilmsComponent_0;
+function View_CaruselFilmsComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-carusel-films", [], null, null, null, View_CaruselFilmsComponent_0, RenderType_CaruselFilmsComponent)), i1.ɵdid(1, 114688, null, 0, i11.CaruselFilmsComponent, [i1.PLATFORM_ID], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_CaruselFilmsComponent_Host_0 = View_CaruselFilmsComponent_Host_0;
+var CaruselFilmsComponentNgFactory = i1.ɵccf("my-carusel-films", i11.CaruselFilmsComponent, View_CaruselFilmsComponent_Host_0, { films: "films", title: "title", grid: "grid" }, {}, []);
+exports.CaruselFilmsComponentNgFactory = CaruselFilmsComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/client/components/carusel-films/carusel-films.component.scss.shim.ngstyle.js":
+/*!**********************************************************************************************!*\
+  !*** ./src/app/client/components/carusel-films/carusel-films.component.scss.shim.ngstyle.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [".ignore[_ngcontent-%COMP%] {\n  pointer-events: none; }\n\n.pclick[_ngcontent-%COMP%] {\n  pointer-events: auto; }\n\n.title[_ngcontent-%COMP%] {\n  background-color: #dc3545;\n  color: #fff;\n  border-left: 1px  solid #979797;\n  border-top: 1px  solid #979797;\n  border-right: 1px  solid #979797;\n  border-radius: 8px 8px 0 0;\n  padding-left: 18px;\n  padding-right: 18px;\n  padding-top: 6px;\n  margin-top: 12px; }\n\nh3[_ngcontent-%COMP%] {\n  font-size: 0.95rem;\n  font-weight: 400 !important; }\n\n.leftRs[_ngcontent-%COMP%] {\n  background: #dc3545;\n  position: absolute;\n  margin: auto;\n  top: -50px;\n  bottom: 0;\n  width: 50px;\n  height: 50px;\n  outline: none;\n  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);\n  border-radius: 999px;\n  border: 2px solid white;\n  left: 0; }\n\n.rightRs[_ngcontent-%COMP%] {\n  background: #dc3545;\n  position: absolute;\n  margin: auto;\n  outline: none;\n  top: -50px;\n  bottom: 0;\n  width: 50px;\n  border: 2px solid white;\n  height: 50px;\n  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);\n  border-radius: 999px;\n  right: 0; }"];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/client/components/carusel-films/carusel-films.component.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/client/components/carusel-films/carusel-films.component.ts ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var CaruselFilmsComponent = /** @class */ (function () {
+    function CaruselFilmsComponent(platformId) {
+        this.platformId = platformId;
+        this.title = "";
+        this.grid = { xs: 2, sm: 3, md: 4, lg: 6, all: 0 };
+    }
+    CaruselFilmsComponent.prototype.ngOnInit = function () {
+        this.carouselOne = {
+            grid: this.grid,
+            slide: 1,
+            speed: 1000,
+            // interval: 1100,
+            point: {
+                visible: true
+            },
+            load: 5,
+            touch: false,
+            loop: true,
+            custom: 'banner'
+        };
+    };
+    CaruselFilmsComponent.prototype.carLoad = function (e) {
+    };
+    return CaruselFilmsComponent;
+}());
+exports.CaruselFilmsComponent = CaruselFilmsComponent;
 
 
 /***/ }),
@@ -1516,7 +2580,7 @@ var i4 = __webpack_require__(/*! ./film-item-index.component */ "./src/app/clien
 var styles_FilmItemIndexComponent = [i0.styles];
 var RenderType_FilmItemIndexComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_FilmItemIndexComponent, data: {} });
 exports.RenderType_FilmItemIndexComponent = RenderType_FilmItemIndexComponent;
-function View_FilmItemIndexComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "div", [["class", "main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 6, "a", [], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+function View_FilmItemIndexComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "div", [["class", "main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 6, "a", [["style", "pointer-events: auto"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 2).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), i1.ɵdid(2, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(3, 3), (_l()(), i1.ɵeld(4, 0, null, null, 3, "span", [["class", "cont"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 0, "img", [], [[8, "src", 4], [8, "alt", 0]], null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "small", [["class", "title"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""]))], function (_ck, _v) { var _co = _v.component; var currVal_2 = _ck(_v, 3, 0, "/online", _co.film._id, _co.slug); _ck(_v, 2, 0, currVal_2); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = i1.ɵnov(_v, 2).target; var currVal_1 = i1.ɵnov(_v, 2).href; _ck(_v, 1, 0, currVal_0, currVal_1); var currVal_3 = (_co.film.poster_thumb ? _co.film.poster_thumb : "/static/images/empty.jpeg"); var currVal_4 = _co.film.name; _ck(_v, 5, 0, currVal_3, currVal_4); var currVal_5 = _co.film.name; _ck(_v, 7, 0, currVal_5); }); }
@@ -1545,7 +2609,7 @@ exports.FilmItemIndexComponentNgFactory = FilmItemIndexComponentNgFactory;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".main[_ngcontent-%COMP%] {\n  width: 150px;\n  height: 225px;\n  margin: 4px; }\n\nimg[_ngcontent-%COMP%] {\n  width: 150px;\n  height: 225px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #979797;\n  border-radius: 5px; }\n\n.cont[_ngcontent-%COMP%] {\n  position: relative;\n  display: block;\n  width: 100%; }\n\na[_ngcontent-%COMP%]:hover {\n  box-shadow: 0 0 24px 0 #ff000033;\n  display: block; }\n\n.title[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  min-height: 50px;\n  left: 0;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-content: center;\n  align-items: center;\n  right: 0;\n  text-align: center;\n  border-top: 1px solid #fff;\n  background: rgba(24, 18, 18, 0.85);\n  color: white;\n  padding-bottom: 6px; }"];
+var styles = [".main[_ngcontent-%COMP%] {\n  width: 150px;\n  height: 225px;\n  margin: 4px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n\nimg[_ngcontent-%COMP%] {\n  width: 150px;\n  height: 225px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #979797;\n  border-radius: 5px; }\n\n.cont[_ngcontent-%COMP%] {\n  position: relative;\n  display: block;\n  width: 100%; }\n\na[_ngcontent-%COMP%]:hover {\n  box-shadow: 0 0 24px 0 #ff000033;\n  display: block; }\n\n.title[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  min-height: 50px;\n  left: 0;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-content: center;\n  align-items: center;\n  right: 0;\n  text-align: center;\n  border-top: 1px solid #fff;\n  background: rgba(24, 18, 18, 0.85);\n  color: white;\n  padding-bottom: 6px; }"];
 exports.styles = styles;
 
 
@@ -2146,7 +3210,7 @@ var i4 = __webpack_require__(/*! ./navbar.component */ "./src/app/client/compone
 var styles_NavbarComponent = [i0.styles];
 var RenderType_NavbarComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_NavbarComponent, data: {} });
 exports.RenderType_NavbarComponent = RenderType_NavbarComponent;
-function View_NavbarComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 26, "div", [["class", "row w-100 m-0 p-0 navbar-main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 3, "div", [["class", "col-auto p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 2, "a", [["routerLink", "/"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+function View_NavbarComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 26, "div", [["class", "row w-100 m-0 p-0 navbar-main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 3, "div", [["class", "col-auto p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 2, "a", [["class", "d-none d-md-inline"], ["routerLink", "/"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 3).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), i1.ɵdid(3, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(4, 0, null, null, 0, "img", [["alt", ""], ["src", "/static/images/logo.png"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 21, "div", [["class", "col p-0 d-flex align-content-center justify-content-start align-items-stretch pl-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
@@ -2294,7 +3358,7 @@ var PlayerComponent = /** @class */ (function () {
     PlayerComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.filmServ.film$.subscribe(function (s) {
-            _this.film = s;
+            _this.film = s.film;
         });
         if (common_1.isPlatformBrowser(this.platformId)) {
             this.onResize();
@@ -2713,8 +3777,8 @@ exports.FilmsPageComponent = FilmsPageComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./index-page.component.scss.shim.ngstyle */ "./src/app/client/pages/index-page/index-page.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! ../../components/film-item-index/film-item-index.component.ngfactory */ "./src/app/client/components/film-item-index/film-item-index.component.ngfactory.js");
-var i3 = __webpack_require__(/*! ../../components/film-item-index/film-item-index.component */ "./src/app/client/components/film-item-index/film-item-index.component.ts");
+var i2 = __webpack_require__(/*! ../../components/carusel-films/carusel-films.component.ngfactory */ "./src/app/client/components/carusel-films/carusel-films.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ../../components/carusel-films/carusel-films.component */ "./src/app/client/components/carusel-films/carusel-films.component.ts");
 var i4 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var i5 = __webpack_require__(/*! ./index-page.component */ "./src/app/client/pages/index-page/index-page.component.ts");
 var i6 = __webpack_require__(/*! ../../../services/films.service */ "./src/app/services/films.service.ts");
@@ -2722,12 +3786,12 @@ var i7 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform
 var styles_IndexPageComponent = [i0.styles];
 var RenderType_IndexPageComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_IndexPageComponent, data: {} });
 exports.RenderType_IndexPageComponent = RenderType_IndexPageComponent;
-function View_IndexPageComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-film-item-index", [["class", "col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center"]], null, null, null, i2.View_FilmItemIndexComponent_0, i2.RenderType_FilmItemIndexComponent)), i1.ɵdid(1, 114688, null, 0, i3.FilmItemIndexComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.$implicit; _ck(_v, 1, 0, currVal_0); }, null); }
-function View_IndexPageComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-film-item-index", [["class", "col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center"]], null, null, null, i2.View_FilmItemIndexComponent_0, i2.RenderType_FilmItemIndexComponent)), i1.ɵdid(1, 114688, null, 0, i3.FilmItemIndexComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.$implicit; _ck(_v, 1, 0, currVal_0); }, null); }
-function View_IndexPageComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-film-item-index", [["class", "col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center"]], null, null, null, i2.View_FilmItemIndexComponent_0, i2.RenderType_FilmItemIndexComponent)), i1.ɵdid(1, 114688, null, 0, i3.FilmItemIndexComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.$implicit; _ck(_v, 1, 0, currVal_0); }, null); }
-function View_IndexPageComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-film-item-index", [["class", "col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center"]], null, null, null, i2.View_FilmItemIndexComponent_0, i2.RenderType_FilmItemIndexComponent)), i1.ɵdid(1, 114688, null, 0, i3.FilmItemIndexComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.$implicit; _ck(_v, 1, 0, currVal_0); }, null); }
-function View_IndexPageComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-film-item-index", [["class", "col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center"]], null, null, null, i2.View_FilmItemIndexComponent_0, i2.RenderType_FilmItemIndexComponent)), i1.ɵdid(1, 114688, null, 0, i3.FilmItemIndexComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.$implicit; _ck(_v, 1, 0, currVal_0); }, null); }
-function View_IndexPageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 6, "div", [["class", "row m-0 col-12"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 2, "div", [["class", "title"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u041D\u043E\u0432\u044B\u0435 \u0444\u0438\u043B\u044C\u043C\u044B:"])), (_l()(), i1.ɵeld(4, 0, null, null, 2, "div", [["class", "row w-100 border  m-0 py-2  border-secondary"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_1)), i1.ɵdid(6, 802816, null, 0, i4.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(7, 0, null, null, 6, "div", [["class", "row m-0 col-12 justify-content-end"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 2, "div", [["class", "title"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u041D\u043E\u0432\u044B\u0435 \u0441\u0435\u0440\u0438\u0430\u043B\u044B:"])), (_l()(), i1.ɵeld(11, 0, null, null, 2, "div", [["class", "row w-100 border  m-0 py-2  border-secondary "]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_2)), i1.ɵdid(13, 802816, null, 0, i4.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(14, 0, null, null, 6, "div", [["class", "row m-0 col-12"]], null, null, null, null, null)), (_l()(), i1.ɵeld(15, 0, null, null, 2, "div", [["class", "title"]], null, null, null, null, null)), (_l()(), i1.ɵeld(16, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u0444\u0438\u043B\u044C\u043C\u044B:"])), (_l()(), i1.ɵeld(18, 0, null, null, 2, "div", [["class", "row w-100 border  m-0 py-2  border-secondary"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_3)), i1.ɵdid(20, 802816, null, 0, i4.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(21, 0, null, null, 6, "div", [["class", "row m-0 col-12 justify-content-end"]], null, null, null, null, null)), (_l()(), i1.ɵeld(22, 0, null, null, 2, "div", [["class", "title"]], null, null, null, null, null)), (_l()(), i1.ɵeld(23, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u0441\u0435\u0440\u0438\u0430\u043B\u044B:"])), (_l()(), i1.ɵeld(25, 0, null, null, 2, "div", [["class", "row w-100 border  m-0 py-2  border-secondary "]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_4)), i1.ɵdid(27, 802816, null, 0, i4.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(28, 0, null, null, 6, "div", [["class", "row m-0 col-12"]], null, null, null, null, null)), (_l()(), i1.ɵeld(29, 0, null, null, 2, "div", [["class", "title"]], null, null, null, null, null)), (_l()(), i1.ɵeld(30, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u0421\u043B\u0443\u0447\u0430\u0439\u043D\u044B\u0435 \u0444\u0438\u043B\u044C\u043C\u044B \u0438 \u0441\u0435\u0440\u0438\u0430\u043B\u044B:"])), (_l()(), i1.ɵeld(32, 0, null, null, 2, "div", [["class", "row w-100 border  m-0 py-2  border-secondary "]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_5)), i1.ɵdid(34, 802816, null, 0, i4.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.indexFilms.newFilms; _ck(_v, 6, 0, currVal_0); var currVal_1 = _co.indexFilms.newSerials; _ck(_v, 13, 0, currVal_1); var currVal_2 = _co.indexFilms.popularFilms; _ck(_v, 20, 0, currVal_2); var currVal_3 = _co.indexFilms.popularSerials; _ck(_v, 27, 0, currVal_3); var currVal_4 = _co.indexFilms.randomFilms; _ck(_v, 34, 0, currVal_4); }, null); }
+function View_IndexPageComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-carusel-films", [], null, null, null, i2.View_CaruselFilmsComponent_0, i2.RenderType_CaruselFilmsComponent)), i1.ɵdid(1, 114688, null, 0, i3.CaruselFilmsComponent, [i1.PLATFORM_ID], { films: [0, "films"], title: [1, "title"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.indexFilms.newFilms; var currVal_1 = "\u041D\u043E\u0432\u044B\u0435 \u0444\u0438\u043B\u044C\u043C\u044B"; _ck(_v, 1, 0, currVal_0, currVal_1); }, null); }
+function View_IndexPageComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-carusel-films", [], null, null, null, i2.View_CaruselFilmsComponent_0, i2.RenderType_CaruselFilmsComponent)), i1.ɵdid(1, 114688, null, 0, i3.CaruselFilmsComponent, [i1.PLATFORM_ID], { films: [0, "films"], title: [1, "title"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.indexFilms.newSerials; var currVal_1 = "\u041D\u043E\u0432\u044B\u0435 \u0441\u0435\u0440\u0438\u0430\u043B\u044B"; _ck(_v, 1, 0, currVal_0, currVal_1); }, null); }
+function View_IndexPageComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-carusel-films", [], null, null, null, i2.View_CaruselFilmsComponent_0, i2.RenderType_CaruselFilmsComponent)), i1.ɵdid(1, 114688, null, 0, i3.CaruselFilmsComponent, [i1.PLATFORM_ID], { films: [0, "films"], title: [1, "title"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.indexFilms.popularFilms; var currVal_1 = "\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u0444\u0438\u043B\u044C\u043C\u044B"; _ck(_v, 1, 0, currVal_0, currVal_1); }, null); }
+function View_IndexPageComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-carusel-films", [], null, null, null, i2.View_CaruselFilmsComponent_0, i2.RenderType_CaruselFilmsComponent)), i1.ɵdid(1, 114688, null, 0, i3.CaruselFilmsComponent, [i1.PLATFORM_ID], { films: [0, "films"], title: [1, "title"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.indexFilms.popularSerials; var currVal_1 = "\u041F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u0441\u0435\u0440\u0438\u0430\u043B\u044B"; _ck(_v, 1, 0, currVal_0, currVal_1); }, null); }
+function View_IndexPageComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-carusel-films", [], null, null, null, i2.View_CaruselFilmsComponent_0, i2.RenderType_CaruselFilmsComponent)), i1.ɵdid(1, 114688, null, 0, i3.CaruselFilmsComponent, [i1.PLATFORM_ID], { films: [0, "films"], title: [1, "title"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.indexFilms.randomFilms; var currVal_1 = "\u0421\u043B\u0443\u0447\u0430\u0439\u043D\u044B\u0435 \u0444\u0438\u043B\u044C\u043C\u044B \u0438 \u0441\u0435\u0440\u0438\u0430\u043B\u044B"; _ck(_v, 1, 0, currVal_0, currVal_1); }, null); }
+function View_IndexPageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "p-2"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_1)), i1.ɵdid(2, 16384, null, 0, i4.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_2)), i1.ɵdid(4, 16384, null, 0, i4.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_3)), i1.ɵdid(6, 16384, null, 0, i4.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_4)), i1.ɵdid(8, 16384, null, 0, i4.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexPageComponent_5)), i1.ɵdid(10, 16384, null, 0, i4.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.indexFilms.newFilms.length > 0); _ck(_v, 2, 0, currVal_0); var currVal_1 = (_co.indexFilms.newSerials.length > 0); _ck(_v, 4, 0, currVal_1); var currVal_2 = (_co.indexFilms.popularFilms.length > 0); _ck(_v, 6, 0, currVal_2); var currVal_3 = (_co.indexFilms.popularSerials.length > 0); _ck(_v, 8, 0, currVal_3); var currVal_4 = (_co.indexFilms.randomFilms.length > 0); _ck(_v, 10, 0, currVal_4); }, null); }
 exports.View_IndexPageComponent_0 = View_IndexPageComponent_0;
 function View_IndexPageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-index-page", [], null, null, null, View_IndexPageComponent_0, RenderType_IndexPageComponent)), i1.ɵdid(1, 114688, null, 0, i5.IndexPageComponent, [i6.FilmsService, i7.Title, i7.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_IndexPageComponent_Host_0 = View_IndexPageComponent_Host_0;
@@ -2753,7 +3817,7 @@ exports.IndexPageComponentNgFactory = IndexPageComponentNgFactory;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".title[_ngcontent-%COMP%] {\n  background-color: #f3f0f0;\n  color: #362e2e;\n  border-left: 1px  solid #979797;\n  border-top: 1px  solid #979797;\n  border-right: 1px  solid #979797;\n  border-radius: 8px 8px 0 0;\n  padding-left: 8px;\n  padding-right: 8px;\n  padding-top: 6px;\n  margin-top: 12px;\n  font-weight: 300; }\n\nh3[_ngcontent-%COMP%] {\n  font-size: 1.1rem; }"];
+var styles = [""];
 exports.styles = styles;
 
 
@@ -3053,24 +4117,26 @@ var i5 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http")
 var i6 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var i7 = __webpack_require__(/*! ../../components/features/features.component.ngfactory */ "./src/app/client/components/features/features.component.ngfactory.js");
 var i8 = __webpack_require__(/*! ../../components/features/features.component */ "./src/app/client/components/features/features.component.ts");
-var i9 = __webpack_require__(/*! ../../components/film-info-panel/film-info-panel.component.ngfactory */ "./src/app/client/components/film-info-panel/film-info-panel.component.ngfactory.js");
-var i10 = __webpack_require__(/*! ../../components/film-info-panel/film-info-panel.component */ "./src/app/client/components/film-info-panel/film-info-panel.component.ts");
-var i11 = __webpack_require__(/*! ../../components/fade-panel/fade-panel.component.ngfactory */ "./src/app/client/components/fade-panel/fade-panel.component.ngfactory.js");
-var i12 = __webpack_require__(/*! ../../components/fade-panel/fade-panel.component */ "./src/app/client/components/fade-panel/fade-panel.component.ts");
-var i13 = __webpack_require__(/*! ./online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
-var i14 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i15 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i9 = __webpack_require__(/*! ../../components/carusel-films/carusel-films.component.ngfactory */ "./src/app/client/components/carusel-films/carusel-films.component.ngfactory.js");
+var i10 = __webpack_require__(/*! ../../components/carusel-films/carusel-films.component */ "./src/app/client/components/carusel-films/carusel-films.component.ts");
+var i11 = __webpack_require__(/*! ../../components/film-info-panel/film-info-panel.component.ngfactory */ "./src/app/client/components/film-info-panel/film-info-panel.component.ngfactory.js");
+var i12 = __webpack_require__(/*! ../../components/film-info-panel/film-info-panel.component */ "./src/app/client/components/film-info-panel/film-info-panel.component.ts");
+var i13 = __webpack_require__(/*! ../../components/fade-panel/fade-panel.component.ngfactory */ "./src/app/client/components/fade-panel/fade-panel.component.ngfactory.js");
+var i14 = __webpack_require__(/*! ../../components/fade-panel/fade-panel.component */ "./src/app/client/components/fade-panel/fade-panel.component.ts");
+var i15 = __webpack_require__(/*! ./online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
+var i16 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i17 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
 var styles_OnlinePageComponent = [i0.styles];
 var RenderType_OnlinePageComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_OnlinePageComponent, data: {} });
 exports.RenderType_OnlinePageComponent = RenderType_OnlinePageComponent;
-function View_OnlinePageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 26, "div", [["class", "row w-100 m-0 d-flex align-items-stretch"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 18, "div", [["class", "col-12 col-lg-9 p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "my-player", [], null, null, null, i2.View_PlayerComponent_0, i2.RenderType_PlayerComponent)), i1.ɵdid(3, 114688, null, 0, i3.PlayerComponent, [i4.FilmsService, i5.HttpClient, i1.Renderer2, i1.PLATFORM_ID], null, null), (_l()(), i1.ɵeld(4, 0, null, null, 15, "div", [["class", "w-100 p-2 mt-2 row mb-0 mr-0 ml-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 2, "div", [["class", "col"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", " (", ")"])), (_l()(), i1.ɵeld(8, 0, null, null, 4, "div", [["class", "col-auto"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 3, "button", [["class", "btn btn-sm rounded-0"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+function View_OnlinePageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 29, "div", [["class", "row w-100 m-0 d-flex align-items-stretch"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 21, "div", [["class", "col-12 col-lg-9 p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "my-player", [], null, null, null, i2.View_PlayerComponent_0, i2.RenderType_PlayerComponent)), i1.ɵdid(3, 114688, null, 0, i3.PlayerComponent, [i4.FilmsService, i5.HttpClient, i1.Renderer2, i1.PLATFORM_ID], null, null), (_l()(), i1.ɵeld(4, 0, null, null, 15, "div", [["class", "w-100 p-2 mt-2 row mb-0 mr-0 ml-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 2, "div", [["class", "col"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", " (", ")"])), (_l()(), i1.ɵeld(8, 0, null, null, 4, "div", [["class", "col-auto"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 3, "button", [["class", "btn btn-sm rounded-0"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.SetFilmLocalStorage() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(10, 278528, null, 0, i6.NgClass, [i1.IterableDiffers, i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { klass: [0, "klass"], ngClass: [1, "ngClass"] }, null), (_l()(), i1.ɵeld(11, 0, null, null, 1, "small", [], null, null, null, null, null)), (_l()(), i1.ɵted(12, null, ["", ""])), (_l()(), i1.ɵeld(13, 0, null, null, 1, "h5", [["class", "pl-5 w-100 small text-secondary"]], null, null, null, null, null)), (_l()(), i1.ɵted(14, null, ["", " - ", ""])), (_l()(), i1.ɵeld(15, 0, null, null, 0, "hr", [["class", "my-1 w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(16, 0, null, null, 1, "div", [["class", "desc w-100"]], null, null, null, null, null)), (_l()(), i1.ɵted(17, null, ["", ""])), (_l()(), i1.ɵeld(18, 0, null, null, 1, "my-features", [["class", "d-block mt-4 w-100"]], null, null, null, i7.View_FeaturesComponent_0, i7.RenderType_FeaturesComponent)), i1.ɵdid(19, 638976, null, 0, i8.FeaturesComponent, [], { features: [0, "features"] }, null), (_l()(), i1.ɵeld(20, 0, null, null, 2, "div", [["class", "col-3 p-0 d-none d-lg-flex"]], null, null, null, null, null)), (_l()(), i1.ɵeld(21, 0, null, null, 1, "my-film-info-panel", [], null, null, null, i9.View_FilmInfoPanelComponent_0, i9.RenderType_FilmInfoPanelComponent)), i1.ɵdid(22, 114688, null, 0, i10.FilmInfoPanelComponent, [], { film: [0, "film"] }, null), (_l()(), i1.ɵeld(23, 0, null, null, 3, "my-fade-panel", [["name", "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"]], null, null, null, i11.View_FadePanelComponent_0, i11.RenderType_FadePanelComponent)), i1.ɵdid(24, 114688, null, 0, i12.FadePanelComponent, [i1.PLATFORM_ID], { name: [0, "name"] }, null), (_l()(), i1.ɵeld(25, 0, null, 0, 1, "my-film-info-panel", [], null, null, null, i9.View_FilmInfoPanelComponent_0, i9.RenderType_FilmInfoPanelComponent)), i1.ɵdid(26, 114688, null, 0, i10.FilmInfoPanelComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var _co = _v.component; _ck(_v, 3, 0); var currVal_2 = "btn btn-sm rounded-0"; var currVal_3 = (_co.isFilmLocalStorage ? "btn-outline-danger" : "btn-info"); _ck(_v, 10, 0, currVal_2, currVal_3); var currVal_8 = _co.film.features; _ck(_v, 19, 0, currVal_8); var currVal_9 = _co.film; _ck(_v, 22, 0, currVal_9); var currVal_10 = "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"; _ck(_v, 24, 0, currVal_10); var currVal_11 = _co.film; _ck(_v, 26, 0, currVal_11); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.film.name; var currVal_1 = _co.film.year; _ck(_v, 7, 0, currVal_0, currVal_1); var currVal_4 = (_co.isFilmLocalStorage ? "\u0423\u0414\u0410\u041B\u0418\u0422\u042C \u0424\u0418\u041B\u042C\u041C" : "\u041F\u041E\u0421\u041C\u041E\u0422\u0420\u0415\u0422\u042C \u041F\u041E\u0417\u0416\u0415"); _ck(_v, 12, 0, currVal_4); var currVal_5 = _co.film.alternateName; var currVal_6 = _co.film.slogan; _ck(_v, 14, 0, currVal_5, currVal_6); var currVal_7 = _co.film.description; _ck(_v, 17, 0, currVal_7); }); }
+    } return ad; }, null, null)), i1.ɵdid(10, 278528, null, 0, i6.NgClass, [i1.IterableDiffers, i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { klass: [0, "klass"], ngClass: [1, "ngClass"] }, null), (_l()(), i1.ɵeld(11, 0, null, null, 1, "small", [], null, null, null, null, null)), (_l()(), i1.ɵted(12, null, ["", ""])), (_l()(), i1.ɵeld(13, 0, null, null, 1, "h5", [["class", "pl-5 w-100 small text-secondary"]], null, null, null, null, null)), (_l()(), i1.ɵted(14, null, ["", " - ", ""])), (_l()(), i1.ɵeld(15, 0, null, null, 0, "hr", [["class", "my-1 w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(16, 0, null, null, 1, "div", [["class", "desc w-100"]], null, null, null, null, null)), (_l()(), i1.ɵted(17, null, ["", ""])), (_l()(), i1.ɵeld(18, 0, null, null, 1, "my-features", [["class", "d-block mt-4 w-100"]], null, null, null, i7.View_FeaturesComponent_0, i7.RenderType_FeaturesComponent)), i1.ɵdid(19, 638976, null, 0, i8.FeaturesComponent, [], { features: [0, "features"] }, null), (_l()(), i1.ɵeld(20, 0, null, null, 2, "my-carusel-films", [], null, null, null, i9.View_CaruselFilmsComponent_0, i9.RenderType_CaruselFilmsComponent)), i1.ɵdid(21, 114688, null, 0, i10.CaruselFilmsComponent, [i1.PLATFORM_ID], { films: [0, "films"], title: [1, "title"], grid: [2, "grid"] }, null), i1.ɵpod(22, { xs: 0, sm: 1, md: 2, lg: 3, all: 4 }), (_l()(), i1.ɵeld(23, 0, null, null, 2, "div", [["class", "col-3 p-0 d-none d-lg-flex"]], null, null, null, null, null)), (_l()(), i1.ɵeld(24, 0, null, null, 1, "my-film-info-panel", [], null, null, null, i11.View_FilmInfoPanelComponent_0, i11.RenderType_FilmInfoPanelComponent)), i1.ɵdid(25, 114688, null, 0, i12.FilmInfoPanelComponent, [], { film: [0, "film"] }, null), (_l()(), i1.ɵeld(26, 0, null, null, 3, "my-fade-panel", [["name", "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"]], null, null, null, i13.View_FadePanelComponent_0, i13.RenderType_FadePanelComponent)), i1.ɵdid(27, 114688, null, 0, i14.FadePanelComponent, [i1.PLATFORM_ID], { name: [0, "name"] }, null), (_l()(), i1.ɵeld(28, 0, null, 0, 1, "my-film-info-panel", [], null, null, null, i11.View_FilmInfoPanelComponent_0, i11.RenderType_FilmInfoPanelComponent)), i1.ɵdid(29, 114688, null, 0, i12.FilmInfoPanelComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var _co = _v.component; _ck(_v, 3, 0); var currVal_2 = "btn btn-sm rounded-0"; var currVal_3 = (_co.isFilmLocalStorage ? "btn-outline-danger" : "btn-info"); _ck(_v, 10, 0, currVal_2, currVal_3); var currVal_8 = _co.film.features; _ck(_v, 19, 0, currVal_8); var currVal_9 = _co.filmsLike; var currVal_10 = (("\u041F\u043E\u0445\u043E\u0436\u0438\u0435 " + _co.film.type) + "\u044B"); var currVal_11 = _ck(_v, 22, 0, 2, 3, 4, 4, 0); _ck(_v, 21, 0, currVal_9, currVal_10, currVal_11); var currVal_12 = _co.film; _ck(_v, 25, 0, currVal_12); var currVal_13 = "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"; _ck(_v, 27, 0, currVal_13); var currVal_14 = _co.film; _ck(_v, 29, 0, currVal_14); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.film.name; var currVal_1 = _co.film.year; _ck(_v, 7, 0, currVal_0, currVal_1); var currVal_4 = (_co.isFilmLocalStorage ? "\u0423\u0414\u0410\u041B\u0418\u0422\u042C \u0424\u0418\u041B\u042C\u041C" : "\u041F\u041E\u0421\u041C\u041E\u0422\u0420\u0415\u0422\u042C \u041F\u041E\u0417\u0416\u0415"); _ck(_v, 12, 0, currVal_4); var currVal_5 = _co.film.alternateName; var currVal_6 = _co.film.slogan; _ck(_v, 14, 0, currVal_5, currVal_6); var currVal_7 = _co.film.description; _ck(_v, 17, 0, currVal_7); }); }
 exports.View_OnlinePageComponent_0 = View_OnlinePageComponent_0;
-function View_OnlinePageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-online-page", [], null, null, null, View_OnlinePageComponent_0, RenderType_OnlinePageComponent)), i1.ɵdid(1, 114688, null, 0, i13.OnlinePageComponent, [i4.FilmsService, i14.ActivatedRoute, i15.Title, i15.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_OnlinePageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-online-page", [], null, null, null, View_OnlinePageComponent_0, RenderType_OnlinePageComponent)), i1.ɵdid(1, 114688, null, 0, i15.OnlinePageComponent, [i4.FilmsService, i16.ActivatedRoute, i17.Title, i17.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_OnlinePageComponent_Host_0 = View_OnlinePageComponent_Host_0;
-var OnlinePageComponentNgFactory = i1.ɵccf("my-online-page", i13.OnlinePageComponent, View_OnlinePageComponent_Host_0, {}, {}, []);
+var OnlinePageComponentNgFactory = i1.ɵccf("my-online-page", i15.OnlinePageComponent, View_OnlinePageComponent_Host_0, {}, {}, []);
 exports.OnlinePageComponentNgFactory = OnlinePageComponentNgFactory;
 
 
@@ -3120,12 +4186,14 @@ var OnlinePageComponent = /** @class */ (function () {
         this.title = title;
         this.meta = meta;
         this.film = new film_model_1.Film();
+        this.filmsLike = [];
         this.isFilmLocalStorage = false;
     }
     OnlinePageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.filmsServ.film$.subscribe(function (s) {
-            _this.film = s;
+            _this.film = s.film;
+            _this.filmsLike = s.films;
             _this.title.setTitle(_this.film.type.toLocaleUpperCase() + " - " + _this.film.name + " (" + _this.film.year + ") -  \u043E\u043D\u043B\u0430\u0439\u043D");
             _this.meta.updateTag({ property: "description", content: _this.film.description.substring(0, 200).replace(/\s/g, ' ').trim() });
             _this.isFilmLocalStorage = _this.filmsServ.IsFilmInLocalStorage(_this.film._id);
@@ -3648,6 +4716,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var http_1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
 var films_model_1 = __webpack_require__(/*! ../../../../models/films.model */ "../models/films.model.ts");
 var film_model_1 = __webpack_require__(/*! ../../../../models/film.model */ "../models/film.model.ts");
+var film_view_1 = __webpack_require__(/*! ../../../../models/film.view */ "../models/film.view.ts");
 var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
 var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
 var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
@@ -3665,7 +4734,7 @@ var FilmsService = /** @class */ (function () {
         this.films$ = new rxjs_1.BehaviorSubject(new films_model_1.Films());
         this.filter$ = new rxjs_1.BehaviorSubject(new films_model_1.FilmFilter());
         this.filmsByName$ = new rxjs_1.BehaviorSubject(new name_model_1.NameFilms());
-        this.film$ = new rxjs_1.BehaviorSubject(new film_model_1.Film());
+        this.film$ = new rxjs_1.BehaviorSubject(new film_view_1.FilmView());
         this.myFilms$ = new rxjs_1.BehaviorSubject([]);
     }
     FilmsService.prototype.getFilms = function () {
@@ -4065,6 +5134,61 @@ module.exports = require("@angular/router");
 
 /***/ }),
 
+/***/ "@ngu/carousel/src/ngu-carousel.directive":
+/*!***********************************************************!*\
+  !*** external "@ngu/carousel/src/ngu-carousel.directive" ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@ngu/carousel/src/ngu-carousel.directive");
+
+/***/ }),
+
+/***/ "@ngu/carousel/src/ngu-carousel.module":
+/*!********************************************************!*\
+  !*** external "@ngu/carousel/src/ngu-carousel.module" ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@ngu/carousel/src/ngu-carousel.module");
+
+/***/ }),
+
+/***/ "@ngu/carousel/src/ngu-carousel.service":
+/*!*********************************************************!*\
+  !*** external "@ngu/carousel/src/ngu-carousel.service" ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@ngu/carousel/src/ngu-carousel.service");
+
+/***/ }),
+
+/***/ "@ngu/carousel/src/ngu-carousel/ngu-carousel.component":
+/*!************************************************************************!*\
+  !*** external "@ngu/carousel/src/ngu-carousel/ngu-carousel.component" ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@ngu/carousel/src/ngu-carousel/ngu-carousel.component");
+
+/***/ }),
+
+/***/ "@ngu/carousel/src/ngu-item/ngu-item.component":
+/*!****************************************************************!*\
+  !*** external "@ngu/carousel/src/ngu-item/ngu-item.component" ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@ngu/carousel/src/ngu-item/ngu-item.component");
+
+/***/ }),
+
 /***/ "@nguniversal/module-map-ngfactory-loader":
 /*!***********************************************************!*\
   !*** external "@nguniversal/module-map-ngfactory-loader" ***!
@@ -4139,6 +5263,17 @@ module.exports = require("ngx-pagination");
 /***/ (function(module, exports) {
 
 module.exports = require("rxjs");
+
+/***/ }),
+
+/***/ "rxjs/Subject":
+/*!*******************************!*\
+  !*** external "rxjs/Subject" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("rxjs/Subject");
 
 /***/ }),
 

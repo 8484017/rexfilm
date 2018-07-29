@@ -29,14 +29,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FilmInfoPanelComponent } from './components/film-info-panel/film-info-panel.component';
 import { MyFilmsPageComponent } from './pages/my-films-page/my-films-page.component';
-
+import { CaruselFilmsComponent } from './components/carusel-films/carusel-films.component';
+import { NguCarouselModule } from '@ngu/carousel';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     NgxPaginationModule,
-    ReactiveFormsModule,
+    NguCarouselModule,
     RouterModule.forChild([
       {
         path: "", component: ClientLayoutComponent, children: [
@@ -57,7 +58,7 @@ import { MyFilmsPageComponent } from './pages/my-films-page/my-films-page.compon
     RatingComponent, FeaturesComponent,
     ActorsListComponent,
     ForNumberPipe,
-    FilterComponent, NgValueDirective, FilmItemIndexComponent, NamePageComponent, FadePanelComponent, FilmInfoPanelComponent, MyFilmsPageComponent
+    FilterComponent, NgValueDirective, FilmItemIndexComponent, NamePageComponent, FadePanelComponent, FilmInfoPanelComponent, MyFilmsPageComponent, CaruselFilmsComponent
   ],
   providers: [FilmsResolver, FilmResolver, IndexFilmsResolver, NameResolver]
 
