@@ -3,8 +3,11 @@
     <a class="d-none d-md-inline" routerLink="/">
       <img src="/static/images/logo.png" alt="">
     </a>
+    <a class="d-inline d-md-none" routerLink="/">
+      <img src="/static/images/logo-min.png" alt="">
+    </a>
   </div>
-  <div class="col p-0 d-flex align-content-center justify-content-start align-items-stretch pl-3">
+  <div class="col row m-0 p-0 d-flex align-content-center justify-content-start align-items-stretch pl-3">
     <a [routerLink]="['/','films']" [routerLinkActive]="'active'" class="navbar-link mr-3">Фильмы</a>
     <a [routerLink]="['/','serials']" [routerLinkActive]="'active'" class="navbar-link mr-3">Сериалы</a>
     <a [routerLink]="['/my/playlist']" [routerLinkActive]="'active'" class="navbar-link mr-3">Мои фильмы</a>

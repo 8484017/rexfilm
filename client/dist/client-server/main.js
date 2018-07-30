@@ -1993,24 +1993,26 @@ var i5 = __webpack_require__(/*! ./pages/films-page/films-page.component.ngfacto
 var i6 = __webpack_require__(/*! ./pages/online-page/online-page.component.ngfactory */ "./src/app/client/pages/online-page/online-page.component.ngfactory.js");
 var i7 = __webpack_require__(/*! ./pages/name-page/name-page.component.ngfactory */ "./src/app/client/pages/name-page/name-page.component.ngfactory.js");
 var i8 = __webpack_require__(/*! ./pages/my-films-page/my-films-page.component.ngfactory */ "./src/app/client/pages/my-films-page/my-films-page.component.ngfactory.js");
-var i9 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i10 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
-var i11 = __webpack_require__(/*! ngx-pagination */ "ngx-pagination");
-var i12 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel.service */ "@ngu/carousel/src/ngu-carousel.service");
-var i13 = __webpack_require__(/*! ../resolvers/films.resolver */ "./src/app/resolvers/films.resolver.ts");
-var i14 = __webpack_require__(/*! ../services/films.service */ "./src/app/services/films.service.ts");
-var i15 = __webpack_require__(/*! ../resolvers/film.resolver */ "./src/app/resolvers/film.resolver.ts");
-var i16 = __webpack_require__(/*! ../resolvers/index.films.resolver */ "./src/app/resolvers/index.films.resolver.ts");
-var i17 = __webpack_require__(/*! ../resolvers/name.resolver */ "./src/app/resolvers/name.resolver.ts");
-var i18 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel.module */ "@ngu/carousel/src/ngu-carousel.module");
-var i19 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i20 = __webpack_require__(/*! ./layout/client-layout/client-layout.component */ "./src/app/client/layout/client-layout/client-layout.component.ts");
-var i21 = __webpack_require__(/*! ./pages/index-page/index-page.component */ "./src/app/client/pages/index-page/index-page.component.ts");
-var i22 = __webpack_require__(/*! ./pages/films-page/films-page.component */ "./src/app/client/pages/films-page/films-page.component.ts");
-var i23 = __webpack_require__(/*! ./pages/online-page/online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
-var i24 = __webpack_require__(/*! ./pages/name-page/name-page.component */ "./src/app/client/pages/name-page/name-page.component.ts");
-var i25 = __webpack_require__(/*! ./pages/my-films-page/my-films-page.component */ "./src/app/client/pages/my-films-page/my-films-page.component.ts");
-var ClientModuleNgFactory = i0.ɵcmf(i1.ClientModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.ClientLayoutComponentNgFactory, i4.IndexPageComponentNgFactory, i5.FilmsPageComponentNgFactory, i6.OnlinePageComponentNgFactory, i7.NamePageComponentNgFactory, i8.MyFilmsPageComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i9.NgLocalization, i9.NgLocaleLocalization, [i0.LOCALE_ID, [2, i9.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i10.ɵangular_packages_forms_forms_i, i10.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i11.PaginationService, i11.PaginationService, []), i0.ɵmpd(4608, i12.NguCarouselService, i12.NguCarouselService, []), i0.ɵmpd(4608, i13.FilmsResolver, i13.FilmsResolver, [i14.FilmsService]), i0.ɵmpd(4608, i15.FilmResolver, i15.FilmResolver, [i14.FilmsService]), i0.ɵmpd(4608, i16.IndexFilmsResolver, i16.IndexFilmsResolver, [i14.FilmsService]), i0.ɵmpd(4608, i17.NameResolver, i17.NameResolver, [i14.FilmsService]), i0.ɵmpd(1073742336, i9.CommonModule, i9.CommonModule, []), i0.ɵmpd(1073742336, i10.ɵangular_packages_forms_forms_bb, i10.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i10.FormsModule, i10.FormsModule, []), i0.ɵmpd(1073742336, i11.NgxPaginationModule, i11.NgxPaginationModule, []), i0.ɵmpd(1073742336, i18.NguCarouselModule, i18.NguCarouselModule, []), i0.ɵmpd(1073742336, i19.RouterModule, i19.RouterModule, [[2, i19.ɵangular_packages_router_router_a], [2, i19.Router]]), i0.ɵmpd(1073742336, i1.ClientModule, i1.ClientModule, []), i0.ɵmpd(1024, i19.ROUTES, function () { return [[{ path: "", component: i20.ClientLayoutComponent, children: [{ path: "", resolve: [i16.IndexFilmsResolver], component: i21.IndexPageComponent }, { path: ":type", resolve: [i13.FilmsResolver], component: i22.FilmsPageComponent }, { path: "online/:id/:slug", resolve: [i15.FilmResolver], component: i23.OnlinePageComponent }, { path: "name/:id", resolve: [i17.NameResolver], component: i24.NamePageComponent }, { path: "my/playlist", component: i25.MyFilmsPageComponent }] }]]; }, [])]); });
+var i9 = __webpack_require__(/*! ./pages/not-found/not-found.component.ngfactory */ "./src/app/client/pages/not-found/not-found.component.ngfactory.js");
+var i10 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i11 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
+var i12 = __webpack_require__(/*! ngx-pagination */ "ngx-pagination");
+var i13 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel.service */ "@ngu/carousel/src/ngu-carousel.service");
+var i14 = __webpack_require__(/*! ../resolvers/films.resolver */ "./src/app/resolvers/films.resolver.ts");
+var i15 = __webpack_require__(/*! ../services/films.service */ "./src/app/services/films.service.ts");
+var i16 = __webpack_require__(/*! ../resolvers/film.resolver */ "./src/app/resolvers/film.resolver.ts");
+var i17 = __webpack_require__(/*! ../resolvers/index.films.resolver */ "./src/app/resolvers/index.films.resolver.ts");
+var i18 = __webpack_require__(/*! ../resolvers/name.resolver */ "./src/app/resolvers/name.resolver.ts");
+var i19 = __webpack_require__(/*! @ngu/carousel/src/ngu-carousel.module */ "@ngu/carousel/src/ngu-carousel.module");
+var i20 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i21 = __webpack_require__(/*! ./layout/client-layout/client-layout.component */ "./src/app/client/layout/client-layout/client-layout.component.ts");
+var i22 = __webpack_require__(/*! ./pages/index-page/index-page.component */ "./src/app/client/pages/index-page/index-page.component.ts");
+var i23 = __webpack_require__(/*! ./pages/films-page/films-page.component */ "./src/app/client/pages/films-page/films-page.component.ts");
+var i24 = __webpack_require__(/*! ./pages/online-page/online-page.component */ "./src/app/client/pages/online-page/online-page.component.ts");
+var i25 = __webpack_require__(/*! ./pages/name-page/name-page.component */ "./src/app/client/pages/name-page/name-page.component.ts");
+var i26 = __webpack_require__(/*! ./pages/my-films-page/my-films-page.component */ "./src/app/client/pages/my-films-page/my-films-page.component.ts");
+var i27 = __webpack_require__(/*! ./pages/not-found/not-found.component */ "./src/app/client/pages/not-found/not-found.component.ts");
+var ClientModuleNgFactory = i0.ɵcmf(i1.ClientModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.ClientLayoutComponentNgFactory, i4.IndexPageComponentNgFactory, i5.FilmsPageComponentNgFactory, i6.OnlinePageComponentNgFactory, i7.NamePageComponentNgFactory, i8.MyFilmsPageComponentNgFactory, i9.NotFoundComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i10.NgLocalization, i10.NgLocaleLocalization, [i0.LOCALE_ID, [2, i10.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i11.ɵangular_packages_forms_forms_i, i11.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i12.PaginationService, i12.PaginationService, []), i0.ɵmpd(4608, i13.NguCarouselService, i13.NguCarouselService, []), i0.ɵmpd(4608, i14.FilmsResolver, i14.FilmsResolver, [i15.FilmsService]), i0.ɵmpd(4608, i16.FilmResolver, i16.FilmResolver, [i15.FilmsService]), i0.ɵmpd(4608, i17.IndexFilmsResolver, i17.IndexFilmsResolver, [i15.FilmsService]), i0.ɵmpd(4608, i18.NameResolver, i18.NameResolver, [i15.FilmsService]), i0.ɵmpd(1073742336, i10.CommonModule, i10.CommonModule, []), i0.ɵmpd(1073742336, i11.ɵangular_packages_forms_forms_bb, i11.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i11.FormsModule, i11.FormsModule, []), i0.ɵmpd(1073742336, i12.NgxPaginationModule, i12.NgxPaginationModule, []), i0.ɵmpd(1073742336, i19.NguCarouselModule, i19.NguCarouselModule, []), i0.ɵmpd(1073742336, i20.RouterModule, i20.RouterModule, [[2, i20.ɵangular_packages_router_router_a], [2, i20.Router]]), i0.ɵmpd(1073742336, i1.ClientModule, i1.ClientModule, []), i0.ɵmpd(1024, i20.ROUTES, function () { return [[{ path: "", component: i21.ClientLayoutComponent, children: [{ path: "", resolve: [i17.IndexFilmsResolver], component: i22.IndexPageComponent }, { path: ":type", resolve: [i14.FilmsResolver], component: i23.FilmsPageComponent }, { path: "online/:id/:slug", resolve: [i16.FilmResolver], component: i24.OnlinePageComponent }, { path: "name/:id", resolve: [i18.NameResolver], component: i25.NamePageComponent }, { path: "my/playlist", component: i26.MyFilmsPageComponent }, { path: "**", component: i27.NotFoundComponent }] }]]; }, [])]); });
 exports.ClientModuleNgFactory = ClientModuleNgFactory;
 
 
@@ -3210,19 +3212,22 @@ var i4 = __webpack_require__(/*! ./navbar.component */ "./src/app/client/compone
 var styles_NavbarComponent = [i0.styles];
 var RenderType_NavbarComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_NavbarComponent, data: {} });
 exports.RenderType_NavbarComponent = RenderType_NavbarComponent;
-function View_NavbarComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 26, "div", [["class", "row w-100 m-0 p-0 navbar-main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 3, "div", [["class", "col-auto p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 2, "a", [["class", "d-none d-md-inline"], ["routerLink", "/"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+function View_NavbarComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 29, "div", [["class", "row w-100 m-0 p-0 navbar-main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 6, "div", [["class", "col-auto p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 2, "a", [["class", "d-none d-md-inline"], ["routerLink", "/"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 3).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(3, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(4, 0, null, null, 0, "img", [["alt", ""], ["src", "/static/images/logo.png"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 21, "div", [["class", "col p-0 d-flex align-content-center justify-content-start align-items-stretch pl-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 7).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+    } return ad; }, null, null)), i1.ɵdid(3, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(4, 0, null, null, 0, "img", [["alt", ""], ["src", "/static/images/logo.png"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 2, "a", [["class", "d-inline d-md-none"], ["routerLink", "/"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 6).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(7, 671744, [[2, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(8, 2), i1.ɵdid(9, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 1, { links: 1 }), i1.ɵqud(603979776, 2, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u0424\u0438\u043B\u044C\u043C\u044B"])), (_l()(), i1.ɵeld(13, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 14).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+    } return ad; }, null, null)), i1.ɵdid(6, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(7, 0, null, null, 0, "img", [["alt", ""], ["src", "/static/images/logo-min.png"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 21, "div", [["class", "col row m-0 p-0 d-flex align-content-center justify-content-start align-items-stretch pl-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 10).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(14, 671744, [[4, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(15, 2), i1.ɵdid(16, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 3, { links: 1 }), i1.ɵqud(603979776, 4, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u0421\u0435\u0440\u0438\u0430\u043B\u044B"])), (_l()(), i1.ɵeld(20, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 21).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+    } return ad; }, null, null)), i1.ɵdid(10, 671744, [[2, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(11, 2), i1.ɵdid(12, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 1, { links: 1 }), i1.ɵqud(603979776, 2, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u0424\u0438\u043B\u044C\u043C\u044B"])), (_l()(), i1.ɵeld(16, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 17).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(21, 671744, [[6, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(22, 1), i1.ɵdid(23, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 5, { links: 1 }), i1.ɵqud(603979776, 6, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u041C\u043E\u0438 \u0444\u0438\u043B\u044C\u043C\u044B"]))], function (_ck, _v) { var currVal_2 = "/"; _ck(_v, 3, 0, currVal_2); var currVal_5 = _ck(_v, 8, 0, "/", "films"); _ck(_v, 7, 0, currVal_5); var currVal_6 = "active"; _ck(_v, 9, 0, currVal_6); var currVal_9 = _ck(_v, 15, 0, "/", "serials"); _ck(_v, 14, 0, currVal_9); var currVal_10 = "active"; _ck(_v, 16, 0, currVal_10); var currVal_13 = _ck(_v, 22, 0, "/my/playlist"); _ck(_v, 21, 0, currVal_13); var currVal_14 = "active"; _ck(_v, 23, 0, currVal_14); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 3).target; var currVal_1 = i1.ɵnov(_v, 3).href; _ck(_v, 2, 0, currVal_0, currVal_1); var currVal_3 = i1.ɵnov(_v, 7).target; var currVal_4 = i1.ɵnov(_v, 7).href; _ck(_v, 6, 0, currVal_3, currVal_4); var currVal_7 = i1.ɵnov(_v, 14).target; var currVal_8 = i1.ɵnov(_v, 14).href; _ck(_v, 13, 0, currVal_7, currVal_8); var currVal_11 = i1.ɵnov(_v, 21).target; var currVal_12 = i1.ɵnov(_v, 21).href; _ck(_v, 20, 0, currVal_11, currVal_12); }); }
+    } return ad; }, null, null)), i1.ɵdid(17, 671744, [[4, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(18, 2), i1.ɵdid(19, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 3, { links: 1 }), i1.ɵqud(603979776, 4, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u0421\u0435\u0440\u0438\u0430\u043B\u044B"])), (_l()(), i1.ɵeld(23, 0, null, null, 6, "a", [["class", "navbar-link mr-3"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 24).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), i1.ɵdid(24, 671744, [[6, 4]], 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), i1.ɵpad(25, 1), i1.ɵdid(26, 1720320, null, 2, i2.RouterLinkActive, [i2.Router, i1.ElementRef, i1.Renderer2, i1.ChangeDetectorRef], { routerLinkActive: [0, "routerLinkActive"] }, null), i1.ɵqud(603979776, 5, { links: 1 }), i1.ɵqud(603979776, 6, { linksWithHrefs: 1 }), (_l()(), i1.ɵted(-1, null, ["\u041C\u043E\u0438 \u0444\u0438\u043B\u044C\u043C\u044B"]))], function (_ck, _v) { var currVal_2 = "/"; _ck(_v, 3, 0, currVal_2); var currVal_5 = "/"; _ck(_v, 6, 0, currVal_5); var currVal_8 = _ck(_v, 11, 0, "/", "films"); _ck(_v, 10, 0, currVal_8); var currVal_9 = "active"; _ck(_v, 12, 0, currVal_9); var currVal_12 = _ck(_v, 18, 0, "/", "serials"); _ck(_v, 17, 0, currVal_12); var currVal_13 = "active"; _ck(_v, 19, 0, currVal_13); var currVal_16 = _ck(_v, 25, 0, "/my/playlist"); _ck(_v, 24, 0, currVal_16); var currVal_17 = "active"; _ck(_v, 26, 0, currVal_17); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 3).target; var currVal_1 = i1.ɵnov(_v, 3).href; _ck(_v, 2, 0, currVal_0, currVal_1); var currVal_3 = i1.ɵnov(_v, 6).target; var currVal_4 = i1.ɵnov(_v, 6).href; _ck(_v, 5, 0, currVal_3, currVal_4); var currVal_6 = i1.ɵnov(_v, 10).target; var currVal_7 = i1.ɵnov(_v, 10).href; _ck(_v, 9, 0, currVal_6, currVal_7); var currVal_10 = i1.ɵnov(_v, 17).target; var currVal_11 = i1.ɵnov(_v, 17).href; _ck(_v, 16, 0, currVal_10, currVal_11); var currVal_14 = i1.ɵnov(_v, 24).target; var currVal_15 = i1.ɵnov(_v, 24).href; _ck(_v, 23, 0, currVal_14, currVal_15); }); }
 exports.View_NavbarComponent_0 = View_NavbarComponent_0;
 function View_NavbarComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-navbar", [], null, null, null, View_NavbarComponent_0, RenderType_NavbarComponent)), i1.ɵdid(1, 114688, null, 0, i4.NavbarComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_NavbarComponent_Host_0 = View_NavbarComponent_Host_0;
@@ -4088,6 +4093,83 @@ var NamePageComponent = /** @class */ (function () {
     return NamePageComponent;
 }());
 exports.NamePageComponent = NamePageComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/client/pages/not-found/not-found.component.ngfactory.js":
+/*!*************************************************************************!*\
+  !*** ./src/app/client/pages/not-found/not-found.component.ngfactory.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./not-found.component.scss.shim.ngstyle */ "./src/app/client/pages/not-found/not-found.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ./not-found.component */ "./src/app/client/pages/not-found/not-found.component.ts");
+var styles_NotFoundComponent = [i0.styles];
+var RenderType_NotFoundComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_NotFoundComponent, data: {} });
+exports.RenderType_NotFoundComponent = RenderType_NotFoundComponent;
+function View_NotFoundComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "h5", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u041A\u043E\u043D\u0442\u0435\u043D\u0442 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D."]))], null, null); }
+exports.View_NotFoundComponent_0 = View_NotFoundComponent_0;
+function View_NotFoundComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-not-found", [], null, null, null, View_NotFoundComponent_0, RenderType_NotFoundComponent)), i1.ɵdid(1, 114688, null, 0, i2.NotFoundComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_NotFoundComponent_Host_0 = View_NotFoundComponent_Host_0;
+var NotFoundComponentNgFactory = i1.ɵccf("my-not-found", i2.NotFoundComponent, View_NotFoundComponent_Host_0, {}, {}, []);
+exports.NotFoundComponentNgFactory = NotFoundComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/client/pages/not-found/not-found.component.scss.shim.ngstyle.js":
+/*!*********************************************************************************!*\
+  !*** ./src/app/client/pages/not-found/not-found.component.scss.shim.ngstyle.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/client/pages/not-found/not-found.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/client/pages/not-found/not-found.component.ts ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var NotFoundComponent = /** @class */ (function () {
+    function NotFoundComponent() {
+    }
+    NotFoundComponent.prototype.ngOnInit = function () {
+    };
+    return NotFoundComponent;
+}());
+exports.NotFoundComponent = NotFoundComponent;
 
 
 /***/ }),

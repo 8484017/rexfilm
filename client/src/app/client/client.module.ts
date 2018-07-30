@@ -31,6 +31,7 @@ import { FilmInfoPanelComponent } from './components/film-info-panel/film-info-p
 import { MyFilmsPageComponent } from './pages/my-films-page/my-films-page.component';
 import { CaruselFilmsComponent } from './components/carusel-films/carusel-films.component';
 import { NguCarouselModule } from '@ngu/carousel';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { NguCarouselModule } from '@ngu/carousel';
           { path: "online/:id/:slug", resolve: [FilmResolver], component: OnlinePageComponent },
           { path: "name/:id", resolve: [NameResolver], component: NamePageComponent },
           { path: "my/playlist", component: MyFilmsPageComponent },
+          { path: "**", component: NotFoundComponent },
         ]
       }
     ])
@@ -58,7 +60,7 @@ import { NguCarouselModule } from '@ngu/carousel';
     RatingComponent, FeaturesComponent,
     ActorsListComponent,
     ForNumberPipe,
-    FilterComponent, NgValueDirective, FilmItemIndexComponent, NamePageComponent, FadePanelComponent, FilmInfoPanelComponent, MyFilmsPageComponent, CaruselFilmsComponent
+    FilterComponent, NgValueDirective, FilmItemIndexComponent, NamePageComponent, FadePanelComponent, FilmInfoPanelComponent, MyFilmsPageComponent, CaruselFilmsComponent, NotFoundComponent
   ],
   providers: [FilmsResolver, FilmResolver, IndexFilmsResolver, NameResolver]
 
