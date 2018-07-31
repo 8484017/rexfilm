@@ -1,0 +1,11 @@
+<p> Я мог бы процитировать большую часть превосходной книги Дугласа Крокфорда
+<a href="http://rads.stackoverflow.com/amzn/click/0596517742" rel="nofollow noreferrer"> JavaScript: хорошие части </a>. </p>
+
+<p> Но я возьму только один для вас, всегда используйте <code> === </code> и <code>! == </code> вместо <code> == </code> и <code>! = </код> </p>
+
+<pre class = "defaultprintprint prettyprinted" style = ""> <code> <span class = "pln"> alert </ span> <span class = "pun"> (</ span> <span class = "str" > </ span> <span class = "pln"> </ span> <span class = "pun"> == </ span> <span class = "pln"> </ span> <span class = " str <>> <span class = "com"> // false </ span> > <span class = "pln">
+alert </ span> <span class = "pun"> (</ span> <span class = "lit"> 0 </ span> <span class = "pln"> </ span> <span class = "pun" > == </ span> <span class = "pln"> </ span> <span class = "str"> '' </ span> <span class = "pun">); </ span> <span class = "pln"> </ span> <span class = "com"> // true </ span> <span class = "pln">
+alert </ span> <span class = "pun"> (</ span> <span class = "lit"> 0 </ span> <span class = "pln"> </ span> <span class = "pun" > == </ span> <span class = "str"> '0' </ span> <span class = "pun">); </ span> <span class = "pln"> </ span> <span class = "com"> // true </ span> </ code> </ pre>
+
+<p> <code> == </ code> не является транзитивным. Если вы используете <code> === </ code>, это даст false для
+все эти утверждения, как ожидалось. </ p>

@@ -83,6 +83,7 @@ export class PlayerComponent implements OnInit {
     this.iFrame = document.createElement("iframe")
 
     this.iFrame.src = iframe_url
+    this.iFrame.allowFullscreen = true
     this.iFrame.width = "100%";
     this.iFrame.height = "100%"
     this.moonPlayerEl.nativeElement.appendChild(this.iFrame)
