@@ -21,24 +21,27 @@ export class PlayerComponent implements OnInit {
   ) { }
   film: Film
   @ViewChild("moon") moonPlayerEl: ElementRef;
-  scriptEx: boolean = false
+  iFrame: HTMLIFrameElement
 
   ngOnInit() {
-    this.filmServ.film$.subscribe(s => {
-      this.film = s.film
-    })
 
     if (isPlatformBrowser(this.platformId)) {
+      window.addEventListener("resize", this.onResize.bind(this))
       this.onResize();
-      window['moon_params'] = {
-        width: "100%",
-        height: this.moonPlayerEl.nativeElement.scrollWidth / 1.77,
-        kp_id: this.film._id,
-        not_found_callback: this.notFoundCb.bind(this)
-      };
-      window.onresize = this.onResize.bind(this)
-      this.addMoonPlayer();
+
     }
+
+
+    this.filmServ.film$.subscribe(s => {
+      this.film = s.film
+
+      if (isPlatformBrowser(this.platformId)) {
+        this.addMoonPlayer();
+        this.onResize();
+      }
+    })
+
+
 
   }
 
@@ -48,34 +51,43 @@ export class PlayerComponent implements OnInit {
   }
 
   onResize() {
+
     try {
+
       if (this.moonPlayerEl != undefined) {
         let height = Math.round(this.moonPlayerEl.nativeElement.scrollWidth / 1.77);
         this.render.setAttribute(this.moonPlayerEl.nativeElement, "style", "height:" + (height + 4) + 'px')
-        if (this.moonPlayerEl.nativeElement.children.length > 0) {
-          this.render.setAttribute(this.moonPlayerEl.nativeElement.children[0], "style", "height:" + height + 'px')
+        if (this.iFrame) {
+          this.render.setAttribute(this.iFrame, "style", "height:" + height + 'px')
         }
       }
     } catch (error) {
       console.log(error);
     }
   }
+
   FilmNotPublic() {
     let nf = `<div class="w-100 text-center small d-flex justify-content-center align-items-center">Видео удалено по требованию правообладателя.</div>`
     document.getElementById("visearch").innerHTML = nf;
   }
-  addMoonPlayer() {
+
+  async addMoonPlayer() {
     if (!this.film.isPublic) {
       this.FilmNotPublic()
       return
     }
-    if (this.scriptEx) return
-    !function (e, n, t, r, a) {
-      r = e.createElement(n), a = e.getElementsByTagName(n)
-      [0], r.async = !0, r.src = t, a.parentNode.insertBefore(r, a)
-    }
-      (document, "script", "//visearch.info/v2/find-player.min.js");
-    this.scriptEx = true
+    this.moonPlayerEl.nativeElement.innerHTML = ""
+    let iframe_url = await this.filmServ.getIframeByFilmId(this.film._id).toPromise()
+    if (!iframe_url) this.notFoundCb()
+
+    this.iFrame = document.createElement("iframe")
+
+    this.iFrame.src = iframe_url
+    this.iFrame.width = "100%";
+    this.iFrame.height = "100%"
+    this.moonPlayerEl.nativeElement.appendChild(this.iFrame)
+
+
   }
 
 

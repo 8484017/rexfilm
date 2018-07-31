@@ -6,7 +6,7 @@ import { Films, FilmFilter, Pagination, IndexFilms } from '../../../models/films
 import { Name, NameFilms } from '../../../models/name.model';
 import { NameUtil } from '../modelUtils/nameUtil';
 import { isArray } from 'util';
-
+import fetch from "node-fetch";
 
 
 const pageCount = 10;
@@ -176,6 +176,23 @@ router.post("/api/films/my", async (r, s) => {
     s.json(films)
 })
 
+router.get("/api/film/iframe/:id", async (r, s) => {
+    let id: number[] = r.params.id
+    return await fetch(`http://moonwalk.cc/api/videos.json?kinopoisk_id=${id}&api_token=3df23da89b78aa32335efa233c2a18d0`)
+        .then(async ss => {
+            let res = await ss.json()
+
+            if (res.length > 0 && res[0].iframe_url != null) {
+
+                return s.json(res[0].iframe_url)
+            }
+            return s.sendStatus(502)
+
+        }).catch(d => {
+            return s.sendStatus(502)
+        })
+})
+
 
 const FilmsByGenres = async (genres: string[], id): Promise<Film[]> => {
     try {
@@ -202,7 +219,7 @@ const FilmsByGenres = async (genres: string[], id): Promise<Film[]> => {
 
     }
 }
-
+//*Search only word - exclude number and symbols*
 const SearchFilmsByNameAndGenre = async (text: string, id, genres, limit = 12): Promise<Film[]> => {
     try {
 

@@ -43,6 +43,7 @@ var film_view_1 = require("../../../models/film.view");
 var films_model_1 = require("../../../models/films.model");
 var name_model_1 = require("../../../models/name.model");
 var util_1 = require("util");
+var node_fetch_1 = require("node-fetch");
 var pageCount = 10;
 var router = express.Router();
 router.post("/api/films", function (r, s) { return __awaiter(_this, void 0, void 0, function () {
@@ -243,6 +244,34 @@ router.post("/api/films/my", function (r, s) { return __awaiter(_this, void 0, v
         }
     });
 }); });
+router.get("/api/film/iframe/:id", function (r, s) { return __awaiter(_this, void 0, void 0, function () {
+    var id;
+    var _this = this;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                id = r.params.id;
+                return [4 /*yield*/, node_fetch_1.default("http://moonwalk.cc/api/videos.json?kinopoisk_id=" + id + "&api_token=3df23da89b78aa32335efa233c2a18d0")
+                        .then(function (ss) { return __awaiter(_this, void 0, void 0, function () {
+                        var res;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, ss.json()];
+                                case 1:
+                                    res = _a.sent();
+                                    if (res.length > 0 && res[0].iframe_url != null) {
+                                        return [2 /*return*/, s.json(res[0].iframe_url)];
+                                    }
+                                    return [2 /*return*/, s.sendStatus(502)];
+                            }
+                        });
+                    }); }).catch(function (d) {
+                        return s.sendStatus(502);
+                    })];
+            case 1: return [2 /*return*/, _a.sent()];
+        }
+    });
+}); });
 var FilmsByGenres = function (genres, id) { return __awaiter(_this, void 0, void 0, function () {
     var error_1;
     return __generator(this, function (_a) {
@@ -274,6 +303,7 @@ var FilmsByGenres = function (genres, id) { return __awaiter(_this, void 0, void
         }
     });
 }); };
+//*Search only word - exclude number and symbols*
 var SearchFilmsByNameAndGenre = function (text, id, genres, limit) {
     if (limit === void 0) { limit = 12; }
     return __awaiter(_this, void 0, void 0, function () {

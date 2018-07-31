@@ -69,6 +69,10 @@ export class FilmsService {
     }))
   }
 
+  public getIframeByFilmId(id: number) {
+    return this.http.get<string>('/api/film/iframe/' + id)
+  }
+
   ///*Filter Control*///
 
   setFilter(filter: FilmFilter) {

@@ -3347,6 +3347,41 @@ exports.styles = styles;
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var films_service_1 = __webpack_require__(/*! ../../../services/films.service */ "./src/app/services/films.service.ts");
@@ -3358,24 +3393,20 @@ var PlayerComponent = /** @class */ (function () {
         this.http = http;
         this.render = render;
         this.platformId = platformId;
-        this.scriptEx = false;
     }
     PlayerComponent.prototype.ngOnInit = function () {
         var _this = this;
+        if (common_1.isPlatformBrowser(this.platformId)) {
+            window.addEventListener("resize", this.onResize.bind(this));
+            this.onResize();
+        }
         this.filmServ.film$.subscribe(function (s) {
             _this.film = s.film;
+            if (common_1.isPlatformBrowser(_this.platformId)) {
+                _this.addMoonPlayer();
+                _this.onResize();
+            }
         });
-        if (common_1.isPlatformBrowser(this.platformId)) {
-            this.onResize();
-            window['moon_params'] = {
-                width: "100%",
-                height: this.moonPlayerEl.nativeElement.scrollWidth / 1.77,
-                kp_id: this.film._id,
-                not_found_callback: this.notFoundCb.bind(this)
-            };
-            window.onresize = this.onResize.bind(this);
-            this.addMoonPlayer();
-        }
     };
     PlayerComponent.prototype.notFoundCb = function () {
         var nf = "<div class=\"w-100 text-center small d-flex justify-content-center align-items-center\">\u0412\u0438\u0434\u0435\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043D\u043E.</div>";
@@ -3386,8 +3417,8 @@ var PlayerComponent = /** @class */ (function () {
             if (this.moonPlayerEl != undefined) {
                 var height = Math.round(this.moonPlayerEl.nativeElement.scrollWidth / 1.77);
                 this.render.setAttribute(this.moonPlayerEl.nativeElement, "style", "height:" + (height + 4) + 'px');
-                if (this.moonPlayerEl.nativeElement.children.length > 0) {
-                    this.render.setAttribute(this.moonPlayerEl.nativeElement.children[0], "style", "height:" + height + 'px');
+                if (this.iFrame) {
+                    this.render.setAttribute(this.iFrame, "style", "height:" + height + 'px');
                 }
             }
         }
@@ -3400,16 +3431,30 @@ var PlayerComponent = /** @class */ (function () {
         document.getElementById("visearch").innerHTML = nf;
     };
     PlayerComponent.prototype.addMoonPlayer = function () {
-        if (!this.film.isPublic) {
-            this.FilmNotPublic();
-            return;
-        }
-        if (this.scriptEx)
-            return;
-        !function (e, n, t, r, a) {
-            r = e.createElement(n), a = e.getElementsByTagName(n)[0], r.async = !0, r.src = t, a.parentNode.insertBefore(r, a);
-        }(document, "script", "//visearch.info/v2/find-player.min.js");
-        this.scriptEx = true;
+        return __awaiter(this, void 0, void 0, function () {
+            var iframe_url;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!this.film.isPublic) {
+                            this.FilmNotPublic();
+                            return [2 /*return*/];
+                        }
+                        this.moonPlayerEl.nativeElement.innerHTML = "";
+                        return [4 /*yield*/, this.filmServ.getIframeByFilmId(this.film._id).toPromise()];
+                    case 1:
+                        iframe_url = _a.sent();
+                        if (!iframe_url)
+                            this.notFoundCb();
+                        this.iFrame = document.createElement("iframe");
+                        this.iFrame.src = iframe_url;
+                        this.iFrame.width = "100%";
+                        this.iFrame.height = "100%";
+                        this.moonPlayerEl.nativeElement.appendChild(this.iFrame);
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     return PlayerComponent;
 }());
@@ -4211,10 +4256,10 @@ var i17 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platfor
 var styles_OnlinePageComponent = [i0.styles];
 var RenderType_OnlinePageComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_OnlinePageComponent, data: {} });
 exports.RenderType_OnlinePageComponent = RenderType_OnlinePageComponent;
-function View_OnlinePageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 29, "div", [["class", "row w-100 m-0 d-flex align-items-stretch"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 21, "div", [["class", "col-12 col-lg-9 p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "my-player", [], null, null, null, i2.View_PlayerComponent_0, i2.RenderType_PlayerComponent)), i1.ɵdid(3, 114688, null, 0, i3.PlayerComponent, [i4.FilmsService, i5.HttpClient, i1.Renderer2, i1.PLATFORM_ID], null, null), (_l()(), i1.ɵeld(4, 0, null, null, 15, "div", [["class", "w-100 p-2 mt-2 row mb-0 mr-0 ml-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 2, "div", [["class", "col"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", " (", ")"])), (_l()(), i1.ɵeld(8, 0, null, null, 4, "div", [["class", "col-auto"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 3, "button", [["class", "btn btn-sm rounded-0"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+function View_OnlinePageComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 30, "div", [["class", "row w-100 m-0 d-flex align-items-stretch"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 22, "div", [["class", "col-12 col-lg-9 p-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "my-player", [], null, null, null, i2.View_PlayerComponent_0, i2.RenderType_PlayerComponent)), i1.ɵdid(3, 114688, null, 0, i3.PlayerComponent, [i4.FilmsService, i5.HttpClient, i1.Renderer2, i1.PLATFORM_ID], null, null), (_l()(), i1.ɵeld(4, 0, null, null, 15, "div", [["class", "w-100 p-2 mt-2 row mb-0 mr-0 ml-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 2, "div", [["class", "col"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", " (", ")"])), (_l()(), i1.ɵeld(8, 0, null, null, 4, "div", [["class", "col-auto"]], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 3, "button", [["class", "btn btn-sm rounded-0"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.SetFilmLocalStorage() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(10, 278528, null, 0, i6.NgClass, [i1.IterableDiffers, i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { klass: [0, "klass"], ngClass: [1, "ngClass"] }, null), (_l()(), i1.ɵeld(11, 0, null, null, 1, "small", [], null, null, null, null, null)), (_l()(), i1.ɵted(12, null, ["", ""])), (_l()(), i1.ɵeld(13, 0, null, null, 1, "h5", [["class", "pl-5 w-100 small text-secondary"]], null, null, null, null, null)), (_l()(), i1.ɵted(14, null, ["", " - ", ""])), (_l()(), i1.ɵeld(15, 0, null, null, 0, "hr", [["class", "my-1 w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(16, 0, null, null, 1, "div", [["class", "desc w-100"]], null, null, null, null, null)), (_l()(), i1.ɵted(17, null, ["", ""])), (_l()(), i1.ɵeld(18, 0, null, null, 1, "my-features", [["class", "d-block mt-4 w-100"]], null, null, null, i7.View_FeaturesComponent_0, i7.RenderType_FeaturesComponent)), i1.ɵdid(19, 638976, null, 0, i8.FeaturesComponent, [], { features: [0, "features"] }, null), (_l()(), i1.ɵeld(20, 0, null, null, 2, "my-carusel-films", [], null, null, null, i9.View_CaruselFilmsComponent_0, i9.RenderType_CaruselFilmsComponent)), i1.ɵdid(21, 114688, null, 0, i10.CaruselFilmsComponent, [i1.PLATFORM_ID], { films: [0, "films"], title: [1, "title"], grid: [2, "grid"] }, null), i1.ɵpod(22, { xs: 0, sm: 1, md: 2, lg: 3, all: 4 }), (_l()(), i1.ɵeld(23, 0, null, null, 2, "div", [["class", "col-3 p-0 d-none d-lg-flex"]], null, null, null, null, null)), (_l()(), i1.ɵeld(24, 0, null, null, 1, "my-film-info-panel", [], null, null, null, i11.View_FilmInfoPanelComponent_0, i11.RenderType_FilmInfoPanelComponent)), i1.ɵdid(25, 114688, null, 0, i12.FilmInfoPanelComponent, [], { film: [0, "film"] }, null), (_l()(), i1.ɵeld(26, 0, null, null, 3, "my-fade-panel", [["name", "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"]], null, null, null, i13.View_FadePanelComponent_0, i13.RenderType_FadePanelComponent)), i1.ɵdid(27, 114688, null, 0, i14.FadePanelComponent, [i1.PLATFORM_ID], { name: [0, "name"] }, null), (_l()(), i1.ɵeld(28, 0, null, 0, 1, "my-film-info-panel", [], null, null, null, i11.View_FilmInfoPanelComponent_0, i11.RenderType_FilmInfoPanelComponent)), i1.ɵdid(29, 114688, null, 0, i12.FilmInfoPanelComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var _co = _v.component; _ck(_v, 3, 0); var currVal_2 = "btn btn-sm rounded-0"; var currVal_3 = (_co.isFilmLocalStorage ? "btn-outline-danger" : "btn-info"); _ck(_v, 10, 0, currVal_2, currVal_3); var currVal_8 = _co.film.features; _ck(_v, 19, 0, currVal_8); var currVal_9 = _co.filmsLike; var currVal_10 = "\u041F\u043E\u0445\u043E\u0436\u0435\u0435"; var currVal_11 = _ck(_v, 22, 0, 2, 3, 4, 4, 0); _ck(_v, 21, 0, currVal_9, currVal_10, currVal_11); var currVal_12 = _co.film; _ck(_v, 25, 0, currVal_12); var currVal_13 = "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"; _ck(_v, 27, 0, currVal_13); var currVal_14 = _co.film; _ck(_v, 29, 0, currVal_14); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.film.name; var currVal_1 = _co.film.year; _ck(_v, 7, 0, currVal_0, currVal_1); var currVal_4 = (_co.isFilmLocalStorage ? "\u0423\u0414\u0410\u041B\u0418\u0422\u042C \u0424\u0418\u041B\u042C\u041C" : "\u041F\u041E\u0421\u041C\u041E\u0422\u0420\u0415\u0422\u042C \u041F\u041E\u0417\u0416\u0415"); _ck(_v, 12, 0, currVal_4); var currVal_5 = _co.film.alternateName; var currVal_6 = _co.film.slogan; _ck(_v, 14, 0, currVal_5, currVal_6); var currVal_7 = _co.film.description; _ck(_v, 17, 0, currVal_7); }); }
+    } return ad; }, null, null)), i1.ɵdid(10, 278528, null, 0, i6.NgClass, [i1.IterableDiffers, i1.KeyValueDiffers, i1.ElementRef, i1.Renderer2], { klass: [0, "klass"], ngClass: [1, "ngClass"] }, null), (_l()(), i1.ɵeld(11, 0, null, null, 1, "small", [], null, null, null, null, null)), (_l()(), i1.ɵted(12, null, ["", ""])), (_l()(), i1.ɵeld(13, 0, null, null, 1, "h5", [["class", "pl-5 w-100 small text-secondary"]], null, null, null, null, null)), (_l()(), i1.ɵted(14, null, ["", " - ", ""])), (_l()(), i1.ɵeld(15, 0, null, null, 0, "hr", [["class", "my-1 w-100"]], null, null, null, null, null)), (_l()(), i1.ɵeld(16, 0, null, null, 1, "div", [["class", "desc w-100"]], null, null, null, null, null)), (_l()(), i1.ɵted(17, null, ["", ""])), (_l()(), i1.ɵeld(18, 0, null, null, 1, "my-features", [["class", "d-block mt-4 w-100"]], null, null, null, i7.View_FeaturesComponent_0, i7.RenderType_FeaturesComponent)), i1.ɵdid(19, 638976, null, 0, i8.FeaturesComponent, [], { features: [0, "features"] }, null), (_l()(), i1.ɵeld(20, 0, null, null, 3, "div", [["class", "col-12"]], null, null, null, null, null)), (_l()(), i1.ɵeld(21, 0, null, null, 2, "my-carusel-films", [], null, null, null, i9.View_CaruselFilmsComponent_0, i9.RenderType_CaruselFilmsComponent)), i1.ɵdid(22, 114688, null, 0, i10.CaruselFilmsComponent, [i1.PLATFORM_ID], { films: [0, "films"], title: [1, "title"], grid: [2, "grid"] }, null), i1.ɵpod(23, { xs: 0, sm: 1, md: 2, lg: 3, all: 4 }), (_l()(), i1.ɵeld(24, 0, null, null, 2, "div", [["class", "col-3 p-0 d-none d-lg-flex"]], null, null, null, null, null)), (_l()(), i1.ɵeld(25, 0, null, null, 1, "my-film-info-panel", [], null, null, null, i11.View_FilmInfoPanelComponent_0, i11.RenderType_FilmInfoPanelComponent)), i1.ɵdid(26, 114688, null, 0, i12.FilmInfoPanelComponent, [], { film: [0, "film"] }, null), (_l()(), i1.ɵeld(27, 0, null, null, 3, "my-fade-panel", [["name", "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"]], null, null, null, i13.View_FadePanelComponent_0, i13.RenderType_FadePanelComponent)), i1.ɵdid(28, 114688, null, 0, i14.FadePanelComponent, [i1.PLATFORM_ID], { name: [0, "name"] }, null), (_l()(), i1.ɵeld(29, 0, null, 0, 1, "my-film-info-panel", [], null, null, null, i11.View_FilmInfoPanelComponent_0, i11.RenderType_FilmInfoPanelComponent)), i1.ɵdid(30, 114688, null, 0, i12.FilmInfoPanelComponent, [], { film: [0, "film"] }, null)], function (_ck, _v) { var _co = _v.component; _ck(_v, 3, 0); var currVal_2 = "btn btn-sm rounded-0"; var currVal_3 = (_co.isFilmLocalStorage ? "btn-outline-danger" : "btn-info"); _ck(_v, 10, 0, currVal_2, currVal_3); var currVal_8 = _co.film.features; _ck(_v, 19, 0, currVal_8); var currVal_9 = _co.filmsLike; var currVal_10 = "\u041F\u043E\u0445\u043E\u0436\u0435\u0435"; var currVal_11 = _ck(_v, 23, 0, 2, 3, 4, 4, 0); _ck(_v, 22, 0, currVal_9, currVal_10, currVal_11); var currVal_12 = _co.film; _ck(_v, 26, 0, currVal_12); var currVal_13 = "\u041E \u0444\u0438\u043B\u044C\u043C\u0435"; _ck(_v, 28, 0, currVal_13); var currVal_14 = _co.film; _ck(_v, 30, 0, currVal_14); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.film.name; var currVal_1 = _co.film.year; _ck(_v, 7, 0, currVal_0, currVal_1); var currVal_4 = (_co.isFilmLocalStorage ? "\u0423\u0414\u0410\u041B\u0418\u0422\u042C \u0424\u0418\u041B\u042C\u041C" : "\u041F\u041E\u0421\u041C\u041E\u0422\u0420\u0415\u0422\u042C \u041F\u041E\u0417\u0416\u0415"); _ck(_v, 12, 0, currVal_4); var currVal_5 = _co.film.alternateName; var currVal_6 = _co.film.slogan; _ck(_v, 14, 0, currVal_5, currVal_6); var currVal_7 = _co.film.description; _ck(_v, 17, 0, currVal_7); }); }
 exports.View_OnlinePageComponent_0 = View_OnlinePageComponent_0;
 function View_OnlinePageComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-online-page", [], null, null, null, View_OnlinePageComponent_0, RenderType_OnlinePageComponent)), i1.ɵdid(1, 114688, null, 0, i15.OnlinePageComponent, [i4.FilmsService, i16.ActivatedRoute, i17.Title, i17.Meta], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_OnlinePageComponent_Host_0 = View_OnlinePageComponent_Host_0;
@@ -4848,6 +4893,9 @@ var FilmsService = /** @class */ (function () {
         return this.http.get('/api/films/byname/' + nameId).pipe(operators_1.tap(function (s) {
             _this.filmsByName$.next(s);
         }));
+    };
+    FilmsService.prototype.getIframeByFilmId = function (id) {
+        return this.http.get('/api/film/iframe/' + id);
     };
     ///*Filter Control*///
     FilmsService.prototype.setFilter = function (filter) {
