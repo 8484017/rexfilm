@@ -260,7 +260,7 @@ router.get("/api/film/iframe/:id", function (r, s) { return __awaiter(_this, voi
                                 case 1:
                                     res = _a.sent();
                                     if (res.length > 0 && res[0].iframe_url != null) {
-                                        return [2 /*return*/, s.json(res[0].iframe_url)];
+                                        return [2 /*return*/, s.json(res[0].iframe_url.replace('http', 'https').replace('moonwalk', 'streamguard'))];
                                     }
                                     return [2 /*return*/, s.sendStatus(502)];
                             }
