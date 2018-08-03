@@ -21,7 +21,7 @@ module.exports = (async () => {
     await db.Connect();
 
     await db.getCollection(Film).createIndex({ name: 'text' }, { default_language: "ru" })
-
+    await db.getCollection(Film).createIndex( { timespan: 1 , year:1, count:1, kp:1 } )
 
     app.use(express.urlencoded({ extended: false }))
     app.use(express.json())

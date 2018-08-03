@@ -59,6 +59,9 @@ module.exports = (function () { return __awaiter(_this, void 0, void 0, function
                 return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).createIndex({ name: 'text' }, { default_language: "ru" })];
             case 2:
                 _a.sent();
+                return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).createIndex({ timespan: 1, year: 1, count: 1, kp: 1 })];
+            case 3:
+                _a.sent();
                 app.use(express.urlencoded({ extended: false }));
                 app.use(express.json());
                 app.set('trust proxy', 1); // trust first proxy
