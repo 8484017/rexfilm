@@ -183,8 +183,10 @@ router.get("/api/film/iframe/:id", async (r, s) => {
             let res = await ss.json()
 
             if (res.length > 0 && res[0].iframe_url != null) {
-
-                return s.json(res[0].iframe_url.replace('http', 'https').replace('moonwalk', 'streamguard'))
+                let url = new URL(res[0].iframe_url)
+                url.host = "streamguard.cc"
+                url.protocol = "https"
+                return s.json(url)
             }
             return s.sendStatus(502)
 

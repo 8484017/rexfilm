@@ -253,14 +253,17 @@ router.get("/api/film/iframe/:id", function (r, s) { return __awaiter(_this, voi
                 id = r.params.id;
                 return [4 /*yield*/, node_fetch_1.default("http://moonwalk.cc/api/videos.json?kinopoisk_id=" + id + "&api_token=3df23da89b78aa32335efa233c2a18d0")
                         .then(function (ss) { return __awaiter(_this, void 0, void 0, function () {
-                        var res;
+                        var res, url;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, ss.json()];
                                 case 1:
                                     res = _a.sent();
                                     if (res.length > 0 && res[0].iframe_url != null) {
-                                        return [2 /*return*/, s.json(res[0].iframe_url.replace('http', 'https').replace('moonwalk', 'streamguard'))];
+                                        url = new URL(res[0].iframe_url);
+                                        url.host = "streamguard.cc";
+                                        url.protocol = "https";
+                                        return [2 /*return*/, s.json(url)];
                                     }
                                     return [2 /*return*/, s.sendStatus(502)];
                             }
