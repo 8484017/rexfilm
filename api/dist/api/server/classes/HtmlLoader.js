@@ -51,13 +51,16 @@ var HtmlLoader = /** @class */ (function () {
     }
     HtmlLoader.prototype.getHtmlAsync = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var dom;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, jsdom_1.JSDOM.fromURL(this.url, { cookieJar: this.req.cookies, userAgent: this.req.header("User-Agent") })];
-                    case 1:
-                        dom = _a.sent();
-                        return [2 /*return*/, dom.serialize()];
+                    case 0: return [4 /*yield*/, jsdom_1.JSDOM.fromURL(this.url, { cookieJar: this.req.cookies, userAgent: this.req.header("User-Agent") })
+                            .then(function (s) {
+                            return s.serialize();
+                        })
+                            .catch(function (s) {
+                            return null;
+                        })];
+                    case 1: return [2 /*return*/, _a.sent()];
                 }
             });
         });

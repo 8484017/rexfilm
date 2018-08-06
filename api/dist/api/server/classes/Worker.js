@@ -77,7 +77,7 @@ var Worker = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _b.trys.push([0, 23, , 29]);
+                        _b.trys.push([0, 23, , 28]);
                         if (this.isWork)
                             return [2 /*return*/];
                         return [4 /*yield*/, logger_1.Logger.Log("Парсер запущен")];
@@ -115,6 +115,9 @@ var Worker = /** @class */ (function () {
                         return [4 /*yield*/, new HtmlLoader_1.HtmlLoader(id, 1 /* film */, this.req).getHtmlAsync()];
                     case 9:
                         html = _b.sent();
+                        if (html == null) {
+                            return [3 /*break*/, 21];
+                        }
                         film = new FilmParser_1.FilmParser(html, id).getFilm();
                         idsName = filmUtil_1.FilmUtil.GetNameIds(film);
                         return [4 /*yield*/, functions_1.Wait(5)];
@@ -158,11 +161,11 @@ var Worker = /** @class */ (function () {
                     case 21:
                         _i++;
                         return [3 /*break*/, 5];
-                    case 22: return [3 /*break*/, 29];
+                    case 22: return [3 /*break*/, 28];
                     case 23:
                         error_1 = _b.sent();
                         if (!(error_1.code === 11000)) return [3 /*break*/, 24];
-                        return [3 /*break*/, 28];
+                        return [3 /*break*/, 27];
                     case 24: return [4 /*yield*/, logger_1.Logger.Log('Error ' + error_1)];
                     case 25:
                         _b.sent();
@@ -171,12 +174,9 @@ var Worker = /** @class */ (function () {
                         _b.sent();
                         this.isCancel = false;
                         this.isWork = false;
-                        return [4 /*yield*/, this.StartAsync(this.req)];
-                    case 27:
-                        _b.sent();
-                        _b.label = 28;
-                    case 28: return [3 /*break*/, 29];
-                    case 29:
+                        _b.label = 27;
+                    case 27: return [3 /*break*/, 28];
+                    case 28:
                         ;
                         return [2 /*return*/];
                 }

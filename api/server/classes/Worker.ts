@@ -54,6 +54,9 @@ export class Worker {
                 }
 
                 let html = await new HtmlLoader(id, HtmlLoaderType.film, this.req).getHtmlAsync();
+                if (html == null) {
+                    continue;
+                }
                 let film = new FilmParser(html, id).getFilm()
                 let idsName = FilmUtil.GetNameIds(film)
                 await Wait(5)
@@ -80,7 +83,7 @@ export class Worker {
                 await Logger.Log("Парсер остановлен")
                 this.isCancel = false;
                 this.isWork = false
-                await this.StartAsync(this.req)
+                //  await this.StartAsync(this.req)
             }
 
         };
