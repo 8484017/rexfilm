@@ -57,7 +57,7 @@ export class Worker {
                 if (html == null) {
                     continue;
                 }
-                let film = new FilmParser(html, id).getFilm()
+                let film = new FilmParser(html, id).getFilm();
                 let idsName = FilmUtil.GetNameIds(film)
                 await Wait(5)
                 for (let nameId of idsName) {
