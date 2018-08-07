@@ -55,6 +55,7 @@ export class Worker {
 
                 let html = await new HtmlLoader(id, HtmlLoaderType.film, this.req).getHtmlAsync();
                 if (html == null) {
+                    Logger.Log(id.toString(), " 404")
                     continue;
                 }
                 let film = new FilmParser(html, id).getFilm();
@@ -76,6 +77,9 @@ export class Worker {
                 Logger.Log("Фильм добавлен - " + id);
 
             }
+  	    this.isCancel = false;
+            this.isWork = false
+            Logger.Log("Обработанно")
         } catch (error) {
             if (error.code === 11000) { }
             else {

@@ -116,6 +116,7 @@ var Worker = /** @class */ (function () {
                     case 9:
                         html = _b.sent();
                         if (html == null) {
+                            logger_1.Logger.Log(id.toString(), " 404");
                             return [3 /*break*/, 21];
                         }
                         film = new FilmParser_1.FilmParser(html, id).getFilm();
@@ -161,7 +162,11 @@ var Worker = /** @class */ (function () {
                     case 21:
                         _i++;
                         return [3 /*break*/, 5];
-                    case 22: return [3 /*break*/, 28];
+                    case 22:
+                        this.isCancel = false;
+                        this.isWork = false;
+                        logger_1.Logger.Log("Обработанно");
+                        return [3 /*break*/, 28];
                     case 23:
                         error_1 = _b.sent();
                         if (!(error_1.code === 11000)) return [3 /*break*/, 24];

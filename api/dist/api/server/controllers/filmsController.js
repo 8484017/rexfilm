@@ -129,8 +129,10 @@ router.get("/api/film/:id", function (r, s) { return __awaiter(_this, void 0, vo
                     }
                     return previous;
                 }, []);
+                return [4 /*yield*/, Db_1.db.getCollection(film_model_1.Film).updateOne({ _id: id }, { $inc: { count: 1 } })];
+            case 5:
+                _c.sent();
                 s.json(filmView);
-                Db_1.db.getCollection(film_model_1.Film).updateOne({ _id: r.params.id }, { $inc: { count: 1 } });
                 return [2 /*return*/];
         }
     });

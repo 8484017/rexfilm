@@ -88,8 +88,8 @@ router.get("/api/film/:id", async (r, s) => {
         return previous;
     }, []);
 
+    await db.getCollection(Film).updateOne({ _id: id }, { $inc: { count: 1 } })
     s.json(filmView)
-    db.getCollection(Film).updateOne({ _id: r.params.id }, { $inc: { count: 1 } })
 })
 
 router.get("/api/films/index", async (r, s) => {
