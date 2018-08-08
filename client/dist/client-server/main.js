@@ -3545,7 +3545,7 @@ var RatingComponent = /** @class */ (function () {
     });
     Object.defineProperty(RatingComponent.prototype, "kpOfcet", {
         get: function () {
-            return new Array(Math.ceil(5 - (this.rating / 2)));
+            return new Array(Math.floor(5 - (this.rating / 2)));
         },
         enumerable: true,
         configurable: true
