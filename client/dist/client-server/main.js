@@ -3538,14 +3538,14 @@ var RatingComponent = /** @class */ (function () {
     }
     Object.defineProperty(RatingComponent.prototype, "kp", {
         get: function () {
-            return new Array(Math.round(this.rating / 2));
+            return new Array(Math.floor(this.rating / 2));
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(RatingComponent.prototype, "kpOfcet", {
         get: function () {
-            return new Array(Math.round(5 - (this.rating / 2)));
+            return new Array(Math.floor(5 - (this.rating / 2)));
         },
         enumerable: true,
         configurable: true
@@ -5025,7 +5025,7 @@ var MetrikaService = /** @class */ (function () {
             this.yaCounter = new Ya.Metrika({ id: 49735270, clickmap: true, trackLinks: true, accurateTrackBounce: true });
             this.yaCounter['hit'](window.location.href);
             this.subs = this.router.events.pipe(operators_1.filter(function (s) { return s instanceof router_1.NavigationEnd; })).subscribe(function (s) {
-                _this.yaCounter['hit'](window.location.href);
+                _this.yaCounter['hit'](window.location.href, { referer: s.url });
             });
         }
     };

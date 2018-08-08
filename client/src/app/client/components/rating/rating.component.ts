@@ -11,10 +11,10 @@ export class RatingComponent implements OnInit {
   constructor() { }
   @Input() rating: number = 5
   get kp() {
-    return new Array(Math.round(this.rating / 2));
+    return new Array(Math.floor(this.rating / 2));
   }
   get kpOfcet() {
-    return new Array(Math.round(5 - (this.rating / 2)));
+    return new Array(Math.floor(5 - (this.rating / 2)));
 
   }
   ngOnInit() {
