@@ -4324,7 +4324,7 @@ var OnlinePageComponent = /** @class */ (function () {
             _this.film = s.film;
             _this.filmsLike = s.films;
             _this.title.setTitle(_this.film.type.toLocaleUpperCase() + " - " + _this.film.name + " (" + _this.film.year + ") -  \u043E\u043D\u043B\u0430\u0439\u043D");
-            _this.meta.updateTag({ property: "description", content: _this.film.description.substring(0, 200).replace(/\s/g, ' ').trim() });
+            _this.meta.updateTag({ property: "description", content: _this.film.description.substring(0, 360).replace(/\s/g, ' ').trim() });
             _this.meta.updateTag({ property: "keywords", content: _this.film.name.replace(" ", ", ") + ", " + _this.film.name.replace(" ", ", ") + ", " + _this.film.type + ", смотреть , онлайн, бесплатно" });
             _this.isFilmLocalStorage = _this.filmsServ.IsFilmInLocalStorage(_this.film._id);
         });
