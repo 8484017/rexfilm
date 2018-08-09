@@ -33,6 +33,7 @@ export class FilmsPageComponent implements OnInit {
       this.films = s
       this.title.setTitle(`RexFilm.ru - ${this.filmsServ.filter$.value.type}ы онлайн.`)
       this.meta.updateTag({ property: "description", content: `RexFilm.ru - подбор ${this.filmsServ.filter$.value.type}ов по критериям` })
+      this.meta.updateTag({ property: "keywords", content: `навигатор по фильмам, поиск фильма, поиск сериала, критерии, жанры, рейтнг, популярные фильмы, топ` })
 
     })
 

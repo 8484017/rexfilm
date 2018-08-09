@@ -27,7 +27,7 @@ export class OnlinePageComponent implements OnInit {
       this.title.setTitle(`${this.film.type.toLocaleUpperCase()} - ${this.film.name} (${this.film.year}) -  онлайн`)
 
       this.meta.updateTag({ property: "description", content: this.film.description.substring(0, 200).replace(/\s/g, ' ').trim() })
-
+      this.meta.updateTag({ property: "keywords", content: this.film.name.replace(" ", ", ") + ", " + this.film.name.replace(" ", ", ") + ", " + this.film.type + ", смотреть , онлайн, бесплатно" })
       this.isFilmLocalStorage = this.filmsServ.IsFilmInLocalStorage(this.film._id)
     })
 

@@ -3783,6 +3783,7 @@ var FilmsPageComponent = /** @class */ (function () {
             _this.films = s;
             _this.title.setTitle("RexFilm.ru - " + _this.filmsServ.filter$.value.type + "\u044B \u043E\u043D\u043B\u0430\u0439\u043D.");
             _this.meta.updateTag({ property: "description", content: "RexFilm.ru - \u043F\u043E\u0434\u0431\u043E\u0440 " + _this.filmsServ.filter$.value.type + "\u043E\u0432 \u043F\u043E \u043A\u0440\u0438\u0442\u0435\u0440\u0438\u044F\u043C" });
+            _this.meta.updateTag({ property: "keywords", content: "\u043D\u0430\u0432\u0438\u0433\u0430\u0442\u043E\u0440 \u043F\u043E \u0444\u0438\u043B\u044C\u043C\u0430\u043C, \u043F\u043E\u0438\u0441\u043A \u0444\u0438\u043B\u044C\u043C\u0430, \u043F\u043E\u0438\u0441\u043A \u0441\u0435\u0440\u0438\u0430\u043B\u0430, \u043A\u0440\u0438\u0442\u0435\u0440\u0438\u0438, \u0436\u0430\u043D\u0440\u044B, \u0440\u0435\u0439\u0442\u043D\u0433, \u043F\u043E\u043F\u0443\u043B\u044F\u0440\u043D\u044B\u0435 \u0444\u0438\u043B\u044C\u043C\u044B, \u0442\u043E\u043F" });
         });
     };
     FilmsPageComponent.prototype.pageChanged = function (e) {
@@ -4324,6 +4325,7 @@ var OnlinePageComponent = /** @class */ (function () {
             _this.filmsLike = s.films;
             _this.title.setTitle(_this.film.type.toLocaleUpperCase() + " - " + _this.film.name + " (" + _this.film.year + ") -  \u043E\u043D\u043B\u0430\u0439\u043D");
             _this.meta.updateTag({ property: "description", content: _this.film.description.substring(0, 200).replace(/\s/g, ' ').trim() });
+            _this.meta.updateTag({ property: "keywords", content: _this.film.name.replace(" ", ", ") + ", " + _this.film.name.replace(" ", ", ") + ", " + _this.film.type + ", смотреть , онлайн, бесплатно" });
             _this.isFilmLocalStorage = _this.filmsServ.IsFilmInLocalStorage(_this.film._id);
         });
     };
