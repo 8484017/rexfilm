@@ -102,40 +102,29 @@ module.exports = (function () { return __awaiter(_this, void 0, void 0, function
     });
 }); })();
 var worker = function () { return __awaiter(_this, void 0, void 0, function () {
-    var _loop_1, state_1;
+    var error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _loop_1 = function () {
-                    var date_1, error_1;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                _a.trys.push([0, 2, , 3]);
-                                date_1 = new Date(0, 0, 0, 1, 0, 0, 0).getMilliseconds();
-                                Worker_1.Worker.StartAsync({});
-                                return [4 /*yield*/, new Promise(function (resolve) { return setTimeout(resolve, date_1); })];
-                            case 1:
-                                _a.sent();
-                                return [3 /*break*/, 3];
-                            case 2:
-                                error_1 = _a.sent();
-                                logger_1.Logger.Log(error_1);
-                                return [2 /*return*/, { value: void 0 }];
-                            case 3: return [2 /*return*/];
-                        }
-                    });
-                };
+                if (!true) return [3 /*break*/, 6];
                 _a.label = 1;
             case 1:
-                if (!true) return [3 /*break*/, 3];
-                return [5 /*yield**/, _loop_1()];
+                _a.trys.push([1, 4, , 5]);
+                logger_1.Logger.Log("Цикл старт");
+                return [4 /*yield*/, Worker_1.Worker.StartAsync({})];
             case 2:
-                state_1 = _a.sent();
-                if (typeof state_1 === "object")
-                    return [2 /*return*/, state_1.value];
-                return [3 /*break*/, 1];
-            case 3: return [2 /*return*/];
+                _a.sent();
+                logger_1.Logger.Log("Цикл закончен");
+                return [4 /*yield*/, new Promise(function (resolve) { return setTimeout(resolve, 3600000); })];
+            case 3:
+                _a.sent();
+                return [3 /*break*/, 5];
+            case 4:
+                error_1 = _a.sent();
+                logger_1.Logger.Log(error_1);
+                return [2 /*return*/];
+            case 5: return [3 /*break*/, 0];
+            case 6: return [2 /*return*/];
         }
     });
 }); };

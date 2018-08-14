@@ -61,9 +61,10 @@ module.exports = (async () => {
 const worker = async () => {
     while (true) {
         try {
-            let date = new Date(0, 0, 0, 1, 0, 0, 0).getMilliseconds()
-            Worker.StartAsync({});
-            await new Promise(resolve => setTimeout(resolve, date));
+            Logger.Log("Цикл старт")
+            await Worker.StartAsync({});
+            Logger.Log("Цикл закончен")
+            await new Promise(resolve => setTimeout(resolve, 3600000));
         } catch (error) {
             Logger.Log(error)
             return
