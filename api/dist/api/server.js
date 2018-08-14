@@ -46,7 +46,7 @@ var siteMapController_1 = require("./server/controllers/siteMapController");
 var adminController_1 = require("./server/controllers/adminController");
 var session = require("express-session");
 var film_model_1 = require("../models/film.model");
-var Worker_1 = require("server/classes/Worker");
+var Worker_1 = require("./server/classes/Worker");
 var MongoStore = require('connect-mongo')(session);
 module.exports = (function () { return __awaiter(_this, void 0, void 0, function () {
     var app;

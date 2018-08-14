@@ -11,7 +11,7 @@ import { SiteMapRouter } from './server/controllers/siteMapController';
 import { AdminRouter } from './server/controllers/adminController';
 import * as session from "express-session";
 import { Film } from '../models/film.model';
-import { Worker } from 'server/classes/Worker';
+import { Worker } from './server/classes/Worker';
 const MongoStore = require('connect-mongo')(session);
 
 module.exports = (async () => {
