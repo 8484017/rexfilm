@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /m2m
+Disallow: 
+Disallow: /m2m/
+Sitemap: https://rexfilm.ru/api/sitemap.xml
