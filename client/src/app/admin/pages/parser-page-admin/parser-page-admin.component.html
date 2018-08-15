@@ -1,4 +1,6 @@
 <div class="row m-0">
   <button [disabled]="status.isWorks" (click)="startParser()">Запустить парсер</button>
   <button [disabled]="status.isCancel || !status.isWorks" (click)="cancelParser()">Остановить парсер</button>
+  <button (click)="loopStart()">Запустить цикл</button>
+  <button (click)="loopStop()">Остановить цикл</button>
 </div>

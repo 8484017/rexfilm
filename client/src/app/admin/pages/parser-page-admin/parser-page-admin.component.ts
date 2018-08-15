@@ -38,6 +38,13 @@ export class ParserPageAdminComponent implements OnInit {
     this.parsServ.GetStatus().toPromise();
   }
 
+  loopStart() {
+    this.parsServ.StartParserLoop().toPromise()
+  }
+
+  loopStop() {
+    this.parsServ.StopParserLoop().toPromise();
+  }
   ngOnDestroy() {
     if (this.timer$) {
       this.timer$.unsubscribe();

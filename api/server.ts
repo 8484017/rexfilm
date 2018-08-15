@@ -47,7 +47,6 @@ module.exports = (async () => {
 
     app.use(express.static("public"))
 
-    worker()
 
 
 
@@ -58,16 +57,3 @@ module.exports = (async () => {
 
 })();
 
-const worker = async () => {
-    while (true) {
-        try {
-            Logger.Log("Цикл старт")
-            await Worker.StartAsync({});
-            Logger.Log("Цикл закончен")
-            await new Promise(resolve => setTimeout(resolve, 3600000));
-        } catch (error) {
-            Logger.Log(error)
-            return
-        }
-    }
-}
