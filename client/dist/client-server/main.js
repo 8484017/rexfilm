@@ -1707,13 +1707,19 @@ var i3 = __webpack_require__(/*! ../../../services/parser.service */ "./src/app/
 var styles_ParserPageAdminComponent = [i0.styles];
 var RenderType_ParserPageAdminComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_ParserPageAdminComponent, data: {} });
 exports.RenderType_ParserPageAdminComponent = RenderType_ParserPageAdminComponent;
-function View_ParserPageAdminComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, "div", [["class", "row m-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "button", [], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+function View_ParserPageAdminComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 8, "div", [["class", "row m-0"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "button", [], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.startParser() !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\u0417\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u043F\u0430\u0440\u0441\u0435\u0440"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "button", [], [[8, "disabled", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.cancelParser() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u0430\u0440\u0441\u0435\u0440"]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.status.isWorks; _ck(_v, 1, 0, currVal_0); var currVal_1 = (_co.status.isCancel || !_co.status.isWorks); _ck(_v, 3, 0, currVal_1); }); }
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u0430\u0440\u0441\u0435\u0440"])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "button", [], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.loopStart() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\u0417\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0446\u0438\u043A\u043B"])), (_l()(), i1.ɵeld(7, 0, null, null, 1, "button", [], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.loopStop() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0446\u0438\u043A\u043B"]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.status.isWorks; _ck(_v, 1, 0, currVal_0); var currVal_1 = (_co.status.isCancel || !_co.status.isWorks); _ck(_v, 3, 0, currVal_1); }); }
 exports.View_ParserPageAdminComponent_0 = View_ParserPageAdminComponent_0;
 function View_ParserPageAdminComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "my-parser-page-admin", [], null, null, null, View_ParserPageAdminComponent_0, RenderType_ParserPageAdminComponent)), i1.ɵdid(1, 245760, null, 0, i2.ParserPageAdminComponent, [i3.ParserService, i1.PLATFORM_ID], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_ParserPageAdminComponent_Host_0 = View_ParserPageAdminComponent_Host_0;
@@ -1779,6 +1785,12 @@ var ParserPageAdminComponent = /** @class */ (function () {
     ParserPageAdminComponent.prototype.cancelParser = function () {
         this.parsServ.CanselParser().toPromise();
         this.parsServ.GetStatus().toPromise();
+    };
+    ParserPageAdminComponent.prototype.loopStart = function () {
+        this.parsServ.StartParserLoop().toPromise();
+    };
+    ParserPageAdminComponent.prototype.loopStop = function () {
+        this.parsServ.StopParserLoop().toPromise();
     };
     ParserPageAdminComponent.prototype.ngOnDestroy = function () {
         if (this.timer$) {
@@ -5069,6 +5081,12 @@ var ParserService = /** @class */ (function () {
     };
     ParserService.prototype.CanselParser = function () {
         return this.http.get("/api/parser/cancel");
+    };
+    ParserService.prototype.StartParserLoop = function () {
+        return this.http.get("/api/parser/startloop");
+    };
+    ParserService.prototype.StopParserLoop = function () {
+        return this.http.get("/api/parser/setloop");
     };
     ParserService.ngInjectableDef = i0.defineInjectable({ factory: function ParserService_Factory() { return new ParserService(i0.inject(i1.HttpClient)); }, token: ParserService, providedIn: "root" });
     return ParserService;
