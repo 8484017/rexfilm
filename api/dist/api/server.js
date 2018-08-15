@@ -46,7 +46,6 @@ var siteMapController_1 = require("./server/controllers/siteMapController");
 var adminController_1 = require("./server/controllers/adminController");
 var session = require("express-session");
 var film_model_1 = require("../models/film.model");
-var Worker_1 = require("./server/classes/Worker");
 var MongoStore = require('connect-mongo')(session);
 module.exports = (function () { return __awaiter(_this, void 0, void 0, function () {
     var app;
@@ -92,7 +91,6 @@ module.exports = (function () { return __awaiter(_this, void 0, void 0, function
                 app.use(siteMapController_1.SiteMapRouter);
                 app.use(adminController_1.AdminRouter);
                 app.use(express.static("public"));
-                worker();
                 app.listen(3000, "localhost", function () {
                     console.log("start server " + "http://localhost:3000");
                     logger_1.Logger.Log("Server started");
@@ -101,30 +99,3 @@ module.exports = (function () { return __awaiter(_this, void 0, void 0, function
         }
     });
 }); })();
-var worker = function () { return __awaiter(_this, void 0, void 0, function () {
-    var error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                if (!true) return [3 /*break*/, 6];
-                _a.label = 1;
-            case 1:
-                _a.trys.push([1, 4, , 5]);
-                logger_1.Logger.Log("Цикл старт");
-                return [4 /*yield*/, Worker_1.Worker.StartAsync({})];
-            case 2:
-                _a.sent();
-                logger_1.Logger.Log("Цикл закончен");
-                return [4 /*yield*/, new Promise(function (resolve) { return setTimeout(resolve, 3600000); })];
-            case 3:
-                _a.sent();
-                return [3 /*break*/, 5];
-            case 4:
-                error_1 = _a.sent();
-                logger_1.Logger.Log(error_1);
-                return [2 /*return*/];
-            case 5: return [3 /*break*/, 0];
-            case 6: return [2 /*return*/];
-        }
-    });
-}); };

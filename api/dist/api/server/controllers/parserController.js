@@ -39,11 +39,60 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var Worker_1 = require("../classes/Worker");
 var adminController_1 = require("./adminController");
+var logger_1 = require("../util/logger");
 var router = express.Router();
 router.get("/api/parser/start", adminController_1.IsAdminFilter, function (r, s) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         Worker_1.Worker.StartAsync(r);
         s.json("ok");
+        return [2 /*return*/];
+    });
+}); });
+var loop = true;
+router.get("/api/parser/startloop", adminController_1.IsAdminFilter, function (r, s) { return __awaiter(_this, void 0, void 0, function () {
+    var _this = this;
+    return __generator(this, function (_a) {
+        loop = true;
+        (function () { return __awaiter(_this, void 0, void 0, function () {
+            var error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!true) return [3 /*break*/, 6];
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 4, , 5]);
+                        if (!loop) {
+                            logger_1.Logger.Log("Цикл прерван пользователем");
+                            return [2 /*return*/];
+                        }
+                        logger_1.Logger.Log("Цикл старт");
+                        return [4 /*yield*/, Worker_1.Worker.StartAsync(r)];
+                    case 2:
+                        _a.sent();
+                        logger_1.Logger.Log("Цикл закончен");
+                        return [4 /*yield*/, new Promise(function (resolve) { return setTimeout(resolve, 3600000); })];
+                    case 3:
+                        _a.sent();
+                        return [3 /*break*/, 5];
+                    case 4:
+                        error_1 = _a.sent();
+                        logger_1.Logger.Log(error_1);
+                        return [2 /*return*/];
+                    case 5: return [3 /*break*/, 0];
+                    case 6: return [2 /*return*/];
+                }
+            });
+        }); })();
+        s.json("ok");
+        return [2 /*return*/];
+    });
+}); });
+router.get("/api/parser/setloop", adminController_1.IsAdminFilter, function (r, s) { return __awaiter(_this, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        loop = false;
+        logger_1.Logger.Log("Попытка остановки цикла");
+        s.json(loop);
         return [2 /*return*/];
     });
 }); });
